@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>N8WM's Website</title>
+  <style>
+    #sat {
+      border-radius: 100%;
+      width: 40px;
+      height: 40px;
+      background-color: darkred;
+      position: absolute;
+    }
+    #center {
+      border-radius: 100%;
+      width: 100px;
+      height: 100px;
+      background-color: darkblue;
+      position: absolute;
+    }
+    body {
+      background-color: #111;
+    }
+  </style>
+</head>
+<body onload="animate()">
+  <div id="center"></div>
+  <div id="sat"></div>
+  <script>
+    function animate() {
+      var sat  = document.getElementById("sat");
+      var cent = document.getElementById("center");
+      var WIDTH  = window.innerWidth;
+      var HEIGHT = window.innerHeight;
+      var centSize = WIDTH / 10;
+      var centTop  = (HEIGHT / 2) - (centSize / 2);
+      var centLeft = (WIDTH  / 2) - (centSize / 2);
+      cent.style.top  = centTop  + "px";
+      cent.style.left = centLeft + "px";
+      var satSize = WIDTH / 22;
+      var satTop  = WIDTH / 22;
+      var satLeft = WIDTH / 22;
+      var satDX = 0;
+      var satDY = 0;
+      var fmag = 0;
+      sat.style.top  = satTop  + "px";
+      sat.style.left = satLeft + "px";
+      var left  = false;
+      var up    = false;
+      var right = false;
+      var down  = false;
+      setInterval(draw, 5);
+      function draw() {
+        move();
+        sat.style.top  = satTop  + "px";
+        sat.style.left = satLeft + "px";
+      }
+      function move() {
+        satDY += (up?-0.01:0)    + (down?0.01:0);
+        satDX += (left?-0.01:0) + (right?0.01:0);
+        satTop  += satDY;
+        satLeft += satDX;
+        satDY *= 0.99;
+        satDX *= 0.99;
+      }
+      $(this).keydown(e=>
+          e.which==37?
+          left =true:
+          e.which==38?
+          up   =true:
+          e.which==39?
+          right=true:
+          e.which==40?
+          down =true:null
+      )
+      $(this).keyup(e=>
+          e.which==37?
+          left =false:
+          e.which==38?
+          up   =false:
+          e.which==39?
+          right=false:
+          e.which==40?
+          down =false:null
+      )
+    }
+  </script>
+</body>
+</html>
