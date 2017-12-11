@@ -85,7 +85,7 @@
       }
       function move() {
         satDY += ((up || btnup)?-0.01:0)    + ((down || btndown)?0.01:0);
-        satDX += ((left || btnleft)?-0.01:0) + (right || btnright)?0.01:0);
+        satDX += ((left || btnleft)?-0.01:0) + ((right || btnright)?0.01:0);
         satTop  += satDY;
         satLeft += satDX;
         satDY *= 0.99;
