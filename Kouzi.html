@@ -22,20 +22,33 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <style>
       #kouzi-top {
-        font-family: "Josefin Slab", Georgia, Serif;
-        font-size: 300%;
-        color: white;
         position: fixed;
         width: 100%;
         padding: 1.5%;
         background-color: #0000ff;
+      }
+      
+      #kouzi-top #title {
+        font-family: "Josefin Slab", Georgia, Serif;
+        font-size: 300%;
+        color: white;
+      }
+      
+      #kouzi-top .button {
+        font-size: 200%;
+        border: none;
+        background: none;
+        color: white;
+        left: 5%;
+        vertical-allign: middle;
       }
     </style>
   </head>
   <body id="container">
     <center>
       <div id="kouzi-top">
-        <strong><i>Kouzi</i></strong>
+        <div id="title"><strong><i>Kouzi</i></strong></div>
+        <div class="button"><button><span class="glyphicon glyphicon-menu-left"></span></button>
       </div>
     </center>
   </body>
