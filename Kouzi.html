@@ -38,12 +38,15 @@
         z-index: 4;
       }
       
-      #kouzi-top button {
-        position: fixed;
+      #kouzi-top .bn button {
         font-size: 200%;
         border: none;
         background-color: transparent;
         color: white;
+      }
+      
+      #kouzi-top .bn {
+        position: fixed;
         left: 5%;
         vertical-allign: middle;
         display: table-cell;
@@ -57,7 +60,9 @@
         <div id="title">
           <strong><i>Kouzi</i></strong>
         </div>
-        <button><span class="glyphicon glyphicon-menu-left"></span></button>
+        <div class="bn">
+          <button><span class="glyphicon glyphicon-menu-left"></span></button>
+        </div>
       </div>
     </center>
   </body>
