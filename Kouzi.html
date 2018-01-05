@@ -47,13 +47,6 @@
         padding: 0;
       }
       
-      #kouzi-top .bn button .middle {
-        position: absolute;
-        display: table-cell;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-      
       #kouzi-top .bn {
         position: absolute;
         left: 2%;
@@ -61,6 +54,12 @@
         z-index: 5;
         top: 50%;
         transform: translateY(-50%);
+      }
+      
+      #kouzi-top .bn button .words {
+        font-size: 100%;
+        height: 100%;
+        line-height: 100%;
       }
       
       #kouzi-top .bn button:focus {
@@ -79,7 +78,7 @@
           <strong><i>Kouzi</i></strong>
         </div>
         <div class="bn">
-          <button ontouchstart=""><span class="glyphicon glyphicon-menu-left"></span><span class="center">back</span></button>
+          <button ontouchstart=""><span class="glyphicon glyphicon-menu-left"></span><span class="words">back</span></button>
         </div>
       </div>
     </center>
