@@ -47,6 +47,13 @@
         padding: 0;
       }
       
+      #kouzi-top .bn button .middle {
+        position: absolute;
+        display: table-cell;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      
       #kouzi-top .bn {
         position: absolute;
         left: 2%;
@@ -60,7 +67,7 @@
         outline: none;
       }
       
-      #kouzi-top .bn button:clicked {
+      #kouzi-top .bn button:active {
         color: #d9d9d9;
       }
     </style>
@@ -72,7 +79,7 @@
           <strong><i>Kouzi</i></strong>
         </div>
         <div class="bn">
-          <button><span class="glyphicon glyphicon-menu-left"></span>back</button>
+          <button ontouchstart=""><span class="glyphicon glyphicon-menu-left"></span><span class="center">back</span></button>
         </div>
       </div>
     </center>
