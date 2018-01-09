@@ -45,7 +45,7 @@
       canvas {
         margin: 0;
         width: 100%;
-        height: 100%;
+        height: 80%;
       }
     </style>
   </head>
@@ -98,7 +98,7 @@ var Cube = function(center, side) {
 
 function project(M) {
     // Distance between the camera and the plane
-    var d = 100;
+    var d = 1500;
     var r = d / M.y;
 
     return new Vertex2D(r * M.x, r * M.z);
