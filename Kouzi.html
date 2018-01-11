@@ -42,6 +42,29 @@
         z-index: 4;
       }
       
+      .outer {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .i-main {
+        left: 0%;
+        transition: 0.5s;
+      }
+      
+      .i-main triggered {
+        left: -100%;
+        transition: 0.5s;
+      }
+      
       canvas {
         margin: 0;
         width: 100%;
@@ -56,30 +79,18 @@
           <strong><i>Kouzi</i></strong>
         </div>
       </div>
+      <div class="outer">
+        <div class="i-main">
+          <h1>Games:</h1>
+          <button class="i-main-btn" ontouchstart="">Tap Here</button>
+        </div>
+      </div>
     </center>
     <canvas id="cnv" width="800" height="600"></canvas>
     <script>
-      var Point3d = function(x, y, z) {
-        this.x = parseFloat(x);
-        this.y = parseFloat(y);
-        this.z = parseFloat(z);
-      }
-      
-      var Point2d = function(x, y) {
-        this.x = parseFloat(x);
-        this.y = parseFloat(y);
-      }
-      
-      function project(M) {
-        var d = 200;
-        var r = d / M.z;
-        return new Point2d(r * M.x, r * M.y);
-      }
-      
-      var Shape = function(Point3D[]) {
-      }
-      
-      var camera = new Point3d(0, 50, 0);
+      $('.i-main-btn').on('click', function() {
+        $('.i-main').toggleClass('triggered');
+      });
     </script>
   </body>
 </html>
