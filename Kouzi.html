@@ -97,9 +97,11 @@
     <script>
       $('.i-mainL-btn').on('click', function() {
         $('.i-mainL').toggleClass('triggered');
+        $('.i-mainR').toggleClass('triggered');
       });
       $('.i-mainR-btn').on('click', function() {
         $('.i-mainR').toggleClass('triggered');
+        $('.i-mainL').toggleClass('triggered');
       });
     </script>
   </body>
