@@ -100,10 +100,15 @@
         <div class="i-mainR">
           <h1>Get pranked bro there are no games lol</h1>
           <button class="btn btn-lg i-mainR-btn" ontouchstart="">Tap Here to go back</button>
+          <textarea id="txta" onkeyup="run();"></textarea>
+          <div id="frame"></div>
         </div>
       </div>
     </center>
     <script>
+      function run() {
+        document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.getElementById("txta").value + "'></iframe>";
+      }
       $('.i-mainL-btn').on('click', function() {
         $('.i-mainL').toggleClass('triggered');
         $('.i-mainR').toggleClass('triggered');
