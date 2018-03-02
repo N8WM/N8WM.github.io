@@ -113,12 +113,12 @@
     </center>
     <script>
       function retrieve() {
-        document.getElememtById("txta").value = localStorage.getItem("htm");
-        document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.localStorage.getItem("htm") + "'></iframe>";
+        document.getElememtById("txta").value = (!localStorage.htm?"text here":localStorage.htm);
+        document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.getElementById("txta").value + "'></iframe>";
       }
       function run() {
         document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.getElementById("txta").value + "'></iframe>";
-        localStorage.setItem("htm", String(document.getElementById("txta").value));
+        localStorage.htm = document.getElementById("txta").value;
       }
       $('.i-mainL-btn').on('click', function() {
         $('.i-mainL').toggleClass('triggered');
