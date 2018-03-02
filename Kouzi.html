@@ -83,6 +83,11 @@
       .btn:focus {
         outline: none;
       }
+      
+      #txta {
+        width: 80%;
+        height: 25%;
+      }
     </style>
   </head>
   <body id="container" onload="retrieve();">
@@ -101,7 +106,7 @@
           <h1>Get pranked bro there are no games lol</h1>
           <button class="btn btn-lg i-mainR-btn" ontouchstart="">Tap Here to go back</button>
           <br><br>
-          <textarea id="txta" onkeyup="run();"></textarea>
+          <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="txta" onkeyup="run();"></textarea>
           <div id="frame"></div>
         </div>
       </div>
@@ -113,7 +118,7 @@
       }
       function run() {
         document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.getElementById("txta").value + "'></iframe>";
-        localStorage.setItem("htm", document.getElementById("txta").value);
+        localStorage.setItem("htm", String(document.getElementById("txta").value));
       }
       $('.i-mainL-btn').on('click', function() {
         $('.i-mainL').toggleClass('triggered');
