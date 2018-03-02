@@ -113,12 +113,15 @@
     </center>
     <script>
       function retrieve() {
-        document.getElememtById("txta").value = (!localStorage.htm?"text here":localStorage.htm);
+        if (!localStorage.getItem("htm")) {
+          localStorage.setItem("htm", "enter code...");
+        }
+        document.getElememtById("txta").value = localStorage.getItem("htm");
         document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.getElementById("txta").value + "'></iframe>";
       }
       function run() {
         document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.getElementById("txta").value + "'></iframe>";
-        localStorage.htm = document.getElementById("txta").value;
+        localStorage.setItem("htm", document.getElementById("txta").value);
       }
       $('.i-mainL-btn').on('click', function() {
         $('.i-mainL').toggleClass('triggered');
