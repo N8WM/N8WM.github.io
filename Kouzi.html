@@ -113,7 +113,7 @@
     </center>
     <script>
       function retrieve() {
-        if (!localStorage.getItem("htm")) {
+        if (localStorage.getItem("htm") == null) {
           localStorage.setItem("htm", "enter code...");
         }
         document.getElememtById("txta").value = localStorage.getItem("htm");
