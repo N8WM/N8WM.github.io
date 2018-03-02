@@ -85,7 +85,7 @@
       }
     </style>
   </head>
-  <body id="container">
+  <body id="container" onload="retrieve();">
     <center>
       <div id="kouzi-top">
         <div id="title">
@@ -100,15 +100,20 @@
         <div class="i-mainR">
           <h1>Get pranked bro there are no games lol</h1>
           <button class="btn btn-lg i-mainR-btn" ontouchstart="">Tap Here to go back</button>
+          <br><br>
           <textarea id="txta" onkeyup="run();"></textarea>
           <div id="frame"></div>
         </div>
       </div>
     </center>
     <script>
+      function retrieve() {
+        document.getElememtById("txta").value = localStorage.getItem("htm");
+        document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.localStorage.getItem("htm") + "'></iframe>";
+      }
       function run() {
         document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.getElementById("txta").value + "'></iframe>";
-        localStorage.setItem("htm", );
+        localStorage.setItem("htm", document.getElementById("txta").value);
       }
       $('.i-mainL-btn').on('click', function() {
         $('.i-mainL').toggleClass('triggered');
