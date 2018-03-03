@@ -116,7 +116,7 @@
         if (localStorage.getItem("htm") == null) {
           localStorage.setItem("htm", "enter code...");
         }
-        document.getElememtById("txta").value = localStorage.getItem("htm");
+        document.getElementById("txta").value = localStorage.getItem("htm");
         document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.getElementById("txta").value + "'></iframe>";
       }
       function run() {
