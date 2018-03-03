@@ -145,8 +145,7 @@
       });
       
       function w3CodeColor(elmnt, mode) {
-        //var lang = (mode || "html");
-        var lang = "html";
+        var lang = (mode || "html");
         var elmntObj = (document.getElementById(elmnt) || elmnt);
         var elmntTxt = elmntObj.value;
         var tagcolor = "mediumblue";
@@ -169,7 +168,7 @@
         if (lang == "html") {elmntTxt = htmlMode(elmntTxt);}
         if (lang == "css") {elmntTxt = cssMode(elmntTxt);}
         if (lang == "js") {elmntTxt = jsMode(elmntTxt);}
-        elmntObj.value = elmntTxt;
+        elmntObj.value = "<span style='color: red'>shdui</span>";
 
         function extract(str, start, end, func, repl) {
           var s, e, d = "", a = [];
