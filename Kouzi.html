@@ -151,12 +151,10 @@
         }
         document.getElementById("txta").value = localStorage.getItem("htm");
         document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.getElementById("txta").value + "'></iframe>";
-        w3CodeColor(document.getElementById("txta"));
       }
       function run() {
         document.getElementById("frame").innerHTML = "<iframe srcdoc='" + document.getElementById("txta").value + "'></iframe>";
         localStorage.setItem("htm", document.getElementById("txta").value);
-        w3CodeColor(document.getElementById("txta"));
       }
       $('.i-mainL-btn').on('click', function() {
         $('.i-mainL').toggleClass('triggered');
