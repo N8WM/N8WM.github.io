@@ -99,9 +99,9 @@
         width: 95%;
         height: 50%;
         border: 1px solid lightgray;
+        border-left: none;
         border-radius: 5px;
-        font-size: 14px;;
-        line-height: 
+        font-size: 14px;
         font-family: 'Inconsolata', monospace;
         transition: 0.5s;
         overflow: auto;
@@ -110,8 +110,24 @@
       
       #txta:focus {
         outline: none;
-        height: ;
+        height: 70%;
         transition: 0.5s;
+        #lnums {
+          height: 70%;
+          transition: 0.5s;
+        }
+      }
+      
+      #lnums {
+        height: 50%;
+        width: 3em;
+        border: 1px solid lightgray;
+        border-right: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: 'Inconsolata', monospace;
+        transition: 0.5s;
+        overflow: hidden;
       }
       
       #frame {
@@ -131,7 +147,7 @@
       
     </style>
   </head>
-  <body id="container" onload="retrieve();">
+  <body id="container" onload="retrieve();addLineNumbers('txta', lnums');">
     <center>
       <div id="kouzi-top">
         <div id="title">
