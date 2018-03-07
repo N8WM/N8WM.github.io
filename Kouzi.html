@@ -100,6 +100,8 @@
         height: 50%;
         border: 1px solid lightgray;
         border-radius: 5px;
+        font-size: 14px;;
+        line-height: 
         font-family: 'Inconsolata', monospace;
         transition: 0.5s;
         overflow: auto;
@@ -145,6 +147,7 @@
         </div>
         <div class="i-mainL">
           <h1>Editor</h1>
+          <div id="lnums"></div>
           <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="txta" onkeyup="run();"></textarea>
           <br><br>
           <button class="btn btn-lg i-mainR-btn" ontouchstart=""><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;&nbsp;Result</button>
@@ -182,6 +185,7 @@
         for (num = 0; num < text.value.split("\n").length; num++) {
           out = out + (num + 1) + "<br>";
         }
+      }
     </script>
   </body>
 </html>
