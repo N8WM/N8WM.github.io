@@ -96,7 +96,7 @@
       
       #txta {
         -webkit-appearance: none;
-        width: 95%;
+        width: 88%;
         height: 50%;
         border: 1px solid lightgray;
         border-left: none;
@@ -120,7 +120,7 @@
       
       #lnums {
         height: 50%;
-        width: 3em;
+        width: 7%;
         border: 1px solid lightgray;
         border-right: none;
         border-radius: 5px;
@@ -164,7 +164,7 @@
         <div class="i-mainL">
           <h1>Editor</h1>
           <div id="lnums"></div>
-          <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="txta" onkeyup="run();"></textarea>
+          <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="txta" onkeyup="run();addLineNumbers('txta', 'lnums');"></textarea>
           <br><br>
           <button class="btn btn-lg i-mainR-btn" ontouchstart=""><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;&nbsp;Result</button>
         </div>
