@@ -175,6 +175,13 @@
         textarea: document.getElementById('txta'),
         tabSize: 2
       });
+      function addLineNumbers(txta, div) {
+        var text = document.getElementById(txta);
+        var out = document.getElementById(div);
+        out.innerHTML = "";
+        for (num = 0; num < text.value.split("\n").length; num++) {
+          out = out + (num + 1) + "<br>";
+        }
     </script>
   </body>
 </html>
