@@ -27,11 +27,14 @@
       body {
         overflow: hidden;
         height: 100vh;
+        -webkit-overflow-scrolling: auto;
       }
       
       #kouzi-top {
         width: 100%;
+        position: fixed;
         background-color: white;
+        border-bottom: solid lightgray 1px;
         z-index: 3;
         overflow: hidden;
       }
@@ -47,8 +50,10 @@
       .outer {
         position: absolute;
         overflow: hidden;
+        top: 5vh;
         width: 100%;
         height: 95vh;
+        -webkit-overflow-scrolling: auto;
       }
       
       .i-mainL {
@@ -98,6 +103,7 @@
         font-family: 'Inconsolata', monospace;
         transition: 0.5s;
         overflow: auto;
+        -webkit-overflow-scrolling: touch;
       }
       
       #txta:focus {
