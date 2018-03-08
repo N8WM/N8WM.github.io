@@ -136,6 +136,7 @@
       }
       
       #lnums-i {
+        top: 0;
         width: 100%;
         height: 100%;
         position: relative;
@@ -223,7 +224,7 @@
       function scrollSync(txta, div) {
         var text = document.getElementById(txta);
         var out = document.getElementById(div);
-        out.style.top = text.scrollTop + "px";
+        out.style.top = (-1 * text.scrollTop) + "px";
       }
     </script>
   </body>
