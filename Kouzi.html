@@ -80,8 +80,7 @@
         position: relative;
         top: 0;
         -webkit-appearance: none;
-        /**width: 83%;**/
-        width: 50%;
+        width: 83%;
         height: 50%;
         padding-left: 1em;
         padding-top: 14px;
@@ -101,9 +100,9 @@
         -webkit-overflow-scrolling: touch;
       }
       
-      /**#txta:focus {
+      #txta:focus {
         outline: none;
-      }**/
+      }
       
       #lnums {
         position: relative;
@@ -161,7 +160,6 @@
         </div>
         <div class="i-mainL">
           <h1>Editor</h1>
-          <div></div>
           <div id="lnums"><div id="lnums-i"></div></div><textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="txta" wrap="off" onscroll="scrollSync('txta', 'lnums-i');" onkeyup="run();addLineNumbers('txta', 'lnums-i');"></textarea>
           <br><br>
           <button class="btn btn-lg i-mainR-btn" ontouchstart=""><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;&nbsp;Result</button>
@@ -204,9 +202,10 @@
         var text = document.getElementById(txta);
         var out = document.getElementById(div);
         out.innerHTML = "";
-        for (num = 0; num < text.value.split("\n").length; num++) {
-          out.innerHTML = out.innerHTML + (num + 1) + "<br>";
+        for (num = 0; num < text.value.split("\n").length - 1; num++) {
+          out.innerHTML = out.innerHTML + "" + (num + 1) + "<br>";
         }
+        out.innerHTML = out.innerHTML + "" + (text.value.split("\n").length);
         document.getElementById("lnums").style.width = ((text.value.split("\n").length.toString().length) < 3 ? 3 : (text.value.split("\n").length.toString().length)) + "em";
       }
       function scrollSync(txta, div) {
