@@ -205,7 +205,7 @@
         for (num = 0; num < text.value.split("\n").length; num++) {
           out.innerHTML = out.innerHTML + (num + 1) + "<br>";
         }
-        out.style.width = text.value.split("\n").length.toString().length + "em";
+        out.style.width = ((text.value.split("\n").length.toString().length) < 3 ? 3 : (text.value.split("\n").length.toString().length)) + "em";
       }
       function scrollSync(txta, div) {
         var text = document.getElementById(txta);
