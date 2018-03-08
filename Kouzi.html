@@ -30,30 +30,11 @@
         -webkit-overflow-scrolling: auto;
       }
       
-      #kouzi-top {
-        top: 0;
-        width: 100%;
-        position: fixed;
-        background-color: white;
-        border-bottom: solid lightgray 1px;
-        z-index: 3;
-        overflow: hidden;
-      }
-      
-      #kouzi-top #title {
-        font-family: "Josefin Slab", Georgia, Serif;
-        font-size: 4vh;
-        line-height: 5vh;
-        color: #55f;
-        z-index: 4;
-      }
-      
       .outer {
         position: absolute;
         overflow: hidden;
-        top: 5vh;
         width: 100%;
-        height: 95vh;
+        height: 100%;
         -webkit-overflow-scrolling: auto;
       }
       
@@ -167,11 +148,6 @@
   </head>
   <body id="container" onload="retrieve();addLineNumbers('txta', 'lnums-i');">
     <center>
-      <div id="kouzi-top">
-        <div id="title">
-          <strong><i>Kouzi</i></strong>
-        </div>
-      </div>
       <div class="outer">
         <div class="i-mainR">
           <h1>Result</h1>
