@@ -94,7 +94,7 @@
         font-family: 'Inconsolata', monospace;
         color: white;
         background-color: #222;
-        transition: height 0.5s;
+        /**transition: height 0.5s;**/
         display: inline-block;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
@@ -121,7 +121,7 @@
         background-color: #222;
         text-align: right;
         color: red;
-        transition: height 0.5s;
+        /**transition: height 0.5s;**/
         display: inline-block;
         overflow: hidden;
       }
@@ -160,8 +160,7 @@
         </div>
         <div class="i-mainL">
           <h1>Editor</h1>
-          <div id="lnums"><div id="lnums-i"></div></div>
-          <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="txta" wrap="off" onscroll="scrollSync('txta', 'lnums-i');" onkeyup="run();addLineNumbers('txta', 'lnums-i');"></textarea>
+          <div id="lnums"><div id="lnums-i"></div></div><textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="txta" wrap="off" onscroll="scrollSync('txta', 'lnums-i');" onkeyup="run();addLineNumbers('txta', 'lnums-i');"></textarea>
           <br><br>
           <button class="btn btn-lg i-mainR-btn" ontouchstart=""><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;&nbsp;Result</button>
         </div>
