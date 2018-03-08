@@ -102,14 +102,13 @@
       
       #txta:focus {
         outline: none;
-        height: 100%;
       }
       
       #lnums {
         position: relative;
         top: 0;
         height: 50%;
-        width: 7%;
+        width: 3em;
         padding-top: 14px;
         padding-right: 4px;
         border: 1px solid lightgray;
@@ -206,6 +205,7 @@
         for (num = 0; num < text.value.split("\n").length; num++) {
           out.innerHTML = out.innerHTML + (num + 1) + "<br>";
         }
+        out.style.width = text.value.split("\n").length.toString().length + "em";
       }
       function scrollSync(txta, div) {
         var text = document.getElementById(txta);
