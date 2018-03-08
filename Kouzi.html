@@ -111,11 +111,11 @@
         -webkit-overflow-scrolling: touch;
       }
       
-      #txta:focus {
+      /**#txta:focus {
         outline: none;
         height: 100%;
         transition: 0.5s;
-      }
+      }**/
       
       #lnums {
         height: 70%;
@@ -208,6 +208,14 @@
       $('.i-mainR-btn').on('click', function() {
         $('.i-mainR').toggleClass('triggered');
         $('.i-mainL').toggleClass('triggered');
+      });
+      $('#txta').on('focusin', function() {
+        $('#txta').css('height', '100%');
+        $('#lnums').css('height', '100%');
+      });
+      $('#txta').on('focusout', function() {
+        $('#txta').css('height', '70%');
+        $('#lnums').css('height', '70%');
       });
       var editor = new Behave({
         textarea: document.getElementById('txta'),
