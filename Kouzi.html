@@ -218,6 +218,10 @@
           out.innerHTML = out.innerHTML + (num + 1) + "<br>";
         }
       }
+      function scrollSync(txta, div) {
+        var text = document.getElementById(txta);
+        var out = document.getElementById(div);
+        out.style.top = text.scrollTop + "px";
     </script>
   </body>
 </html>
