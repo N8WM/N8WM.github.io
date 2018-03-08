@@ -210,7 +210,7 @@
       function scrollSync(txta, div) {
         var text = document.getElementById(txta);
         var out = document.getElementById(div);
-        out.style.top = (((-1 * text.scrollTop) < 0) ? (0) : (-1 * text.scrollTop)) + "px";
+        out.style.top = (((-1 * text.scrollTop) > 0) ? (0) : (-1 * text.scrollTop)) + "px";
       }
     </script>
   </body>
