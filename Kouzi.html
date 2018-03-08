@@ -96,8 +96,9 @@
       
       #txta {
         -webkit-appearance: none;
-        width: 93%;
-        height: 70%;
+        width: 83%;
+        height: 50%;
+        padding-left: 2em;
         border: 1px solid lightgray;
         border-left: none;
         border-radius: 0;
@@ -106,7 +107,8 @@
         font-size: 14px;
         font-family: 'Inconsolata', monospace;
         transition: height 0.5s;
-        float: left;
+        display: inline-block;
+        /** float: left; **/
         overflow: auto;
         -webkit-overflow-scrolling: touch;
       }
@@ -117,7 +119,7 @@
       }
       
       #lnums {
-        height: 70%;
+        height: 50%;
         width: 7%;
         padding: 2px;
         padding-right: 4px;
@@ -130,7 +132,8 @@
         text-align: right;
         color: red;
         transition: height 0.5s;
-        float: left;
+        display: inline-block;
+        /** float: left; **/
         overflow: hidden;
       }
       
@@ -141,10 +144,12 @@
         position: relative;
       }
       
+      /**
       #txta-container {
         width: 90%;
         height: 70%;
       }
+      **/
       
       #frame {
         width: 95%;
@@ -179,10 +184,10 @@
         </div>
         <div class="i-mainL">
           <h1>Editor</h1>
-          <div id="txta-container">
+          <!--div id="txta-container"-->
             <div id="lnums"><div id="lnums-i"></div></div>
             <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="txta" wrap="off" onscroll="scrollSync('txta', 'lnums-i');" onkeyup="run();addLineNumbers('txta', 'lnums-i');"></textarea>
-          </div>
+          <!--/div-->
           <br><br>
           <button class="btn btn-lg i-mainR-btn" ontouchstart=""><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;&nbsp;Result</button>
         </div>
@@ -209,12 +214,12 @@
         $('.i-mainL').toggleClass('triggered');
       });
       $('#txta').on('focusin', function() {
-        $('#txta').css('height', '100%');
-        $('#lnums').css('height', '100%');
-      });
-      $('#txta').on('focusout', function() {
         $('#txta').css('height', '70%');
         $('#lnums').css('height', '70%');
+      });
+      $('#txta').on('focusout', function() {
+        $('#txta').css('height', '50%');
+        $('#lnums').css('height', '50%');
       });
       var editor = new Behave({
         textarea: document.getElementById('txta'),
