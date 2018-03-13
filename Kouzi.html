@@ -76,6 +76,18 @@
         outline: none;
       }
       
+      #open {
+        position: relative;
+        left: 5%;
+        top: 5%;
+      }
+      
+      #open-div {
+        position: absolute;
+        text-align: left;
+        font-size: 14px;
+      }
+      
       #txta {
         position: relative;
         top: 0;
@@ -159,6 +171,8 @@
           <button class="btn btn-lg i-mainL-btn" ontouchstart=""><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;Edit</button>
         </div>
         <div class="i-mainL">
+          <button id="open" class="btn btn-sm" ontouchstart="" onclick="open">open</button>
+          <div id="open-div"></div>
           <h1>Editor</h1>
           <div id="lnums"><div id="lnums-i"></div></div><textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="txta" wrap="off" onscroll="scrollSync('txta', 'lnums-i');" onkeyup="run();addLineNumbers('txta', 'lnums-i');"></textarea>
           <br><br>
