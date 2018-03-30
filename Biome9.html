@@ -4,18 +4,22 @@
     <title>Biome 9</title>
     <style>
       
+      body {
+        position: relative;
+        background-color: darkslategray;
+        z-index: 1;
+      }
+      
       #container {
+        position: absolute;
         margin: 0 auto;
         width: 90vh;
         height: 90vh;
+        top: 50%;
+        transform: translateY(-50%);
         border-radius: 3px;
         background-color: white;
         z-index: 2;
-      }
-      
-      body {
-        background-color: darkslategray;
-        z-index: 1;
       }
       
     </style>
