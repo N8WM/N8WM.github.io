@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+    <title>Biome 9</title>
+    <style>
+      
+      #container {
+        margin: 0 auto;
+        width: 90vh;
+        height: 90vh;
+        border-radius: 3px;
+        background-color: white;
+        z-index: 2;
+      }
+      
+      body {
+        background-color: darkslategray;
+        z-index: 1;
+      }
+      
+    </style>
   </head>
-  <body>
+  <body onload="setup()">
     
+    <div id="container">
+    </div>
+    
+    <script>
+      function setup() {
+        if (window.innerWidth < window.innerHeight) {
+          document.getElementById('container').style.width = '90vw';
+          document.getElementById('container').style.height = '90vw';
+      }
+    </script>
   </body>
 </html>
