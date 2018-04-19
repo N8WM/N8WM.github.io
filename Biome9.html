@@ -22,11 +22,17 @@
         z-index: 2;
       }
       
+      #canvas {
+        width: 100%;
+        height: 100%;
+      }
+      
     </style>
   </head>
-  <body onload="setup()">
+  <body onload="setup(); draw();">
     
     <div id="container">
+      <canvas id="canvas"></canvas>
     </div>
     
     <script>
@@ -34,6 +40,23 @@
         if (window.innerWidth < window.innerHeight) {
           document.getElementById('container').style.width = '90vw';
           document.getElementById('container').style.height = '90vw';
+        }
+      }
+      
+      function draw() {
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext) {
+           var ctx = canvas.getContext('2d');
+          
+          ctx.beginPath();
+          ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+          ctx.moveTo(110, 75);
+          ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+          ctx.moveTo(65, 65);
+          ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+          ctx.moveTo(95, 65);
+          ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+          ctx.stroke();
         }
       }
     </script>
