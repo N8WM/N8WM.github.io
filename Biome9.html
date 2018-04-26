@@ -13,8 +13,6 @@
       #container {
         position: relative;
         margin: 0 auto;
-        width: 90vh;
-        height: 90vh;
         top: 50vh;
         transform: translateY(-50%);
         border-radius: 3px;
@@ -23,8 +21,8 @@
       }
       
       #canvas {
-        width: 90vh;
-        height: 90vh;
+        width: 100px;
+        height: 100px;
       }
       
     </style>
@@ -38,10 +36,24 @@
     <script>
       function setup() {
         if (window.innerWidth < window.innerHeight) {
-          document.getElementById('container').style.width = '90vw';
-          document.getElementById('container').style.height = '90vw';
-          document.getElementById('canvas').style.width = '90vw';
-          document.getElementById('canvas').style.height = '90vw';
+          // document.getElementById('container').style.width = '90vw';
+          document.getElementById('container').style.width = screen.width * 0.9 + 'px';
+          // document.getElementById('container').style.height = '90vw';
+          document.getElementById('container').style.height = screen.width * 0.9 + 'px';
+          // document.getElementById('canvas').style.width = '90vw';
+          document.getElementById('canvas').style.width = screen.width * 0.9 + 'px';
+          // document.getElementById('canvas').style.height = '90vw';
+          document.getElementById('canvas').style.height = screen.width * 0.9 + 'px';
+        }
+        else {
+          // document.getElementById('container').style.width = '90vh';
+          document.getElementById('container').style.width = screen.height * 0.9 + 'px';
+          // document.getElementById('container').style.height = '90vh';
+          document.getElementById('container').style.height = screen.height * 0.9 + 'px';
+          // document.getElementById('canvas').style.width = '90vh';
+          document.getElementById('canvas').style.width = screen.height * 0.9 + 'px';
+          // document.getElementById('canvas').style.height = '90vh';
+          document.getElementById('canvas').style.height = screen.height * 0.9 + 'px';
         }
       }
       
