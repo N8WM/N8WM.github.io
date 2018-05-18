@@ -45,28 +45,86 @@
       }
       
       function animate() {
-        var cubePoints = [ [50,  0,  50],
-                           [0,   50, 75],
-                           [-50, 0,  35] ];
-        var camera = [0, 25, 0];
-        var cubes = function () {
-          var cs;
-          for (i = 0; i < cubePoints.length; i++) {
-            
-          }
-        };
-        var num = 0;
+        
+        var camera     = [0, 25, 0];
+        
+        var roll       = 0.0;
+        var pitch      = 0.0;
+        var yaw        = 0.0;
+        
+        var cubePoints = [ [50,  0,  50, 5 ],
+                           [0,   50, 75, 10],
+                           [-50, 0,  35, 7 ] ];
+        
+        var cubes      = function () {
+                           
+                           var cs = new Array(cubePoints.length);
+                           
+                           for (i = 0; i < cubePoints.length; i++) {
+                             
+                             cs[i] = cubePt(cubePoints[i], cubePoints[3]);
+                           }
+                         };
+        
         function cubePt(point, size) {
+          
           var cube = [ [(point[0] + (size / 2)), (point[1] + (size / 2)), (point[2] + (size / 2))],
-                       [(point + (size / 2)), (point + (size / 2)), (point - (size / 2))],
-                       [(point - (size / 2)), (point + (size / 2)), (point - (size / 2))],
-                       [(point - (size / 2)), (point + (size / 2)), (point + (size / 2))],
-                       [(point + (size / 2)), (point - (size / 2)), (point + (size / 2))],
-                       [(point + (size / 2)), (point - (size / 2)), (point - (size / 2))],
-                       [(point - (size / 2)), (point - (size / 2)), (point - (size / 2))],
-                       [(point - (size / 2)), (point - (size / 2)), (point + (size / 2))]
+                       [(point[0] + (size / 2)), (point[1] + (size / 2)), (point[2] - (size / 2))],
+                       [(point[0] - (size / 2)), (point[1] + (size / 2)), (point[2] - (size / 2))],
+                       [(point[0] - (size / 2)), (point[1] + (size / 2)), (point[2] + (size / 2))],
+                       [(point[0] + (size / 2)), (point[1] - (size / 2)), (point[2] + (size / 2))],
+                       [(point[0] + (size / 2)), (point[1] - (size / 2)), (point[2] - (size / 2))],
+                       [(point[0] - (size / 2)), (point[1] - (size / 2)), (point[2] - (size / 2))],
+                       [(point[0] - (size / 2)), (point[1] - (size / 2)), (point[2] + (size / 2))]
                      ]
           return cube;
+        }
+        
+        function P3DtoP2D(point) {
+          
+          var sto = rotate3DPt(point, camera, roll, pitch, yaw);
+          var px_t = sto[0] - camera[0];
+          var py_t = sto[1] - camera[1];
+          var pz_t = sto[2] - camera[2];
+          
+          var projectedX = px_t / pz_t;
+          var projectedY = py_t / pz_t;
+          
+          function rotate2DPt(p_Tar, p_Cen, rad) {
+            
+            var c   = Math.cos(rad);
+            var s   = Math.sin(rad);
+            var dx  = p_Tar[0] - p_Cen[0];
+            var dy  = p_Tar[1] - p_Cen[1];
+            
+            var p_t = [(dx * c - dy * s), (dx * s + dy * c)];
+            return p_t;
+          }
+          
+          function rotate3DPt(p_Tar, p_Cen, roll, pitch, yaw) {
+            
+            var p_t = p_Tar;
+            
+            var p12_Tar = [p_t[0],   p_t[1]  ];
+            var p12_Cen = [p_Cen[0], p_Cen[1]];
+            var hold = rotate2DPt(p12_Tar, p12_Cen, roll);
+            p_t[0]   = hold[0];
+            p_t[1]   = hold[1];
+            
+            var p12_Tar = [p_t[1],   p_t[2]  ];
+            var p12_Cen = [p_Cen[1], p_Cen[2]];
+            var hold = rotate2DPt(p12_Tar, p12_Cen, pitch);
+            p_t[1]   = hold[1];
+            p_t[2]   = hold[2];
+            
+            var p12_Tar = [p_t[2],   p_t[0]  ];
+            var p12_Cen = [p_Cen[2], p_Cen[0]];
+            var hold = rotate2DPt(p12_Tar, p12_Cen, yaw);
+            p_t[2]   = hold[2];
+            p_t[0]   = hold[0];
+            
+            return p_t;
+          }
         }
         setInterval(draw, 5);
         function draw() {
@@ -74,15 +132,14 @@
           var canvas = document.getElementById('canvas');
           if (canvas.getContext) {
             var ctx = canvas.getContext('2d');
-            num++;
             ctx.beginPath();
-            ctx.arc(75, 75, 50 + 5 * Math.sin(num / 100), 0, Math.PI * 2, true); // Outer circle
+            ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
             ctx.moveTo(110, 75);
-            ctx.arc(75, 75, 35 + 5 * Math.sin(num / 100), 0, Math.PI, false);  // Mouth (clockwise)
+            ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
             ctx.moveTo(65, 65);
-            ctx.arc(60, 65, 5 + 5 * Math.sin(num / 100), 0, Math.PI * 2, true);  // Left eye
+            ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
             ctx.moveTo(95, 65);
-            ctx.arc(90, 65, 5 + 5 * Math.sin(num / 100), 0, Math.PI * 2, true);  // Right eye
+            ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
             ctx.stroke();
           }
         }
