@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Biome 9</title>
     <style>
       
@@ -52,6 +53,11 @@
         var pitch      = 0.0;
         var yaw        = 0.0;
         
+        var right = false;
+        var left  = false;
+        var up    = false;
+        var down  = false;
+        
         var cubePoints = [ [50,  0,  50, 5 ],
                            [0,   50, 75, 10],
                            [-50, 0,  35, 7 ] ];
@@ -76,8 +82,25 @@
                        [(point[0] + (size / 2)), (point[1] - (size / 2)), (point[2] - (size / 2))],
                        [(point[0] - (size / 2)), (point[1] - (size / 2)), (point[2] - (size / 2))],
                        [(point[0] - (size / 2)), (point[1] - (size / 2)), (point[2] + (size / 2))]
-                     ]
+                     ];
           return cube;
+        }
+        
+        function cubeLines(cube) {
+          var lines = [ [cube[0], cube[1]],
+                        [cube[1], cube[2]],
+                        [cube[2], cube[3]],
+                        [cube[3], cube[1]],
+                        [cube[0], cube[4]],
+                        [cube[1], cube[5]],
+                        [cube[2], cube[6]],
+                        [cube[3], cube[7]],
+                        [cube[4], cube[5]],
+                        [cube[5], cube[6]],
+                        [cube[6], cube[7]],
+                        [cube[7], cube[4]]
+                      ];
+          return lines;
         }
         
         function P3DtoP2D(point) {
@@ -105,19 +128,19 @@
             
             var p_t = p_Tar;
             
-            var p12_Tar = [p_t[0],   p_t[1]  ];
+            var p12_Tar = [  p_t[0],   p_t[1]];
             var p12_Cen = [p_Cen[0], p_Cen[1]];
             var hold = rotate2DPt(p12_Tar, p12_Cen, roll);
             p_t[0]   = hold[0];
             p_t[1]   = hold[1];
             
-            var p12_Tar = [p_t[1],   p_t[2]  ];
+            var p12_Tar = [  p_t[1],   p_t[2]];
             var p12_Cen = [p_Cen[1], p_Cen[2]];
             var hold = rotate2DPt(p12_Tar, p12_Cen, pitch);
             p_t[1]   = hold[1];
             p_t[2]   = hold[2];
             
-            var p12_Tar = [p_t[2],   p_t[0]  ];
+            var p12_Tar = [  p_t[2],   p_t[0]];
             var p12_Cen = [p_Cen[2], p_Cen[0]];
             var hold = rotate2DPt(p12_Tar, p12_Cen, yaw);
             p_t[2]   = hold[2];
@@ -129,20 +152,51 @@
         setInterval(draw, 5);
         function draw() {
           setup();
-          var canvas = document.getElementById('canvas');
-          if (canvas.getContext) {
-            var ctx = canvas.getContext('2d');
-            ctx.beginPath();
-            ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
-            ctx.moveTo(110, 75);
-            ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
-            ctx.moveTo(65, 65);
-            ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
-            ctx.moveTo(95, 65);
-            ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
-            ctx.stroke();
+          pitch = (up?1:down:-1:0);
+          yaw   = (right?1:left:-1:0);
+          function drawCube(cube) {
+            
+            var canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+              var ctx = canvas.getContext('2d');
+              // ctx.beginPath();
+              // ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
+              // ctx.moveTo(110, 75);
+              // ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
+              // ctx.moveTo(65, 65);
+              // ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
+              // ctx.moveTo(95, 65);
+              // ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
+              // ctx.stroke();
+              ctx.beginPath();
+              var lines = cubeLines(cube);
+              for (i = 0; i < lines.length; i++) {
+                ctx.moveTo();
+                //.......................
+              }
+            }
           }
         }
+        $(this).keydown(e=>
+          e.which==37?
+          left =true:
+          e.which==38?
+          up   =true:
+          e.which==39?
+          right=true:
+          e.which==40?
+          down =true:null
+        )
+        $(this).keyup(e=>
+          e.which==37?
+          left =false:
+          e.which==38?
+          up   =false:
+          e.which==39?
+          right=false:
+          e.which==40?
+          down =false:null
+        )
       }
     </script>
   </body>
