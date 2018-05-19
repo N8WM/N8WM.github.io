@@ -71,6 +71,7 @@
                              
                              cs[i] = cubePt(cubePoints[i], cubePoints[3]);
                            }
+                           return cs;
                          };
         
         function cubePt(point, size) {
@@ -168,6 +169,7 @@
           
           for (i = 0; i < cubes.length; i++) {
             
+            document.getElementById('aa').innerHTML = "Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
             drawCube(cubes[i]);
           }
           
@@ -177,7 +179,7 @@
             
             var canvas = document.getElementById('canvas');
             
-            document.getElementById('aa').innerHTML = "Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
+            // document.getElementById('aa').innerHTML = "Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
             var lines = cubeLines(cube);
             
             for (i = 0; i < lines.length; i++) {
