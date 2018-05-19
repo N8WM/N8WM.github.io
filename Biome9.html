@@ -160,19 +160,21 @@
           pitch = (up ? 0.01 : down ? -0.01 : 0.0);
           yaw   = (right ? 0.01 : left ? -0.01 : 0.0);
           
+          var ctx = canvas.getContext('2d');
+          ctx.beginPath();
+          
           for (i = 0; i < cubes.length; i++) {
             
             drawCube(cubes[i]);
           }
+          
+          ctx.stroke();
           
           function drawCube(cube) {
             
             var canvas = document.getElementById('canvas');
             
             if (canvas.getContext) {
-              
-              var ctx = canvas.getContext('2d');
-              ctx.beginPath();
               
               var lines = cubeLines(cube);
               
