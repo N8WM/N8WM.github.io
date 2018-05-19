@@ -63,16 +63,14 @@
                            [0,   50, 75, 10],
                            [-50, 0,  35, 7 ] ];
         
-        var cubes      = function () {
+        var cs = new Array(cubePoints.length);
                            
-                           var cs = new Array(cubePoints.length);
-                           
-                           for (i = 0; i < cubePoints.length; i++) {
-                             
-                             cs[i] = cubePt(cubePoints[i], cubePoints[3]);
-                           }
-                           return cs;
-                         };
+          for (i = 0; i < cubePoints.length; i++) {
+            
+            cs[i] = cubePt(cubePoints[i], cubePoints[3]);
+          }
+        
+        var cubes = cs;
         
         function cubePt(point, size) {
           
