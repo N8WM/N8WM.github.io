@@ -161,7 +161,7 @@
           pitch = (up ? 0.01 : down ? -0.01 : 0.0);
           yaw   = (right ? 0.01 : left ? -0.01 : 0.0);
           
-          document.getElementById('aa').innerHTML("Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw);
+          document.getElementById('aa').innerHTML = "Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
           
           var ctx = canvas.getContext('2d');
           ctx.beginPath();
