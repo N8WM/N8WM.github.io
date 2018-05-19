@@ -177,18 +177,16 @@
             
             var canvas = document.getElementById('canvas');
             
-            if (true) {//canvas.getContext) {
-              document.getElementById('aa').innerHTML = "Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
-              var lines = cubeLines(cube);
+            document.getElementById('aa').innerHTML = "Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
+            var lines = cubeLines(cube);
+            
+            for (i = 0; i < lines.length; i++) {
               
-              for (i = 0; i < lines.length; i++) {
-                
-                var point = P3DtoP2D(lines[i][0]);
-                ctx.moveTo(point[0], point[1]);
-                
-                var point = P3DtoP2D(lines[i][1]);
-                ctx.lineTo(point[0], point[1]);
-              }
+              var point = P3DtoP2D(lines[i][0]);
+              ctx.moveTo(point[0], point[1]);
+              
+              var point = P3DtoP2D(lines[i][1]);
+              ctx.lineTo(point[0], point[1]);
             }
           }
         }
