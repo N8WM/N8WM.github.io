@@ -16,7 +16,7 @@
         margin: 0 auto;
         top: 50vh;
         transform: translateY(-50%);
-        /*border-radius: 3px;*/
+        border-radius: 3px;
         background-color: white;
         z-index: 2;
       }
@@ -113,6 +113,9 @@
           var projectedX = px_t / pz_t;
           var projectedY = py_t / pz_t;
           
+          var p2D = [projectedX, projectedY];
+          return p2D;
+          
           function rotate2DPt(p_Tar, p_Cen, rad) {
             
             var c   = Math.cos(rad);
@@ -151,28 +154,35 @@
         }
         setInterval(draw, 5);
         function draw() {
+          
           setup();
-          pitch = (up?1:down:-1:0);
-          yaw   = (right?1:left:-1:0);
+          
+          pitch = (up ? 0.01 : down ? -0.01 : 0.0);
+          yaw   = (right ? 0.01 : left ? -0.01 : 0.0);
+          
+          for (i = 0; i < cubes.length; i++) {
+            
+            drawCube(cubes[i]);
+          }
+          
           function drawCube(cube) {
             
             var canvas = document.getElementById('canvas');
+            
             if (canvas.getContext) {
+              
               var ctx = canvas.getContext('2d');
-              // ctx.beginPath();
-              // ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Outer circle
-              // ctx.moveTo(110, 75);
-              // ctx.arc(75, 75, 35, 0, Math.PI, false);  // Mouth (clockwise)
-              // ctx.moveTo(65, 65);
-              // ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Left eye
-              // ctx.moveTo(95, 65);
-              // ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Right eye
-              // ctx.stroke();
               ctx.beginPath();
+              
               var lines = cubeLines(cube);
+              
               for (i = 0; i < lines.length; i++) {
-                ctx.moveTo();
-                //.......................
+                
+                var point = P3DtoP2D(lines[i][0]);
+                ctx.moveTo(point[0], point[1]);
+                
+                var point = P3DtoP2D(lines[i][1]);
+                ctx.lineTo(point[0], point[1]);
               }
             }
           }
