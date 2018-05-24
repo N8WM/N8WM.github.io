@@ -170,7 +170,6 @@
             // document.getElementById('aa').innerHTML = i + " Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
             drawCube(cubes[i]);
           }
-          document.getElementById('aa').innerHTML = cubes.length;
           
           ctx.stroke();
           
@@ -189,6 +188,7 @@
               var point = P3DtoP2D(lines[i][1]);
               ctx.lineTo(point[0], point[1]);
             }
+            document.getElementById('aa').innerHTML = lines.length;
           }
         }
         $(this).keydown(e=>
