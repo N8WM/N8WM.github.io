@@ -71,7 +71,6 @@
           }
         
         var cubes = cs;
-        document.getElementById('aa').innerHTML = cubePoints.length + " " + cubes.length;
         
         function cubePt(point, size) {
           
@@ -171,6 +170,7 @@
             // document.getElementById('aa').innerHTML = i + " Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
             drawCube(cubes[i]);
           }
+          document.getElementById('aa').innerHTML = cubes.length;
           
           ctx.stroke();
           
