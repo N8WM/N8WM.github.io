@@ -162,6 +162,7 @@
           
           // document.getElementById('aa').innerHTML = "Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
           
+          var canvas = document.getElementById('canvas');
           var ctx = canvas.getContext('2d');
           ctx.beginPath();
           
@@ -175,8 +176,6 @@
           
           function drawCube(cube) {
             
-            var canvas = document.getElementById('canvas');
-            
             // document.getElementById('aa').innerHTML = "Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
             var lines = cubeLines(cube);
             
@@ -188,7 +187,6 @@
               var point = P3DtoP2D(lines[i][1]);
               ctx.lineTo(point[0], point[1]);
             }
-            document.getElementById('aa').innerHTML = lines.length;
           }
         }
         $(this).keydown(e=>
