@@ -160,24 +160,20 @@
           pitch += (up ? 0.01 : down ? -0.01 : 0.0);
           yaw   += (right ? 0.01 : left ? -0.01 : 0.0);
           
-          // document.getElementById('aa').innerHTML = "Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
-          
           var canvas = document.getElementById('canvas');
           var ctx = canvas.getContext('2d');
+          
           ctx.beginPath();
-          ctx.moveTo(0, 0);
-          ctx.lineTo(25, 25);
-          //for (i = 0; i < cubes.length; i++) {
+          
+          for (i = 0; i < cubes.length; i++) {
             
-            // document.getElementById('aa').innerHTML = i + " Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
-            //drawCube(cubes[i]);
-          //}
+            drawCube(cubes[i]);
+          }
           
           ctx.stroke();
           
           function drawCube(cube) {
             
-            // document.getElementById('aa').innerHTML = "Roll: " + roll + "\nPitch: " + pitch + "\nYaw: " + yaw;
             var lines = cubeLines(cube);
             
             for (i = 0; i < lines.length; i++) {
