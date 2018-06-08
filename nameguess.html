@@ -14,7 +14,15 @@
       
       h1 {
         
-        font-size: 75%;
+        font-size: 150%;
+        
+      }
+      
+      .btnEnc {
+        
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         
       }
       
@@ -26,6 +34,12 @@
         background-color: #5ACACE;
         color: white;
         font-size: 150%;
+        
+      }
+      
+      .btn:active {
+        
+        background-color: #4ABABE;
         
       }
       
@@ -49,9 +63,12 @@
     <center>
       
       <h1>Name Guesser</h1>
-      <button class="btn" onclick="guess();">Click Here to Guess Your Name</button>
       
-      <div id="name"></div>
+      <div class="btnEnc">
+        <button class="btn" ontouchstart="" onclick="guess();">Click Here to Guess Your Name</button>
+        <br>
+        <div id="name"></div>
+      </div>
       
     </center>
     
