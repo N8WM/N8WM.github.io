@@ -53,9 +53,16 @@
       
       #name {
         
-        font-size: 500%;
-        color: #FFF;
+        font-size: 300%;
+        color: #fff;
         transition: 1s;
+        
+      }
+      
+      #n {
+        
+        font-size: 500%;
+        color: #fff;
         
       }
       
@@ -80,8 +87,9 @@
       
       function guess() {
         
-        document.getElementById("name").innerHTML = "Eli";
-        document.getElementById("name").style.color = "#10D430";
+        document.getElementById("name").innerHTML = "Your name is:<br><span id='n'>David</span>";
+        document.getElementById("name").style.color = "#000";
+        document.getElementById("n").style.color = "#10D430";
         
       }
       
