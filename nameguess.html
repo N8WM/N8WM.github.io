@@ -51,19 +51,25 @@
         
       }
       
+      #name {
+        
+        height: 0;
+        transition: 1s;
+        overflow: hidden;
+        
+      }
+      
       #t {
         
         font-size: 300%;
-        color: #fff;
-        transition: 1s;
+        color: #000;
         
       }
       
       #n {
         
         font-size: 500%;
-        color: #fff;
-        transition: 1s;
+        color: #10D430;
         
       }
       
@@ -79,7 +85,7 @@
       <div class="btnEnc">
         <button class="btn" ontouchstart="" onclick="guess();">Click Here to Guess Your Name</button>
         <br><br>
-        <i><div id="name"></div></i>
+        <i><div id="name"><span id="t">Your name is:<br></span><span id="n">David</span></div></i>
       </div>
       
     </center>
@@ -88,9 +94,7 @@
       
       function guess() {
         
-        document.getElementById("name").innerHTML = "<span id='t'>Your name is:<br></span><span id='n'>David</span>";
-        document.getElementById("t").style.color = "#000";
-        document.getElementById("n").style.color = "#10D430";
+        document.getElementById("name").style.height = "100%";
         
       }
       
