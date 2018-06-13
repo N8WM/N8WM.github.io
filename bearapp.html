@@ -74,7 +74,7 @@
         }
         else {                                                 // If clocked in...
           
-          var duration_ms = getTime() - parseInt(localStorage.getItem("clock"));
+          var duration_ms = t.getTime() - parseInt(localStorage.getItem("clock"));
           var sec_val = (duration_ms / 1000) % 60;
           var sec_str = (sec_val >= 10)?(sec_val + ""):("0" + sec_val);
           var min_val = ((duration_ms / 1000) / 60) % 60;                              // ...display time elapsed
