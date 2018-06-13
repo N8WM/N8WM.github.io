@@ -37,6 +37,7 @@
       
       function init() {
         
+        var t = new Date();
         var btn = document.getElementById("clock_io");
         var duration = document.getElementById("duration");
         
@@ -58,25 +59,30 @@
         }
         
         setInterval(refresh, 5);
-        function refresh() {
+      }
+      
+      function refresh() {
+        
+        var t = new Date();
+        var btn = document.getElementById("clock_io");
+        var duration = document.getElementById("duration");
+        
+        // ======= Detect duration =======
+        if (localStorage.getItem("clock").equals("false")) {   // If not yet clocked in...
           
-          // ======= Detect duration =======
-          if (localStorage.getItem("clock").equals("false")) {   // If not yet clocked in...
-
-            duration.innerHTML = "Not Clocked In";               // ...say so
-          }
-          else {                                                 // If clocked in...
-
-            var duration_ms = getTime() - parseInt(localStorage.getItem("clock"));
-            var sec_val = (duration_ms / 1000) % 60;
-            var sec_str = (sec_val >= 10)?(sec_val + ""):("0" + sec_val);
-            var min_val = ((duration_ms / 1000) / 60) % 60;                              // ...display time elapsed
-            var min_str = (min_val >= 10)?(min_val + ""):("0" + min_val);
-            var hr_val  = ((duration_ms / 1000) / 60) / 60;
-            var duration_str = hr_val + ":" + min_str + ":" + sec_str;
-
-            duration.innerHTML = duration_str;
-          }
+          duration.innerHTML = "Not Clocked In";               // ...say so
+        }
+        else {                                                 // If clocked in...
+          
+          var duration_ms = getTime() - parseInt(localStorage.getItem("clock"));
+          var sec_val = (duration_ms / 1000) % 60;
+          var sec_str = (sec_val >= 10)?(sec_val + ""):("0" + sec_val);
+          var min_val = ((duration_ms / 1000) / 60) % 60;                              // ...display time elapsed
+          var min_str = (min_val >= 10)?(min_val + ""):("0" + min_val);
+          var hr_val  = ((duration_ms / 1000) / 60) / 60;
+          var duration_str = hr_val + ":" + min_str + ":" + sec_str;
+          
+          duration.innerHTML = duration_str;
         }
       }
       
