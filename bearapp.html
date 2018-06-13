@@ -2,12 +2,76 @@
 <html>
   <head>
     
+    <title>BEARtest</title>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <!-- ======= ICONS ======= -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    
+    <!-- ======= WEBAPP ======= -->
+    <meta name="apple-mobile-web-app-title" content="Kouzi">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     
   </head>
-  <body>
+  <body onload="init()">
     
+    <!-- ======= TIME INDICATOR ======= -->
+    <div id="duration"></div>
     
+    <!-- ======= CLOCK IN/OUT BUTTON ======= -->
+    <button id="clock_io"></button>
     
+    <script>
+      
+      function init() {
+        
+        var btn = document.getElementById("clock_io");
+        var duration = document.getElementById("duration");
+        
+        // ======= Initialize item "clock" if not already =======
+        if (localStorage.getItem("clock") == null) {
+          
+          localStorage.setItem("clock", "false");              // If "clock" does not exist, set to false
+        }
+        
+        // ======= Button says "clock in" if not yet clocked in =======
+        // ======= Button says "clock out" if already clocked in =======
+        if (localStorage.getItem("clock").equals("false")) {   // If not yet clocked in...
+          
+          btn.innerHTML = "Clock In";                          // ...then button says "clock in"
+        }
+        else {                                                 // If already clocked in...
+          
+          btn.innerHTML = "Clock Out";                         // ...then button says "clock out"
+        }
+        
+        // ======= Detect duration =======
+        if (localStorage.getItem("clock").equals("false")) {
+          
+          duration.innerHTML = "Not Clocked In";
+        }
+        else {
+          
+          var duration_ms = getTime() - parseInt(localStorage.getItem("clock"));
+          var sec_val = (duration_ms / 1000) % 60;
+          var min_val = ((duration_ms / 1000) / 60) % 60;
+          var hr_val  = ;
+          
+        }
+      }
+      
+    </script>
   </body>
 </html>
