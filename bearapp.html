@@ -65,9 +65,10 @@
         else {
           
           var duration_ms = getTime() - parseInt(localStorage.getItem("clock"));
-          var sec_val = (duration_ms / 1000) % 60;
-          var min_val = ((duration_ms / 1000) / 60) % 60;
-          var hr_val  = ;
+          var sec_str = (duration_ms / 1000) % 60;
+          var min_str = ((duration_ms / 1000) / 60) % 60;
+          var hr_str  = ((duration_ms / 1000) / 60) / 60;
+          var duration_str = hr_val + ":" + min_val + ":" + sec_val;
           
         }
       }
