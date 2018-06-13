@@ -88,11 +88,12 @@
       
       function press() {
         
+        var t = new Date();
         var btn = document.getElementById("clock_io");
         
         if (localStorage.getItem("clock").equals("false")) {
           
-          localStorage.setItem("clock", getTime());
+          localStorage.setItem("clock", t.getTime());
           btn.innerHTML = "Clock Out";
         }
         else {
