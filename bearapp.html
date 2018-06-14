@@ -2,7 +2,7 @@
 <html>
   <head>
     
-    <title>BEARtest</title>
+    <title>BEAR Test</title>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
@@ -28,13 +28,13 @@
     
   </head>
   <body onload="init();">
-    
-    <!-- ======= TIME INDICATOR ======= -->
-    <div id="duration"></div>
-    
-    <!-- ======= CLOCK IN/OUT BUTTON ======= -->
-    <button id="clock_io" ontouchstart="" onclick="press();"></button>
-    
+    <center>
+      <!-- ======= TIME INDICATOR ======= -->
+      <div id="duration"></div><br><br>
+
+      <!-- ======= CLOCK IN/OUT BUTTON ======= -->
+      <button id="clock_io" ontouchstart="" onmousedown="press();" onmouseup="release();"></button>
+    </center>
     <script>
       
       function init() {
@@ -53,11 +53,15 @@
         // ======= Button says "clock out" if already clocked in =======
         if (localStorage.getItem("clock") === ("false")) {   // If not yet clocked in...
           
-          btn.innerHTML = "Clock In";                          // ...then button says "clock in"
+          btn.innerHTML = "<span id='txt'>Clock In</span>";                          // ...then button says "clock in"
+          btn.style.backgroundColor = "chartreuse";
+          btn.style.width = getTextWidth("Clock Out", {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         }
         else {                                                 // If already clocked in...
           
-          btn.innerHTML = "Clock Out";                         // ...then button says "clock out"
+          btn.innerHTML = "<span id='txt'>Clock Out</span>";                         // ...then button says "clock out"
+          btn.style.backgroundColor = "crimson";
+          btn.style.width = getTextWidth("Clock Out", {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         }
         
         setInterval(refresh, 5);
@@ -90,19 +94,38 @@
       
       function press() {
         
-        var t = new Date();
         var btn = document.getElementById("clock_io");
+        btn.style.width = "90%";
+      }
+      
+      function release() {
+        
+        var t = new Date();
+        
+        var btn = document.getElementById("clock_io");
+        btn.style.width = getTextWidth("Clock Out", {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         
         if (localStorage.getItem("clock") === ("false")) {
           
           localStorage.setItem("clock", t.getTime());
-          btn.innerHTML = "Clock Out";
+          btn.innerHTML = "<span id='txt'>Clock Out</span>";
+          btn.style.backgroundColor = "crimson";
         }
         else {
           
           localStorage.setItem("clock", "false");
-          btn.innerHTML = "Clock In";
+          btn.innerHTML = "<span id='txt'>Clock In</span>";
+          btn.style.backgroundColor = "chartreuse";
         }
+      }
+      
+      function getTextWidth(text, css) {
+        var e = $('<span></span>'); // dummy element
+        e.css(css); // set properties
+        e.text(text); // set test
+        var width = e.appendTo($('body')).width(); // append and get width
+        e.remove(); // remove from DOM
+        return width + 25;
       }
       
     </script>
