@@ -1,0 +1,25 @@
+#duration {
+    
+    color: darkgray;
+    font-family: sans-serif;
+    font-size: 200%;
+}
+
+#clock_io {
+    
+    border: none;
+    color: white;
+    font-family: sans-serif;
+    font-size: 200%;
+    border-radius: 7px;
+    padding: 10px;
+    transition: background-color, 0.3s;
+    transition: width, 0.1s;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#clock_io:focus {
+    
+    outline: none;
+}
