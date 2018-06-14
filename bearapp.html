@@ -33,7 +33,8 @@
       <br><br><div id="duration"></div><br><br>
 
       <!-- ======= CLOCK IN/OUT BUTTON ======= -->
-      <button id="clock_io" onmousedown="press();" onmouseup="release();"></button>
+      <button id="clock_io" onmousedown="press();" onmouseup="release();"></button><br><br><br><br>
+      <div id="c_i"></div>
     </center>
     <script>
       
@@ -53,13 +54,13 @@
         // ======= Button says "clock out" if already clocked in =======
         if (localStorage.getItem("clock") === ("false")) {   // If not yet clocked in...
           
-          btn.innerHTML = "<span id='txt'>Clock In</span>";                          // ...then button says "clock in"
+          btn.innerHTML = "Clock In";                          // ...then button says "clock in"
           btn.style.backgroundColor = "chartreuse";
           btn.style.width = getTextWidth("Clock Out", {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         }
         else {                                                 // If already clocked in...
           
-          btn.innerHTML = "<span id='txt'>Clock Out</span>";                         // ...then button says "clock out"
+          btn.innerHTML = "Clock Out";                         // ...then button says "clock out"
           btn.style.backgroundColor = "crimson";
           btn.style.width = getTextWidth("Clock Out", {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         }
@@ -108,15 +109,29 @@
         if (localStorage.getItem("clock") === ("false")) {
           
           localStorage.setItem("clock", t.getTime());
-          btn.innerHTML = "<span id='txt'>Clock Out</span>";
+          btn.innerHTML = "Clock Out";
           btn.style.backgroundColor = "crimson";
+          clock_in();
         }
         else {
           
           localStorage.setItem("clock", "false");
-          btn.innerHTML = "<span id='txt'>Clock In</span>";
+          btn.innerHTML = "Clock In";
           btn.style.backgroundColor = "chartreuse";
+          clock_out();
         }
+      }
+      
+      function clock_in() {
+        
+        var u_input = document.getElementById("c_i");
+        u_input.innerHTML = "<div class='title'>Enter Job Description</div><br><br><textarea id='clock_out_info'></textarea>";
+      }
+      
+      function clock_out() {
+        
+        var u_input = document.getElementById("c_i");
+        u_input.innerHTML = "";
       }
       
       function getTextWidth(text, css) {
