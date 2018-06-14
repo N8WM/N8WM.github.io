@@ -1,3 +1,8 @@
+body {
+    
+    user-select: none;
+}
+
 #duration {
     
     color: darkgray;
