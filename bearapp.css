@@ -3,6 +3,11 @@ body {
     user-select: none;
 }
 
+#bod {
+    
+    height: 100%;
+}
+
 #duration {
     
     color: darkgray;
