@@ -62,8 +62,9 @@ body {
     box-shadow: none;
 }
 
-#clock_out_info:active {
+#clock_out_info:focus {
     
+    outline: none;
     color: white;
     background-color: darkgray;
     width: 90%;
