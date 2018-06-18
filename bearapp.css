@@ -28,8 +28,8 @@ body {
     font-size: 200%;
     border-radius: 7px;
     padding: 10px;
-    transition: background-color 2s;
-    transition: width 0.1s;
+    transition: background-color, 2s;
+    transition: width, 0.1s;
     overflow: hidden;
     white-space: nowrap;
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
@@ -88,5 +88,5 @@ body {
     width: 90%;
     height: 0%;
     border-radius: 7px;
-    transition: height 0.5s;
+    transition: 0.5s;
 }
