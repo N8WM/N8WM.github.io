@@ -20,7 +20,7 @@
     font-size: 200%;
     border-radius: 7px;
     padding: 10px;
-    transition: background-color, 1s;
+    transition: background-color, 2s;
     transition: width, 0.1s;
     overflow: hidden;
     white-space: nowrap;
