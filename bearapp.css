@@ -84,7 +84,7 @@ body {
 
 #hidden {
     
-    overflow: hidden;
+    overflow: auto;
     width: 90%;
     height: 0%;
     border-radius: 7px;
