@@ -30,15 +30,18 @@
   <body onload="init();">
     <center>
       <div id="bod">
-        <!-- ======= TIME INDICATOR ======= -->
-        <br><br><div id="duration"></div><br><br>
-        
-        <!-- ======= CLOCK IN/OUT BUTTON ======= -->
-        <button id="clock_io" ontouchstart="press();" ontouchend="release();"></button><br><br><br><br><br>
-        <div id="hidden">
-          <div id="c_i">
-            <div class='title'>What did you do today?</div><br><br><textarea id='clock_out_info'></textarea>
-          </div>
+        <div class="page" id="clock">
+          <!-- ======= TIME INDICATOR ======= -->
+          <br><br><div id="duration"></div><br><br>
+
+          <!-- ======= CLOCK IN/OUT BUTTON ======= -->
+          <button id="clock_io" ontouchstart="press();" ontouchend="release();"></button>
+        </div>
+        <div class="page" id="info_clocko">
+          calendar or clock-out stuff
+        </div>
+        <div id="page_select">
+          <div id="clock-page">Clock</div>|<div id="info_clocko-page">Info</div>
         </div>
       </div>
     </center>
@@ -122,6 +125,8 @@
         }
         else {
           
+          localStorage.setItem("start", localStorage.getItem("clock"));
+          localStorage.setItem("end", t.getTime());
           localStorage.setItem("clock", "false");
           btn.innerHTML = "Clock In";
           btn.style.backgroundColor = "#7FFF00";
@@ -131,14 +136,44 @@
       
       function clock_in() {
         
-        var c_out = document.getElementById("hidden");
-        c_out.style.height = "40%";
+        // nothing yet
       }
       
       function clock_out() {
         
-        var c_out = document.getElementById("hidden");
-        c_out.style.height = "0%";
+        pageSwitch("a");
+      }
+      
+      function pageSwitch(side) {
+        
+        var clock = document.getElementById("clock");
+        var info_clocko = document.getElementById("info_clocko");
+        
+        if (side === "L") {
+          
+          clock.style.left = "0%";
+          info_clocko.style.left = "100%";
+        }
+        
+        else if (side === "R") {
+          
+          clock.style.left = "-100%";
+          info_clocko.style.left = "0%";
+        }
+        
+        else {
+          if (clock.style.left === "0%") {
+
+            clock.style.left = "-100%";
+            info_clocko.style.left = "0%";
+          }
+
+          else {
+
+            clock.style.left = "0%";
+            info_clocko.style.left = "100%";
+          }
+        }
       }
       
       function getTextWidth(text, css) {
