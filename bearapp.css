@@ -13,7 +13,7 @@ body {
     color: darkgray;
     font-family: sans-serif;
     font-size: 200%;
-    user-select: none;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none; -o-user-select:none;
 }
 
 #clock_io {
@@ -28,7 +28,7 @@ body {
     transition: width, 0.1s;
     overflow: hidden;
     white-space: nowrap;
-    user-select: none;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
 }
 
 #clock_io:focus {
