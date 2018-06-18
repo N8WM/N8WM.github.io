@@ -35,7 +35,11 @@
         
         <!-- ======= CLOCK IN/OUT BUTTON ======= -->
         <button id="clock_io" ontouchstart="press();" ontouchend="release();"></button><br><br><br><br><br>
-        <div id="c_i"></div>
+        <div id="hidden">
+          <div id="c_i">
+            <div class='title'>What did you do today?</div><br><br><textarea id='clock_out_info'></textarea>
+          </div>
+        </div>
       </div>
     </center>
     <script>
@@ -127,14 +131,14 @@
       
       function clock_in() {
         
-        var u_input = document.getElementById("c_i");
-        u_input.innerHTML = "<div class='title'>What did you do today?</div><br><br><textarea id='clock_out_info'></textarea>";
+        var c_out = document.getElementById("hidden");
+        c_out.style.height = "fit-content";
       }
       
       function clock_out() {
         
-        var u_input = document.getElementById("c_i");
-        u_input.innerHTML = "";
+        var c_out = document.getElementById("c_i");
+        c_out.style.height = "0%";
       }
       
       function getTextWidth(text, css) {
