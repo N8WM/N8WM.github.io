@@ -57,13 +57,13 @@
         if (localStorage.getItem("clock") === ("false")) {   // If not yet clocked in...
           
           btn.innerHTML = "Clock In";                          // ...then button says "clock in"
-          btn.style.backgroundColor = "chartreuse";
+          btn.style.backgroundColor = "#7FFF00";
           btn.style.width = getTextWidth("Clock Out", {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         }
         else {                                                 // If already clocked in...
           
           btn.innerHTML = "Clock Out";                         // ...then button says "clock out"
-          btn.style.backgroundColor = "crimson";
+          btn.style.backgroundColor = "#DC143C";
           btn.style.width = getTextWidth("Clock Out", {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
           clock_in();
         }
@@ -113,14 +113,14 @@
           
           localStorage.setItem("clock", t.getTime());
           btn.innerHTML = "Clock Out";
-          btn.style.backgroundColor = "crimson";
+          btn.style.backgroundColor = "#DC143C";
           clock_in();
         }
         else {
           
           localStorage.setItem("clock", "false");
           btn.innerHTML = "Clock In";
-          btn.style.backgroundColor = "chartreuse";
+          btn.style.backgroundColor = "#7FFF00";
           clock_out();
         }
       }
