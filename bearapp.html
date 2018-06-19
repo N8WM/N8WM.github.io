@@ -23,7 +23,7 @@
     <!-- ======= WEBAPP ======= -->
     <meta name="apple-mobile-web-app-title" content="BEAR Test">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <meta name="viewport" content="width=device-width, user-scalable=no">
     
@@ -41,7 +41,16 @@
           <button id="clock_io" ontouchstart="press();" ontouchend="release();"></button>
         </div>
         <div class="page" id="info_clocko">
-          calendar or clock-out stuff
+          <div class="title" id="cal-t"><span class="vert-mid">Calendar</span></div>
+          <div id="calendar">
+            <div class="day" id="su">Su</div>
+            <div class="day" id="mo">Mo</div>
+            <div class="day" id="tu">Tu</div>
+            <div class="day" id="we">We</div>
+            <div class="day" id="th">Th</div>
+            <div class="day" id="fr">Fr</div>
+            <div class="day" id="sa">Sa</div>
+          </div>
         </div>
         <div id="page_select">
           <div id="clock-select" onclick="pageSwitch('L')">
