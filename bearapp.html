@@ -31,16 +31,18 @@
     
   </head>
   <body onload="init();">
-    <center>
-      <div id="bod">
-        <div class="page" id="clock">
+    <div id="bod">
+      <div class="page" id="clock">
+        <center>
           <!-- ======= TIME INDICATOR ======= -->
           <br><br><div id="duration"></div><br><br>
 
           <!-- ======= CLOCK IN/OUT BUTTON ======= -->
           <button id="clock_io" ontouchstart="press();" ontouchend="release();"></button>
-        </div>
-        <div class="page" id="info_clocko">
+        </center>
+      </div>
+      <div class="page" id="info_clocko">
+        <center>
           <div class="title" id="cal-t"><span class="vert-mid">Calendar</span></div>
           <div id="calendar">
             <div class="day" id="su">Su</div>
@@ -51,7 +53,9 @@
             <div class="day" id="fr">Fr</div>
             <div class="day" id="sa">Sa</div>
           </div>
-        </div>
+        </center>
+      </div>
+      <center>
         <div id="page_select">
           <div id="clock-select" onclick="pageSwitch('L')">
             <span class="vert-mid"><i class="material-icons" style="font-size: 225%;">schedule</i></span>
@@ -61,8 +65,8 @@
           </div>
         </div>
         <div id="darkener"></div>
-      </div>
-    </center>
+      </center>
+    </div>
     <script>
       
       function init() {
