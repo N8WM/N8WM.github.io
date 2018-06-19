@@ -61,6 +61,8 @@
         var btn = document.getElementById("clock_io");
         var duration = document.getElementById("duration");
         
+        pageSwitch("L");
+        
         // ======= Initialize item "clock" if not already =======
         if (localStorage.getItem("clock") === null) {
           
@@ -149,37 +151,45 @@
       
       function clock_out() {
         
-        pageSwitch("a");
+        pageSwitch("R");
       }
       
       function pageSwitch(side) {
         
         var clock = document.getElementById("clock");
         var info_clocko = document.getElementById("info_clocko");
+        var clock_sel = document.getElementById("clock-select");
+        var info_clocko_sel = document.getElementById("info_clocko-select");
         
         if (side === "L") {
           
           clock.style.left = "0%";
           info_clocko.style.left = "100%";
+          clock_sel.style.backgroundColor = "darkgray";
+          clock_sel.style.color = "black";
+          info_clocko_sel.style.backgroundColor = "lightgray";
+          info_clocko_sel.style.color = "darkgray";
         }
         
         else if (side === "R") {
           
           clock.style.left = "-100%";
           info_clocko.style.left = "0%";
+          clock_sel.style.backgroundColor = "lightgray";
+          clock_sel.style.color = "darkgray";
+          info_clocko_sel.style.backgroundColor = "darkgray";
+          info_clocko_sel.style.color = "black";
         }
         
         else {
           if (clock.style.left === "0%") {
 
-            clock.style.left = "-100%";
-            info_clocko.style.left = "0%";
+            pageSwitch("R");
           }
 
           else {
 
-            clock.style.left = "0%";
-            info_clocko.style.left = "100%";
+            pageSwitch("L");
           }
         }
       }
