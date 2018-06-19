@@ -85,6 +85,8 @@ body {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     width: 50%;
     text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #info_clocko-select {
@@ -94,6 +96,8 @@ body {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     width: 50%;
     text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #page_select {
