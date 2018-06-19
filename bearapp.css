@@ -86,15 +86,14 @@ body {
     display: inline;
     position: absolute;
     left: 0%;
-    color: darkgray;
+    color: black;
     font-size: 250%;
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    vertical-align: center;
+    vertical-align: middle;
     width: 50%;
     text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
+    line-height: 100%;
 }
 
 #info_clocko-select {
@@ -102,15 +101,14 @@ body {
     display: inline;
     position: absolute;
     left: 50%;
-    color: darkgray;
+    color: black;
     font-size: 250%;
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    vertical-align: center;
+    vertical-align: middle;
     width: 50%;
     text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
+    line-height: 100%;
 }
 
 #page_select {
