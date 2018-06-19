@@ -81,8 +81,11 @@ body {
 #clock-select {
     
     display: inline;
+    position: absolute;
+    left: 0%;
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    vertical-align: center;
     width: 50%;
     text-align: center;
     top: 50%;
@@ -92,8 +95,11 @@ body {
 #info_clocko-select {
     
     display: inline;
+    position: absolute;
+    left: 50%;
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    vertical-align: center;
     width: 50%;
     text-align: center;
     top: 50%;
