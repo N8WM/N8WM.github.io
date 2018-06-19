@@ -113,6 +113,7 @@ body {
     
     display: inline-block;
     vertical-align: middle;
+    line-height: normal;
 }
 
 #page_select {
@@ -123,7 +124,7 @@ body {
     width: 100%;
     bottom: 0;
     left: 0;
-    opacity: 50%;
+    opacity: 0.5;
     z-index: 2;
 }
 
@@ -134,7 +135,7 @@ body {
     height: 10%;
     width: 50%;
     bottom: 0;
-    opacity: 50%;
+    opacity: 0.5;
     z-index: 1;
     transition: 0.3s;
 }
