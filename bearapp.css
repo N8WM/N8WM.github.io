@@ -83,6 +83,8 @@ body {
     display: inline;
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 50%;
+    text-align: center;
 }
 
 #info_clocko-select {
@@ -90,6 +92,8 @@ body {
     display: inline;
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 50%;
+    text-align: center;
 }
 
 #page_select {
