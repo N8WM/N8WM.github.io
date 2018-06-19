@@ -45,12 +45,13 @@
         </div>
         <div id="page_select">
           <div id="clock-select" onclick="pageSwitch('L')">
-            <i class="material-icons">schedule</i>
+            <span class="vert-mid"><i class="material-icons">schedule</i></span>
           </div>
           <div id="info_clocko-select" onclick="pageSwitch('R')">
-            <i class="material-icons">event</i>
+            <span class="vert-mid"><i class="material-icons">event</i></span>
           </div>
         </div>
+        <div id="darkener"></div>
       </div>
     </center>
     <script>
@@ -158,27 +159,24 @@
         
         var clock = document.getElementById("clock");
         var info_clocko = document.getElementById("info_clocko");
-        var clock_sel = document.getElementById("clock-select");
-        var info_clocko_sel = document.getElementById("info_clocko-select");
+        var darkener = document.getElementById("darkener");
         
         if (side === "L") {
           
-          clock.style.left = "0%";
+          clock.style.left = "0";
           info_clocko.style.left = "100%";
-          clock_sel.style.backgroundColor = "darkgray";
-          info_clocko_sel.style.backgroundColor = "lightgray";
+          darkener.style.left = "0";
         }
         
         else if (side === "R") {
           
           clock.style.left = "-100%";
-          info_clocko.style.left = "0%";
-          clock_sel.style.backgroundColor = "lightgray";
-          info_clocko_sel.style.backgroundColor = "darkgray";
+          info_clocko.style.left = "0";
+          darkener.style.left = "50%";
         }
         
         else {
-          if (clock.style.left === "0%") {
+          if (clock.style.left === "0") {
 
             pageSwitch("R");
           }

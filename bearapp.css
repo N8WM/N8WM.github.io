@@ -92,6 +92,7 @@ body {
     width: 50%;
     height: 100%;
     text-align: center;
+    z-index: 3;
 }
 
 #info_clocko-select {
@@ -105,9 +106,10 @@ body {
     width: 50%;
     height: 100%;
     text-align: center;
+    z-index: 3;
 }
 
-.material-icons {
+.vert-mid {
     
     display: inline-block;
     vertical-align: middle;
@@ -115,10 +117,24 @@ body {
 
 #page_select {
     
-    background-color: lightgray;
+    background-color: darkgray;
     position: absolute;
     height: 10%;
     width: 100%;
     bottom: 0;
     left: 0;
+    opacity: 50%;
+    z-index: 2;
+}
+
+#darkener {
+    
+    background-color: darkgray;
+    position: absolute;
+    height: 10%;
+    width: 50%;
+    bottom: 0;
+    opacity: 50%;
+    z-index: 1;
+    transition: 0.3s;
 }
