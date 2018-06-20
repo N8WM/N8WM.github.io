@@ -53,6 +53,14 @@
             <div class="day" id="fr"><span class="tag">Friday</span></div>
             <div class="day" id="sa"><span class="tag">Saturday</span></div>
           </div>
+          <div id="cal-arrows">
+            <div id="cal-L-arrow" ontouchstart="backWeekDown();" ontouchend="backWeekUp();">
+              <span class="vert-mid"><i class="material-icons" style="font-size: 225%; color: #0076FF;">arrow_back</i></span>
+            </div>
+            <div id="cal-R-arrow" ontouchstart="forwardWeekDown();" ontouchend="forwardWeekUp();">
+              <span class="vert-mid"><i class="material-icons" style="font-size: 225%; color: #0076FF;">arrow_forward</i></span>
+            </div>
+          </div>
         </center>
       </div>
       <center>
@@ -210,6 +218,43 @@
         return width + 25;
       }
       
+      // ======= CALENDAR =======
+      
+      function backWeekDown() {
+        
+        var back = document.getElementById("cal-L-arrow");
+        back.style.color = "#54C7FC";
+      }
+      
+      function backWeekUp() {
+        
+        var back = document.getElementById("cal-L-arrow");
+        back.style.color = "#0076FF";
+        backWeek();
+      }
+      
+      function forwardWeekDown() {
+        
+        var forward = document.getElementById("cal-R-arrow");
+        forward.style.color = "#54C7FC";
+      }
+      
+      function forwardWeekUp() {
+        
+        var forward = document.getElementById("cal-R-arrow");
+        forward.style.color = "#0076FF";
+        forwardWeek();
+      }
+      
+      function forwardWeek() {
+        
+        
+      }
+      
+      function backWeek() {
+        
+        
+      }
     </script>
   </body>
 </html>
