@@ -45,19 +45,13 @@
         <center>
           <div class="title" id="cal-t"><span class="vert-mid">Calendar</span></div>
           <div id="calendar">
-            <div class="day" id="su"><span class="tag">Sunday</span></div>
-            <div class="day" id="mo"><span class="tag">Monday</span></div>
-            <div class="day" id="tu"><span class="tag">Tuesday</span></div>
-            <div class="day" id="we"><span class="tag">Wednesday</span></div>
-            <div class="day" id="th"><span class="tag">Thursday</span></div>
-            <div class="day" id="fr"><span class="tag">Friday</span></div>
-            <div class="day" id="sa"><span class="tag">Saturday</span></div>
+            
           </div>
           <div id="cal-arrows">
-            <div id="cal-L-arrow" ontouchstart="backWeekDown();" ontouchend="backWeekUp();">
+            <div id="cal-L-arrow" ontouchstart="backMoDown();" ontouchend="backMoUp();">
               <span class="vert-mid"><i class="material-icons" id="cal-L" style="font-size: 225%; color: #0076FF; transition: 0.1s;">arrow_back</i></span>
             </div>
-            <div id="cal-R-arrow" ontouchstart="forwardWeekDown();" ontouchend="forwardWeekUp();">
+            <div id="cal-R-arrow" ontouchstart="forwardMoDown();" ontouchend="forwardMoUp();">
               <span class="vert-mid"><i class="material-icons" id="cal-R" style="font-size: 225%; color: #0076FF; transition: 0.1s;">arrow_forward</i></span>
             </div>
           </div>
@@ -220,34 +214,34 @@
       
       // ======= CALENDAR =======
       
-      function backWeekDown() {
+      function backMoDown() {
         
         var back = document.getElementById("cal-L");
         back.style.color = "#54C7FC";
         back.style.fontSize = "250%";
       }
       
-      function backWeekUp() {
+      function backMoUp() {
         
         var back = document.getElementById("cal-L");
         back.style.color = "#0076FF";
         back.style.fontSize = "225%";
-        backWeek();
+        backMo();
       }
       
-      function forwardWeekDown() {
+      function forwardMoDown() {
         
         var forward = document.getElementById("cal-R");
         forward.style.color = "#54C7FC";
         forward.style.fontSize = "250%";
       }
       
-      function forwardWeekUp() {
+      function forwardMoUp() {
         
         var forward = document.getElementById("cal-R");
         forward.style.color = "#0076FF";
         forward.style.fontSize = "225%";
-        forwardWeek();
+        forwardMo();
       }
       
       function forwardWeek() {
@@ -259,6 +253,78 @@
         
         
       }
+      
+      function monthCal(timestamp) {
+        
+        var time = new Date(timestamp);
+        var Ftime = new Date(time.getFullYear() + "-" + time.getMonth() + "-1");
+        
+        var mo   = Ftime.getMonth();
+        var date = Ftime.getDate();
+        var day  = Ftime.getDay();
+        var moLen = getMoLen(Ftime);
+        var offset = day;
+        
+        var rows = Math.ceil((moLen + day) / 7);
+        
+        var heightPercent = 100 / rows;
+        var widthPercent  = 100 / 7;
+        
+        var cal = document.getElementById("calendar");
+        
+        // generate HTML
+        
+        var calStr = function() {
+          var str = "<table>";
+          
+          for (r = 0; r < rows; r++) {
+            
+            str += "<tr id='row" + r + "'>";
+            
+            for (c = 0; c < 7; c++) {
+              
+              str += "<td id='row" + r + "col" + c + "' style='width: " + widthPercent + "%; height: " + heightPercent + "%; border: solid 1px black;'></td>";
+            }
+            
+            str += "</tr>";
+          }
+          
+          str += "</table>";
+        }
+      }
+      
+      function getMoLen(t) {
+        
+        var mo = t.getMonth();
+        var leap = (t.getFullYear() % 4) === 0;
+        
+        if (mo === 1) {
+          
+          if (leap === true) {
+            
+            return 29;
+          }
+          
+          else {
+            
+            return 28;
+          }
+        }
+        
+        else {
+          return 31 - (((mo < 7) ? (mo) : (mo + 1)) % 2);
+          
+        }
+      }
     </script>
+    <!--
+    <div class="day" id="su"><span class="tag">Sunday</span></div>
+    <div class="day" id="mo"><span class="tag">Monday</span></div>
+    <div class="day" id="tu"><span class="tag">Tuesday</span></div>
+    <div class="day" id="we"><span class="tag">Wednesday</span></div>
+    <div class="day" id="th"><span class="tag">Thursday</span></div>
+    <div class="day" id="fr"><span class="tag">Friday</span></div>
+    <div class="day" id="sa"><span class="tag">Saturday</span></div>
+    -->
   </body>
 </html>
