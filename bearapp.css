@@ -23,6 +23,7 @@ body {
     font-family: sans-serif;
     font-size: 200%;
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none; -o-user-select:none;
+    transition: color, 1s;
 }
 
 #clock_io {
@@ -178,7 +179,7 @@ body {
     position: absolute;
     font-family: sans-serif;
     font-size: 40%;
-    color: darkgray;
+    color: #DC143C;
     left: 5px;
     top: 5px;
 }
