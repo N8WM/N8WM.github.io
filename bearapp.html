@@ -112,7 +112,6 @@
         if (localStorage.getItem("clock") === ("false")) {   // If not yet clocked in...
           
           duration.innerHTML = "Not Clocked In";               // ...say so
-          duration.style.color = "#DC143C";
         }
         else {                                                 // If clocked in...
           
@@ -125,7 +124,6 @@
           var duration_str = hr_val + ":" + min_str + ":" + sec_str;
           
           duration.innerHTML = duration_str;
-          duration.style.color = "darkgray";
         }
       }
       
