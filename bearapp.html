@@ -45,13 +45,13 @@
         <center>
           <div class="title" id="cal-t"><span class="vert-mid">Calendar</span></div>
           <div id="calendar">
-            <div class="day" id="su"><span class="tag">Su</span></div>
-            <div class="day" id="mo"><span class="tag">Mo</span></div>
-            <div class="day" id="tu"><span class="tag">Tu</span></div>
-            <div class="day" id="we"><span class="tag">We</span></div>
-            <div class="day" id="th"><span class="tag">Th</span></div>
-            <div class="day" id="fr"><span class="tag">Fr</span></div>
-            <div class="day" id="sa"><span class="tag">Sa</span></div>
+            <div class="day" id="su"><span class="tag">Sunday</span></div>
+            <div class="day" id="mo"><span class="tag">Monday</span></div>
+            <div class="day" id="tu"><span class="tag">Tuesday</span></div>
+            <div class="day" id="we"><span class="tag">Wednesday</span></div>
+            <div class="day" id="th"><span class="tag">Thursday</span></div>
+            <div class="day" id="fr"><span class="tag">Friday</span></div>
+            <div class="day" id="sa"><span class="tag">Saturday</span></div>
           </div>
         </center>
       </div>
@@ -112,6 +112,7 @@
         if (localStorage.getItem("clock") === ("false")) {   // If not yet clocked in...
           
           duration.innerHTML = "Not Clocked In";               // ...say so
+          duration.style.color = "#DC143C";
         }
         else {                                                 // If clocked in...
           
@@ -124,6 +125,7 @@
           var duration_str = hr_val + ":" + min_str + ":" + sec_str;
           
           duration.innerHTML = duration_str;
+          duration.style.color = "darkgray";
         }
       }
       
