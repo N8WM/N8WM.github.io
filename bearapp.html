@@ -290,7 +290,10 @@
           }
           
           str += "</table>";
-        }
+          return str;
+        };
+        
+        cal.innerHTML = calStr;
       }
       
       function getMoLen(t) {
