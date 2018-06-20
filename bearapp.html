@@ -275,26 +275,23 @@
         
         // generate HTML
         
-        var calStr = function() {
-          var str = "<table>";
+        var str = "<table>";
+        
+        for (r = 0; r < rows; r++) {
           
-          for (r = 0; r < rows; r++) {
+          str += "<tr id='row" + r + "'>";
             
-            str += "<tr id='row" + r + "'>";
+          for (c = 0; c < 7; c++) {
             
-            for (c = 0; c < 7; c++) {
-              
-              str += "<td id='row" + r + "col" + c + "' style='width: " + widthPercent + "%; height: " + heightPercent + "%; border: solid 1px black;'></td>";
-            }
-            
-            str += "</tr>";
+            str += "<td id='row" + r + "col" + c + "' style='width: " + widthPercent + "%; height: " + heightPercent + "%; border: solid 1px black;'></td>";
           }
           
-          str += "</table>";
-          return str;
-        };
+          str += "</tr>";
+        }
         
-        cal.innerHTML = calStr;
+        str += "</table>";
+        
+        cal.innerHTML = str;
       }
       
       function getMoLen(t) {
