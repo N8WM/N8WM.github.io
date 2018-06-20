@@ -55,10 +55,10 @@
           </div>
           <div id="cal-arrows">
             <div id="cal-L-arrow" ontouchstart="backWeekDown();" ontouchend="backWeekUp();">
-              <span class="vert-mid"><i class="material-icons" id="cal-L" style="font-size: 225%; color: #0076FF;">arrow_back</i></span>
+              <span class="vert-mid"><i class="material-icons" id="cal-L" style="font-size: 225%; color: #0076FF; transition: 0.1s;">arrow_back</i></span>
             </div>
             <div id="cal-R-arrow" ontouchstart="forwardWeekDown();" ontouchend="forwardWeekUp();">
-              <span class="vert-mid"><i class="material-icons" id="cal-R" style="font-size: 225%; color: #0076FF;">arrow_forward</i></span>
+              <span class="vert-mid"><i class="material-icons" id="cal-R" style="font-size: 225%; color: #0076FF; transition: 0.1s;">arrow_forward</i></span>
             </div>
           </div>
         </center>
@@ -222,27 +222,31 @@
       
       function backWeekDown() {
         
-        var back = document.getElementById("cal-L-arrow");
-        document.getElementById("cal-L").style.color = "#54C7FC";
+        var back = document.getElementById("cal-L");
+        back.style.color = "#54C7FC";
+        back.style.fontSize = "250%";
       }
       
       function backWeekUp() {
         
-        var back = document.getElementById("cal-L-arrow");
-        document.getElementById("cal-L").style.color = "#0076FF";
+        var back = document.getElementById("cal-L");
+        back.style.color = "#0076FF";
+        back.style.fontSize = "225%";
         backWeek();
       }
       
       function forwardWeekDown() {
         
-        var forward = document.getElementById("cal-R-arrow");
-        document.getElementById("cal-R").style.color = "#54C7FC";
+        var forward = document.getElementById("cal-R");
+        forward.style.color = "#54C7FC";
+        forward.style.fontSize = "250%";
       }
       
       function forwardWeekUp() {
         
-        var forward = document.getElementById("cal-R-arrow");
-        document.getElementById("cal-R").style.color = "#0076FF";
+        var forward = document.getElementById("cal-R");
+        forward.style.color = "#0076FF";
+        forward.style.fontSize = "225%";
         forwardWeek();
       }
       
