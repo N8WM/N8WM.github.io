@@ -292,9 +292,7 @@
               date_inst = null;
             }
             
-            var now_select = date_inst === currDate;
-            
-            str += "<td class='data' id='" + timestamp + "day-" + date_inst + "'><div class='data-date' id='date-now'>" + date_inst + "</div></td>";
+            str += "<td class='data' id='" + timestamp + "day-" + date_inst + "'><div class='data-date' id='date-now'>" + date_inst + "</div>" + currDate + "</td>";
           }
           
           str += "</tr>";
@@ -309,12 +307,13 @@
           for (c = 0; c < 7; c++) {
             
             var date_inst = (7 * r) + c - offset + 1;
+            
             if (date_inst < 1 || date_inst > moLen) {
               
               date_inst = null;
             }
             
-            var now_select = date_inst === currDate;
+            var now_select = (date_inst === currDate);
             
             var id_temp = document.getElementById(timestamp + "day-" + date_inst);
             id_temp.style.width = widthPercent + "%";
