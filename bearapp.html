@@ -292,7 +292,7 @@
               date_inst = null;
             }
             
-            str += "<td class='data' id='" + timestamp + "day-" + date_inst + "'><div class='data-date' id='date-now'>" + date_inst + "</div>" + currDate + "</td>";
+            str += "<td class='data' id='date" + timestamp + "day-" + date_inst + "'><div class='data-date' class='date-now'>" + date_inst + "</div><div id='data" + timestamp + "day-" + date_inst + "'></div></td>";
           }
           
           str += "</tr>";
@@ -315,10 +315,11 @@
             
             var now_select = (date_inst === currDate);
             
-            var id_temp = document.getElementById(timestamp + "day-" + date_inst);
+            var id_temp = document.getElementById("date" + timestamp + "day-" + date_inst);
             id_temp.style.width = widthPercent + "%";
             id_temp.style.height = heightPercent + "%";
-            document.getElementById("date-now").style.backgroundColor = now_select?"#FF00C3":"darkgray";
+            document.getElementsByClassName("date-now").style.backgroundColor = (now_select?"#FF00C3":"darkgray");
+            
             
             if (r === 0 && c === 0) {
               
