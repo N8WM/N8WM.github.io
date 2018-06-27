@@ -258,6 +258,7 @@
       function monthCal(timestamp) {
         
         var time = new Date(timestamp);
+        var currDate = time.getDate();
         var Ftime = new Date(time.getFullYear() + "-" + time.getMonth() + "-1");
         
         var mo   = Ftime.getMonth();
@@ -275,7 +276,7 @@
         
         // generate HTML
         
-        var str = "<table style='border-collapse: collapse;'>";
+        var str = "<table style='height: 100%; width: 100%; overflow: hidden; border: none;'>";
         
         for (r = 0; r < rows; r++) {
           
@@ -283,7 +284,15 @@
             
           for (c = 0; c < 7; c++) {
             
-            str += "<td id='row" + r + "col" + c + "' style='width: " + widthPercent + "%; height: " + heightPercent + "%; border: solid 1px black;'>d</td>";
+            var date_inst = (7 * r) + c - offset + 1;
+            if (date_inst < 1 || date_inst > moLen) {
+              
+              date_inst = null;
+            }
+            
+            var now_select = date_inst === currDate;
+            
+            str += "<td class='data' id='day-" + date_inst + "' style='width: " + widthPercent + "%; height: " + heightPercent + "%; border-radius: 7px; background-color: " + now_select?"#FF00C3":"white" + ";'><div class='data-date'>" + date_inst + "</div></td>";
           }
           
           str += "</tr>";
