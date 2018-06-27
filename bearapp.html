@@ -292,7 +292,7 @@
             
             var now_select = date_inst === currDate;
             
-            str += "<td class='data' id='day-" + date_inst + "' style='width: " + widthPercent + "%; height: " + heightPercent + "%; border-radius: 7px; background-color: " + (now_select)?("#FF00C3"):("white") + ";'><div class='data-date'>" + date_inst + "</div></td>";
+            str += "<td class='data' id='day-" + date_inst + "'><div class='data-date'>" + date_inst + "</div></td>";
           }
           
           str += "</tr>";
@@ -301,6 +301,25 @@
         str += "</table>";
         
         cal.innerHTML = str;
+        
+        for (r = 0; r < rows; r++) {
+          
+          for (c = 0; c < 7; c++) {
+            
+            var date_inst = (7 * r) + c - offset + 1;
+            if (date_inst < 1 || date_inst > moLen) {
+              
+              date_inst = null;
+            }
+            
+            var now_select = date_inst === currDate;
+            
+            var id_temp = document.getElementById("day-" + date_inst);
+            id_temp.style.width = widthPercent + "%";
+            id_temp.style.height = heightPercent + "%";
+            id_temp.style.backgroundColor = now_select?"#FF00C3":"white";
+          }
+        }
       }
       
       function getMoLen(t) {
