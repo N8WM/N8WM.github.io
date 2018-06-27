@@ -257,8 +257,10 @@
       
       function monthCal(timestamp) {
         
+        var currTime = new Date();
+        var currDate = currTime.getDate();
+        
         var time = new Date(timestamp);
-        var currDate = time.getDate();
         var Ftime = new Date(time.getFullYear() + "-" + (time.getMonth() + 1) + "-1");
         
         var mo   = Ftime.getMonth();
@@ -280,7 +282,7 @@
         
         for (r = 0; r < rows; r++) {
           
-          str += "<tr id='row" + r + "'>";
+          str += "<tr>";
             
           for (c = 0; c < 7; c++) {
             
@@ -292,7 +294,7 @@
             
             var now_select = date_inst === currDate;
             
-            str += "<td class='data' id='day-" + date_inst + "'><div class='data-date'>" + date_inst + "</div></td>";
+            str += "<td class='data' id='" + timestamp + "day-" + date_inst + "'><div class='data-date' id='date-now'>" + date_inst + "</div></td>";
           }
           
           str += "</tr>";
@@ -314,10 +316,30 @@
             
             var now_select = date_inst === currDate;
             
-            var id_temp = document.getElementById("day-" + date_inst);
+            var id_temp = document.getElementById(timestamp + "day-" + date_inst);
             id_temp.style.width = widthPercent + "%";
             id_temp.style.height = heightPercent + "%";
-            id_temp.style.backgroundColor = now_select?"#FF00C3":"white";
+            document.getElementById("date-now").style.backgroundColor = now_select?"#FF00C3":"darkgray";
+            
+            if (r === 0 && c === 0) {
+              
+              id_temp.style.borderTopLeftRadius = 5 + "px";
+            }
+            
+            if (r === 0 && c === 6) {
+              
+              id_temp.style.borderTopRightRadius = 5 + "px";
+            }
+            
+            if (r === (rows - 1) && c === 0) {
+              
+              id_temp.style.borderBottomLeftRadius = 5 + "px";
+            }
+            
+            if (r === (rows - 1) && c === 6) {
+              
+              id_temp.style.borderBottomRightRadius = 5 + "px";
+            }
           }
         }
       }
