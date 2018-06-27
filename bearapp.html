@@ -292,7 +292,7 @@
             
             var now_select = date_inst === currDate;
             
-            str += "<td class='data' id='day-" + date_inst + "' style='width: " + widthPercent + "%; height: " + heightPercent + "%; border-radius: 7px; background-color: " + now_select?"#FF00C3":"white" + ";'><div class='data-date'>" + date_inst + "</div></td>";
+            str += "<td class='data' id='day-" + date_inst + "' style='width: " + widthPercent + "%; height: " + heightPercent + "%; border-radius: 7px; background-color: " + (now_select)?("#FF00C3"):("white") + ";'><div class='data-date'>" + date_inst + "</div></td>";
           }
           
           str += "</tr>";
