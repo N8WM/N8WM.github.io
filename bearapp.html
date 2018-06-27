@@ -101,7 +101,7 @@
           clock_in();
         }
         
-        monthCal(1535068800);
+        monthCal(t.getTime());
         setInterval(refresh, 100);
       }
       
@@ -257,7 +257,7 @@
       
       function monthCal(timestamp) {
         
-        var time = new Date(timestamp);
+        var time = new Date(1535068800);
         var currDate = time.getDate();
         var Ftime = new Date(time.getFullYear() + "-" + time.getMonth() + "-1");
         
