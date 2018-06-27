@@ -318,7 +318,15 @@
             var id_temp = document.getElementById("date" + timestamp + "day-" + date_inst);
             id_temp.style.width = widthPercent + "%";
             id_temp.style.height = heightPercent + "%";
-            document.getElementsByClassName("date-now").style.backgroundColor = ((now_select === true)?("#FF00C3"):("darkgray"));
+            if (now_select) {
+              
+              document.getElementsByClassName("date-now").style.backgroundColor = "#FF00C3";
+            }
+            
+            else {
+              
+              document.getElementsByClassName("date-now").style.backgroundColor = "darkgray";
+            }
             
             
             if (r === 0 && c === 0) {
