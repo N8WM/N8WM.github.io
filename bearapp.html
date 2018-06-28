@@ -295,7 +295,7 @@
         var currDate = currTime.getDate();
         
         var time = new Date(timestamp);
-        var Ftime = new Date(time.getFullYear() + "-" + (time.getMonth() + 1) + "-1");
+        var Ftime = new Date(time.getFullYear(), (time.getMonth() + 1));
         
         var mo   = Ftime.getMonth();
         var date = Ftime.getDate();
@@ -423,6 +423,43 @@
             }
           }
         }
+      }
+      
+      function newMonthTS(timestamp, offset) {
+        
+        var currTime = new Date(timestamp);
+        var currMo = currTime.getMonth();
+        var currYe = currTime.getFullYear();
+        
+        if (offset === -1) {
+          
+          if (currMo === 0) {
+            
+            currMo = 11;
+            currYe--;
+          }
+          
+          else {
+            
+            currMo--;
+          }
+        }
+        
+        else {
+          
+          if (currMo === 11) {
+            
+            currMo = 0;
+            currYe ++;
+          }
+          
+          else {
+            
+            currMo++;
+          }
+        }
+        
+        return new Date(currYe, currMo);
       }
       
       function getMoLen(t) {
