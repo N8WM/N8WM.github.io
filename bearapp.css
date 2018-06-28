@@ -147,9 +147,19 @@ body {
     
     position: absolute;
     height: 15%;
-    width: 100%;
+    width: fit-content;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    transition: width 1s;
+}
+
+#cal-t-inner {
+    
+    position: absolute;
+    width: fit-content;
+    height: 100%;
 }
 
 #calendar { /* div encompassing calendar */
