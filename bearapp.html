@@ -320,12 +320,12 @@
             id_temp.style.height = heightPercent + "%";
             if (now_select) {
               
-              document.getElementsByClassName("date-now").style.backgroundColor = "#FF00C3";
+              document.getElementsByClassName("date-now")[date_inst - 1].style.backgroundColor = "#FF00C3";
             }
             
             else {
               
-              document.getElementsByClassName("date-now").style.backgroundColor = "darkgray";
+              document.getElementsByClassName("date-now")[date_inst - 1].style.backgroundColor = "darkgray";
             }
             
             
