@@ -295,7 +295,7 @@
         var currDate = currTime.getDate();
         
         var time = new Date(timestamp);
-        var Ftime = new Date(time.getFullYear(), (time.getMonth() + 1));
+        var Ftime = new Date(time.getFullYear() + "-" + (time.getMonth() + 1) + "-1");
         
         var mo   = Ftime.getMonth();
         var date = Ftime.getDate();
@@ -430,6 +430,7 @@
         var currTime = new Date(timestamp);
         var currMo = currTime.getMonth();
         var currYe = currTime.getFullYear();
+        var currDa = currTime.getDate();
         
         if (offset === -1) {
           
@@ -459,7 +460,7 @@
           }
         }
         
-        return new Date(currYe, currMo);
+        return new Date(currYe, currMo, currDa);
       }
       
       function getMoLen(t) {
