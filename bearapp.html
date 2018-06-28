@@ -263,7 +263,7 @@
           
           inneranimate.innerHTML = "YOWZAH!!!!!";
           
-          animate.style.width = "fit-content";
+          animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': inneranimate.style.fontFamily, 'font-size': inneranimate.style.fontSize}) + "px";
         }
       }
       
@@ -285,7 +285,7 @@
           
           inneranimate.innerHTML = "DAB ON THE HATERS!!!!!";
           
-          animate.style.width = "fit-content";
+          animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': inneranimate.style.fontFamily, 'font-size': inneranimate.style.fontSize}) + "px";
         }
       }
       
