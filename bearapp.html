@@ -292,7 +292,9 @@
               date_inst = null;
             }
             
-            str += "<td class='data' id='date" + timestamp + "day-" + date_inst + "'><div class='data-date' class='date-now'>" + date_inst + "</div><div id='data" + timestamp + "day-" + date_inst + "'></div></td>";
+            var now_select = (date_inst === currDate);
+            
+            str += "<td class='data' id='date" + timestamp + "day-" + date_inst + "'><div class='data-date' " + (now_select)?("id='date-now'"):("") + ">" + date_inst + "</div><div id='data" + timestamp + "day-" + date_inst + "'></div></td>";
           }
           
           str += "</tr>";
@@ -320,14 +322,8 @@
             id_temp.style.height = heightPercent + "%";
             if (now_select) {
               
-              document.getElementsByClassName("date-now")[date_inst - 1].style.backgroundColor = "#FF00C3";
+              document.getElementById("date-now").style.backgroundColor = "#FF00C3";
             }
-            
-            else {
-              
-              document.getElementsByClassName("date-now")[date_inst - 1].style.backgroundColor = "darkgray";
-            }
-            
             
             if (r === 0 && c === 0) {
               
