@@ -163,6 +163,7 @@ body {
     overflow: hidden;
     left: 50%;
     transform: translateX(-50%);
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none; -o-user-select:none;
 }
 
 .data {
