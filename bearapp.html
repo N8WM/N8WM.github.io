@@ -315,11 +315,11 @@
         document.getElementById("date-now").style.backgroundColor = "#0076FF";
         
         var data_date = document.getElementsByClassName("data-date");
-        var biggest = 0;
+        var biggest = getTextWidth(data_date[0].innerHTML, {'font-family': 'sans-serif', 'font-size': '75%'});
         
         for (d = 0; d < data_date.length; d++) {
           
-            var tmp = getTextWidth(data_date[d].innerHTML, {'font-family': 'sans-serif', 'font-size': '75%'}) + "px";
+            var tmp = getTextWidth(data_date[d].innerHTML, {'font-family': 'sans-serif', 'font-size': '75%'});
             if (tmp > biggest) {
               
               biggest = tmp;
@@ -328,7 +328,7 @@
         
         for (d = 0; d < data_date.length; d++) {
           
-          data_date[d].style.width = biggest;
+          data_date[d].style.width = biggest + "px";
         }
         
         for (r = 0; r < rows; r++) {
