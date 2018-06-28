@@ -292,9 +292,17 @@
               date_inst = null;
             }
             
-            var now_select = (date_inst === currDate);
+            if (date_inst === currDate) {
+              
+              var id = "id='date-now'";
+            }
             
-            str += "<td class='data' id='date" + timestamp + "day-" + date_inst + "'><div class='data-date' " + (now_select)?("id='date-now'"):("") + ">" + date_inst + "</div><div id='data" + timestamp + "day-" + date_inst + "'></div></td>";
+            else {
+              
+              var id = "";
+            }
+            
+            str += "<td class='data' id='date" + timestamp + "day-" + date_inst + "'><div class='data-date' " + id + ">" + date_inst + "</div><div id='data" + timestamp + "day-" + date_inst + "'></div></td>";
           }
           
           str += "</tr>";
@@ -303,6 +311,8 @@
         str += "</table>";
         
         cal.innerHTML = str;
+        
+        document.getElementById("date-now").style.backgroundColor = "#FF00C3";
         
         for (r = 0; r < rows; r++) {
           
@@ -315,15 +325,9 @@
               date_inst = null;
             }
             
-            var now_select = (date_inst === currDate);
-            
             var id_temp = document.getElementById("date" + timestamp + "day-" + date_inst);
             id_temp.style.width = widthPercent + "%";
             id_temp.style.height = heightPercent + "%";
-            if (now_select) {
-              
-              document.getElementById("date-now").style.backgroundColor = "#FF00C3";
-            }
             
             if (r === 0 && c === 0) {
               
