@@ -171,7 +171,6 @@ body {
     width: 90%;
     height: 70%;
     background-color: lightgray;
-    border-radius: 7px;
     overflow: hidden;
     left: 50%;
     transform: translateX(-50%);
