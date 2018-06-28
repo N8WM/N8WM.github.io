@@ -43,7 +43,7 @@
       </div>
       <div class="page" id="info_clocko">
         <center>
-          <div class="title" id="cal-t"><div id="cal-t-inner"><span class="vert-mid" id="cal-t-inner-span">Calendar</span></div></div>
+          <div class="title" id="cal-t"><div id="cal-t-inner"><span class="vert-mid" id="cal-t-inner-span">Month</span></div></div>
           <div id="calendar">
             
           </div>
@@ -263,7 +263,7 @@
           
           inneranimate.innerHTML = "YOWZAH!!!!!";
           
-          animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': inneranimate.style.fontFamily, 'font-size': inneranimate.style.fontSize}) + "px";
+          animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         }
       }
       
@@ -285,7 +285,7 @@
           
           inneranimate.innerHTML = "DAB ON THE HATERS!!!!!";
           
-          animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': inneranimate.style.fontFamily, 'font-size': inneranimate.style.fontSize}) + "px";
+          animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         }
       }
       
@@ -307,6 +307,15 @@
         
         var heightPercent = 100 / rows;
         var widthPercent  = 100 / 7;
+        
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var currMo = months[mo];
+        
+        var animate = document.getElementById("cal-t");
+        var inneranimate = document.getElementById("cal-t-inner-span");
+        
+        inneranimate.innerHTML = currMo;
+        animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         
         var cal = document.getElementById("calendar");
         
