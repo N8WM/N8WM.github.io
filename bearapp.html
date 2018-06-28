@@ -43,15 +43,15 @@
       </div>
       <div class="page" id="info_clocko">
         <center>
-          <div class="title" id="cal-t"><div id="cal-t-inner"><span class="vert-mid">Calendar</span></div></div>
+          <div class="title" id="cal-t"><div id="cal-t-inner"><span class="vert-mid" id="cal-t-inner-span">Calendar</span></div></div>
           <div id="calendar">
             
           </div>
           <div id="cal-arrows">
-            <div id="cal-L-arrow" ontouchstart="backMoDown();" ontouchend="backMoUp();">
+            <div id="cal-L-arrow" onmousedown="backMoDown();" onmouseup="backMoUp();">
               <span class="vert-mid"><i class="material-icons" id="cal-L" style="font-size: 225%; color: #0076FF; transition: 0.1s;">arrow_back</i></span>
             </div>
-            <div id="cal-R-arrow" ontouchstart="forwardMoDown();" ontouchend="forwardMoUp();">
+            <div id="cal-R-arrow" onmousedown="forwardMoDown();" onmouseup="forwardMoUp();">
               <span class="vert-mid"><i class="material-icons" id="cal-R" style="font-size: 225%; color: #0076FF; transition: 0.1s;">arrow_forward</i></span>
             </div>
           </div>
@@ -247,23 +247,46 @@
       
       function forwardMo() {
         
-        /* function foMoPart1() {
-          
           var animate = document.getElementById("cal-t");
-          var inneranimate = document.getElementById("cal-t-inner");
+          var inneranimate = document.getElementById("cal-t-inner-span");
+          
+          foMoPart1();
+          
+        function foMoPart1() {
+          
+          animate.style.width = "0";
           
           window.setTimeout(foMoPart2, 1000);
         }
         
         function foMoPart2() {
           
+          inneranimate.innerHTML = "YOWZAH!!!!!";
           
-        } */
+          animate.style.width = "100%";
+        }
       }
       
       function backMo() {
         
+        var animate = document.getElementById("cal-t");
+          var inneranimate = document.getElementById("cal-t-inner-span");
+          
+          foMoPart1();
+          
+        function baMoPart1() {
+          
+          animate.style.width = "0";
+          
+          window.setTimeout(baMoPart2, 1000);
+        }
         
+        function baMoPart2() {
+          
+          inneranimate.innerHTML = "DAB ON THE HATERS!!!!!";
+          
+          animate.style.width = "100%";
+        }
       }
       
       function monthCal(timestamp) {

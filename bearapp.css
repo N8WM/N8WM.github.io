@@ -147,7 +147,7 @@ body {
     
     position: absolute;
     height: 15%;
-    width: fit-content;
+    width: 100%;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -160,6 +160,8 @@ body {
     position: absolute;
     width: fit-content;
     height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #calendar { /* div encompassing calendar */
