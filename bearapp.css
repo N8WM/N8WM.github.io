@@ -170,6 +170,7 @@ body {
     top: 15%;
     width: 90%;
     height: 70%;
+    border-radius: 7px;
     background-color: lightgray;
     overflow: hidden;
     left: 50%;
