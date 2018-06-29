@@ -263,17 +263,27 @@
           
           monthCal(newMonthTS(currTS, 1), document.getElementById("monthSlot2"));
           
-          monthSlot1.style.transition = "none";
-          monthSlot2.style.transition = "none";
+          slideRight11();
           
-          monthSlot1.style.left = "0";
-          monthSlot2.style.left = "100%";
+          function slideRight11() {
+            
+            monthSlot1.style.transition = "none";
+            monthSlot2.style.transition = "none";
+            
+            monthSlot1.style.left = "0";
+            monthSlot2.style.left = "100%";
+            
+            window.setTimeout(slideRight21, 1);
+          }
           
-          monthSlot1.style.transition = "all 1s";
-          monthSlot2.style.transition = "all 1s";
-          
-          monthSlot1.style.left = "-100%";
-          monthSlot2.style.left = "0";
+          function slideRight21() {
+            
+            monthSlot1.style.transition = "all 1s";
+            monthSlot2.style.transition = "all 1s";
+            
+            monthSlot1.style.left = "-100%";
+            monthSlot2.style.left = "0";
+          }
         }
         
         else {
@@ -282,17 +292,27 @@
           
           monthCal(newMonthTS(currTS, 1), document.getElementById("monthSlot1"));
           
-          monthSlot2.style.transition = "none";
-          monthSlot1.style.transition = "none";
+          slideRight12();
           
-          monthSlot2.style.left = "0";
-          monthSlot1.style.left = "100%";
+          function slideRight12() {
+            
+            monthSlot2.style.transition = "none";
+            monthSlot1.style.transition = "none";
+            
+            monthSlot2.style.left = "0";
+            monthSlot1.style.left = "100%";
+            
+            window.setTimeout(slideRight22, 1);
+          }
           
-          monthSlot2.style.transition = "all 1s";
-          monthSlot1.style.transition = "all 1s";
-          
-          monthSlot2.style.left = "-100%";
-          monthSlot1.style.left = "0";
+          function slideRight22() {
+            
+            monthSlot2.style.transition = "all 1s";
+            monthSlot1.style.transition = "all 1s";
+            
+            monthSlot2.style.left = "-100%";
+            monthSlot1.style.left = "0";
+          }
         }
       }
       
@@ -307,17 +327,27 @@
           
           monthCal(newMonthTS(currTS, -1), document.getElementById("monthSlot2"));
           
-          monthSlot1.style.transition = "none";
-          monthSlot2.style.transition = "none";
+          slideLeft11();
           
-          monthSlot1.style.left = "0";
-          monthSlot2.style.left = "-100%";
+          function slideLeft11() {
+            
+            monthSlot1.style.transition = "none";
+            monthSlot2.style.transition = "none";
+            
+            monthSlot1.style.left = "0";
+            monthSlot2.style.left = "-100%";
+            
+            window.setTimeout(slideLeft21, 1);
+          }
           
-          monthSlot1.style.transition = "all 1s";
-          monthSlot2.style.transition = "all 1s";
-          
-          monthSlot1.style.left = "100%";
-          monthSlot2.style.left = "0";
+          function slideLeft21() {
+            
+            monthSlot1.style.transition = "all 1s";
+            monthSlot2.style.transition = "all 1s";
+            
+            monthSlot1.style.left = "100%";
+            monthSlot2.style.left = "0";
+          }
         }
         
         else {
@@ -326,17 +356,27 @@
           
           monthCal(newMonthTS(currTS, -1), document.getElementById("monthSlot1"));
           
-          monthSlot2.style.transition = "none";
-          monthSlot1.style.transition = "none";
+          slideLeft12();
           
-          monthSlot2.style.left = "0";
-          monthSlot1.style.left = "-100%";
+          function slideLeft12() {
+            
+            monthSlot2.style.transition = "none";
+            monthSlot1.style.transition = "none";
+            
+            monthSlot2.style.left = "0";
+            monthSlot1.style.left = "-100%";
+            
+            window.setTimeout(slideLeft22, 1);
+          }
           
-          monthSlot2.style.transition = "all 1s";
-          monthSlot1.style.transition = "all 1s";
-          
-          monthSlot2.style.left = "100%";
-          monthSlot1.style.left = "0";
+          function slideLeft22() {
+            
+            monthSlot2.style.transition = "all 1s";
+            monthSlot1.style.transition = "all 1s";
+            
+            monthSlot2.style.left = "100%";
+            monthSlot1.style.left = "0";
+          }
         }
       }
       
