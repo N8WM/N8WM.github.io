@@ -45,7 +45,8 @@
         <center>
           <div class="title" id="cal-t"><div id="cal-t-inner"><span class="vert-mid" id="cal-t-inner-span">Month</span></div></div>
           <div id="calendar">
-            
+            <div id="monthSlot1"></div>
+            <div id="monthSlot2"></div>
           </div>
           <div id="cal-arrows">
             <div id="cal-L-arrow" ontouchstart="backMoDown();" ontouchend="backMoUp();">
@@ -71,11 +72,17 @@
     </div>
     <script>
       
+      var currTS;
+      var currLocation;
+      
       function init() {
         
-        var t = new Date();
+        var t = new Date(); // <<---- INSERT CURRENT TIME FROM DATABASE HERE
         var btn = document.getElementById("clock_io");
         var duration = document.getElementById("duration");
+        
+        currTS = t.getTime();
+        currLocation = 1;
         
         pageSwitch("L");
         
@@ -101,7 +108,7 @@
           clock_in();
         }
         
-        monthCal(t.getTime());
+        monthCal(currTS, document.getElementById("monthSlot1"));
         setInterval(refresh, 100);
       }
       
@@ -247,51 +254,73 @@
       
       function forwardMo() {
         
-          var animate = document.getElementById("cal-t");
-          var inneranimate = document.getElementById("cal-t-inner-span");
+        var monthSlot1 = document.getElementById("monthSlot1");
+        var monthSlot2 = document.getElementById("monthSlot2");
+        
+        
+        
+        if (currLocation === 1) {
           
-          foMoPart1();
+          monthCal(newMonthTS(currTS, 1), "monthSlot1");
           
-        function foMoPart1() {
+          monthSlot1.style.transition = "all 0s";
+          monthSlot2.style.transition = "all 0s";
           
-          animate.style.width = "0";
+          monthSlot1.style.left = "0";
+          monthSlot2.style.left = "-100%";
           
-          window.setTimeout(foMoPart2, 310);
+          monthSlot1.style.transition = "all 0.3s";
+          monthSlot2.style.transition = "all 0.3s";
+          
+          monthSlot1.style.left = "100%";
+          monthSlot2.style.left = "0";
         }
         
-        function foMoPart2() {
+        else {
           
-          inneranimate.innerHTML = "Yowzah";
+          monthCal(newMonthTS(currTS, 1), "monthSlot2");
           
-          animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
+          monthSlot2.style.transition = "all 0s";
+          monthSlot1.style.transition = "all 0s";
+          
+          monthSlot2.style.left = "0";
+          monthSlot1.style.left = "-100%";
+          
+          monthSlot2.style.transition = "all 0.3s";
+          monthSlot1.style.transition = "all 0.3s";
+          
+          monthSlot2.style.left = "100%";
+          monthSlot1.style.left = "0";
         }
       }
       
       function backMo() {
         
-        var animate = document.getElementById("cal-t");
-          var inneranimate = document.getElementById("cal-t-inner-span");
+        var monthSlot1 = document.getElementById("monthSlot1");
+        var monthSlot2 = document.getElementById("monthSlot2");
+        
+        
+        
+        if (currLocation === 1) {
           
-          baMoPart1();
+          monthCal(newMonthTS(currTS, 1), "monthSlot1");
           
-        function baMoPart1() {
           
-          animate.style.width = "0";
-          
-          window.setTimeout(baMoPart2, 310);
         }
         
-        function baMoPart2() {
+        else {
           
-          inneranimate.innerHTML = "Dab pls";
+          monthCal(newMonthTS(currTS, 1), "monthSlot2");
           
-          animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
+          
         }
       }
       
-      function monthCal(timestamp) {
+      function monthCal(timestamp, location) {
         
-        var currTime = new Date();
+        currTS = timestamp;
+        
+        var currTime = new Date(); // <<---- INSERT CURRENT TIME FROM DATABASE HERE
         var currDate = currTime.getDate();
         
         var time = new Date(timestamp);
@@ -314,10 +343,22 @@
         var animate = document.getElementById("cal-t");
         var inneranimate = document.getElementById("cal-t-inner-span");
         
-        inneranimate.innerHTML = currMo;
-        animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
+        MoSwPart1();    // Begin month switch
         
-        var cal = document.getElementById("calendar");
+        function MoSwPart1() {
+          
+          animate.style.width = "0";
+          
+          window.setTimeout(MoSwPart2, 310);
+        }
+        
+        function MoSwPart2() {
+          
+          inneranimate.innerHTML = currMo;
+          animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
+        }
+        
+        var cal = location;
         
         // generate HTML
         
@@ -357,7 +398,7 @@
               var style_date = " style='background-color: white;'";
             }
             
-            str += "<td class='data' id='date" + timestamp + "day-" + date_inst + "'" + style_date + ">" + corner_date_html + "<div id='data" + timestamp + "day-" + date_inst + "'></div></td>";
+            str += "<td class='data' id='date" + Ftime.getTime() + "day-" + date_inst + "'" + style_date + ">" + corner_date_html + "<div id='data" + Ftime.getTime() + "day-" + date_inst + "'></div></td>";
           }
           
           str += "</tr>";
@@ -398,7 +439,7 @@
               date_inst = null;
             }
             
-            var id_temp = document.getElementById("date" + timestamp + "day-" + date_inst);
+            var id_temp = document.getElementById("date" + Ftime.getTime() + "day-" + date_inst);
             id_temp.style.width = widthPercent + "%";
             id_temp.style.height = heightPercent + "%";
             
@@ -425,7 +466,7 @@
         }
       }
       
-      function newMonthTS(timestamp, offset) {
+      function newMonthTS(timestamp, offset) {  // offset is either 1 or -1, meaning forward a month or back a month
         
         var currTime = new Date(timestamp);
         var currMo = currTime.getMonth();

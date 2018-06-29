@@ -150,6 +150,7 @@ body {
     height: 15%;
     top: 0;
     left: 50%;
+    width: 0;
     transform: translateX(-50%);
     overflow: hidden;
     transition: width 0.15s;
@@ -176,6 +177,22 @@ body {
     left: 50%;
     transform: translateX(-50%);
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none; -o-user-select:none;
+}
+
+#monthSlot1 {
+    
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#monthSlot2 {
+    
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .data {
