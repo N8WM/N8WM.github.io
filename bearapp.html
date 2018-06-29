@@ -263,7 +263,7 @@
           
           currLocation = 2;
           
-          monthCal(newMonthTS(currTS, 1), "monthSlot2");
+          monthCal(newMonthTS(currTS, 1), document.getElementById("monthSlot2"));
           
           monthSlot1.style.transition = "all 0s";
           monthSlot2.style.transition = "all 0s";
@@ -282,7 +282,7 @@
           
           currLocation = 1;
           
-          monthCal(newMonthTS(currTS, 1), "monthSlot1");
+          monthCal(newMonthTS(currTS, 1), document.getElementById("monthSlot1"));
           
           monthSlot2.style.transition = "all 0s";
           monthSlot1.style.transition = "all 0s";
@@ -309,7 +309,7 @@
           
           currLocation = 2;
           
-          monthCal(newMonthTS(currTS, -1), "monthSlot2");
+          monthCal(newMonthTS(currTS, -1), document.getElementById("monthSlot2"));
           
           monthSlot1.style.transition = "all 0s";
           monthSlot2.style.transition = "all 0s";
@@ -328,7 +328,7 @@
           
           currLocation = 1;
           
-          monthCal(newMonthTS(currTS, -1), "monthSlot1");
+          monthCal(newMonthTS(currTS, -1), document.getElementById("monthSlot1"));
           
           monthSlot2.style.transition = "all 0s";
           monthSlot1.style.transition = "all 0s";
