@@ -152,7 +152,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     overflow: hidden;
-    transition: width 0.3s;
+    transition: width 0.15s;
 }
 
 #cal-t-inner {
