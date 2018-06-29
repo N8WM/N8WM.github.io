@@ -433,8 +433,10 @@
         
         cal.innerHTML = str;
         
-        document.getElementById("date-now").style.backgroundColor = "#0076FF";
-        
+        if (moNow === mo) {
+          
+          document.getElementById("date-now").style.backgroundColor = "#0076FF";
+        }
         
         var data_date = document.getElementsByClassName("data-date");
         var biggest = getTextWidth(data_date[0].innerHTML, {'font-family': 'sans-serif', 'font-size': '75%'});
