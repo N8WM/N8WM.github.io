@@ -317,8 +317,8 @@
           monthSlot1.style.left = "0";
           monthSlot2.style.left = "100%";
           
-          monthSlot1.style.transition = "all 0.3s";
-          monthSlot2.style.transition = "all 0.3s";
+          monthSlot1.style.transition = "all 1s";
+          monthSlot2.style.transition = "all 1s";
           
           monthSlot1.style.left = "-100%";
           monthSlot2.style.left = "0";
@@ -336,8 +336,8 @@
           monthSlot2.style.left = "0";
           monthSlot1.style.left = "100%";
           
-          monthSlot2.style.transition = "all 0.3s";
-          monthSlot1.style.transition = "all 0.3s";
+          monthSlot2.style.transition = "all 1s";
+          monthSlot1.style.transition = "all 1s";
           
           monthSlot2.style.left = "-100%";
           monthSlot1.style.left = "0";
@@ -350,6 +350,7 @@
         
         var currTime = new Date(); // <<---- INSERT CURRENT TIME FROM DATABASE HERE
         var currDate = currTime.getDate();
+        var moNow = currTime.getMonth();
         
         var time = new Date(timestamp);
         var Ftime = new Date((time.getMonth() + 1) + "/1/" + time.getFullYear());
@@ -404,7 +405,7 @@
               date_inst = null;
             }
             
-            if (date_inst === currDate) {
+            if (date_inst === currDate && moNow === mo) {
               
               var id = "id='date-now'";
             }
