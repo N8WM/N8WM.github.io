@@ -295,7 +295,7 @@
         var currDate = currTime.getDate();
         
         var time = new Date(timestamp);
-        var Ftime = new Date(time.getFullYear() + "-" + (time.getMonth() + 1) + "-1");
+        var Ftime = new Date(time.getMonth() + "/1/" + time.getFullYear());
         
         var mo   = Ftime.getMonth();
         var date = Ftime.getDate();
@@ -459,7 +459,7 @@
           }
         }
         
-        return new Date(currYe + "-" + currMo + "-1");
+        return new Date(currMo + "/1/" + currYe);
       }
       
       function getMoLen(t) {
