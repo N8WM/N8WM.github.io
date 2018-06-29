@@ -172,6 +172,7 @@ body {
     width: 90%;
     height: 70%;
     border-radius: 7px;
+    border: solid 1px lightgray;
     background-color: lightgray;
     overflow: hidden;
     left: 50%;
