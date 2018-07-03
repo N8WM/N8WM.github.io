@@ -526,14 +526,15 @@
               date_inst = null;
             }
             
+            document.getElementsByClassName("data")[date_inst - 1].style.width = widthPercent + "%";
+            document.getElementsByClassName("data")[date_inst - 1].style.height = heightPercent + "%";
+            
             if (date_inst !== null) {
               
               var td_date = new Date((Ftime.getMonth() + 1) + "/" + date_inst + "/" + Ftime.getFullYear());
               var td_id = td_date.getTime();
               
               var id_temp = document.getElementById("day-display" + td_id);
-              id_temp.style.width = widthPercent + "%";
-              id_temp.style.height = heightPercent + "%";
             }
             
             if (r === 0 && c === 0) {
