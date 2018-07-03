@@ -471,7 +471,19 @@
             var td_date = new Date((Ftime.getMonth() + 1) + "/" + date_inst + "/" + Ftime.getFullYear());
             var td_id = td_date.getTime();
             
-            str += "<td ontouchstart='dayPress(" + td_id + ")' ontouchend='dayRelease(" + td_id + ")' class='data' id='day-display" + td_id + "'" + style_date + ">" + corner_date_html + "<div id='day-body" + td_id + "'></div></td>";
+            if (date_inst === null) {
+              
+              var id_daydisplay = "";
+              var id_daybody = "";
+            }
+            
+            else {
+              
+              var id_daydisplay = " id='day-display" + td_id + "'";
+              var id_daybody = " id='day-body" + td_id + "'";
+            }
+            
+            str += "<td ontouchstart='dayPress(" + td_id + ")' ontouchend='dayRelease(" + td_id + ")' class='data'" + id_daydisplay + style_date + ">" + corner_date_html + "<div" + id_daybody + "></div></td>";
           }
           
           str += "</tr>";
