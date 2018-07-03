@@ -281,8 +281,8 @@
           
           function slideRight21() {
             
-            monthSlot1.style.transition = "all 0.3s";
-            monthSlot2.style.transition = "all 0.3s";
+            monthSlot1.style.transition = "all 0.1s";
+            monthSlot2.style.transition = "all 0.1s";
             
             monthSlot1.style.left = "-100%";
             monthSlot2.style.left = "0";
@@ -310,8 +310,8 @@
           
           function slideRight22() {
             
-            monthSlot2.style.transition = "all 0.3s";
-            monthSlot1.style.transition = "all 0.3s";
+            monthSlot2.style.transition = "all 0.1s";
+            monthSlot1.style.transition = "all 0.1s";
             
             monthSlot2.style.left = "-100%";
             monthSlot1.style.left = "0";
@@ -345,8 +345,8 @@
           
           function slideLeft21() {
             
-            monthSlot1.style.transition = "all 0.3s";
-            monthSlot2.style.transition = "all 0.3s";
+            monthSlot1.style.transition = "all 0.1s";
+            monthSlot2.style.transition = "all 0.1s";
             
             monthSlot1.style.left = "100%";
             monthSlot2.style.left = "0";
@@ -374,8 +374,8 @@
           
           function slideLeft22() {
             
-            monthSlot2.style.transition = "all 0.3s";
-            monthSlot1.style.transition = "all 0.3s";
+            monthSlot2.style.transition = "all 0.1s";
+            monthSlot1.style.transition = "all 0.1s";
             
             monthSlot2.style.left = "100%";
             monthSlot1.style.left = "0";
@@ -546,12 +546,14 @@
       
       function dayPress(td_id) {
         
-        
+        var subj = document.getElementById(td_id);
+        subj.style.backgroundColor = "#E9E9E9";
       }
       
       function dayRelease(td_id) {
         
-        
+        var subj = document.getElementById(td_id);
+        subj.style.backgroundColor = "#FFF";
       }
       
       function newMonthTS(timestamp, offset) {  // offset is either 1 or -1, meaning forward a month or back a month
