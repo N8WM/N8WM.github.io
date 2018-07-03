@@ -466,7 +466,11 @@
               var style_date = " style='background-color: white;'";
             }
             
-            str += "<td class='data' id='date" + Ftime.getTime() + "day-" + date_inst + "'" + style_date + ">" + corner_date_html + "<div id='data" + Ftime.getTime() + "day-" + date_inst + "'></div></td>";
+            
+            var td_date = new Date((Ftime.getMonth() + 1) + "/" + date_inst + "/" + Ftime.getFullYear());
+            var td_id = td_date.getTime();
+            
+            str += "<td ontouchstart='dayPress(" + td_id + ")' ontouchend='dayRelease(" + td_id + ")' class='data' id='day-display" + td_id + "'" + style_date + ">" + corner_date_html + "<div id='day-body" + td_id + "'></div></td>";
           }
           
           str += "</tr>";
@@ -509,7 +513,10 @@
               date_inst = null;
             }
             
-            var id_temp = document.getElementById("date" + Ftime.getTime() + "day-" + date_inst);
+            var td_date = new Date((Ftime.getMonth() + 1) + "/" + date_inst + "/" + Ftime.getFullYear());
+            var td_id = td_date.getTime();
+            
+            var id_temp = document.getElementById("day-display" + td_id);
             id_temp.style.width = widthPercent + "%";
             id_temp.style.height = heightPercent + "%";
             
@@ -534,6 +541,16 @@
             }
           }
         }
+      }
+      
+      function dayPress(td_id) {
+        
+        
+      }
+      
+      function dayRelease(td_id) {
+        
+        
       }
       
       function newMonthTS(timestamp, offset) {  // offset is either 1 or -1, meaning forward a month or back a month
