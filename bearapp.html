@@ -521,13 +521,13 @@
             
             var date_inst = (7 * r) + c - offset + 1;
             
+            document.getElementsByClassName("data")[date_inst - 1].style.width = widthPercent + "%";
+            document.getElementsByClassName("data")[date_inst - 1].style.height = heightPercent + "%";
+            
             if (date_inst < 1 || date_inst > moLen) {
               
               date_inst = null;
             }
-            
-            document.getElementsByClassName("data")[date_inst - 1].style.width = widthPercent + "%";
-            document.getElementsByClassName("data")[date_inst - 1].style.height = heightPercent + "%";
             
             if (date_inst !== null) {
               
