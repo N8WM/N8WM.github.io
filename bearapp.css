@@ -267,6 +267,7 @@ body {
     transform: translateY(-50%) translateX(-50%);
     width: 93%;
     height: 0%;
+    display: none;
     z-index: 10;
     background-color: white;
     border: 1px solid black;
