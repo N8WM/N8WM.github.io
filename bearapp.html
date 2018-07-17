@@ -606,7 +606,12 @@
         
         popupinfo.innerHTML = strDate;
         popup.style.display = "block";
-        popup.style.height = "70%";
+        window.setTimeout(openPopupCompletely, 1);
+        
+        function openPopupCompletely() {
+          
+          popup.style.height = "70%";
+        }
       }
       
       function closePopup() {
@@ -614,7 +619,7 @@
         var popup = document.getElementById("cal-popup");
         
         popup.style.height = "0";
-        window.setTimeout(closePopupCompletely, 2000);
+        window.setTimeout(closePopupCompletely, 200);
         
         function closePopupCompletely() {
           
