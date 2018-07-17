@@ -53,7 +53,7 @@
           </div>
           
           <div id="cal-popup">
-            <div id="cal-popup-close"></div>
+            <div id="cal-popup-close" ontouchstart="closePopup();"></div>
             <div id="cal-popup-info"></div>
           </div>
           
@@ -605,7 +605,7 @@
         var strDate = month + "-" + day + "-" + year;
         
         popupinfo.innerHTML = strDate;
-        popup.style.display = "default";
+        popup.style.display = "block";
         popup.style.height = "70%";
       }
       
