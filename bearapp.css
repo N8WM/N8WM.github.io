@@ -261,7 +261,7 @@ body {
 
 #cal-popup {
     
-    position: fixed;
+    position: absolute;
     left: 50%;
     top: 50%;
     transform: translateY(-50%) translateX(-50%);
@@ -273,6 +273,27 @@ body {
     border: 1px solid black;
     overflow: hidden;
     transition: height 0.2s;
+    
+}
+
+#cal-popup-close {
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    color: white;
+    
+}
+
+#cal-popup-info {
+    
+    top: 20px;
+    width: 100%;
+    z-index: 11;
+    overflow: hidden;
     
 }
 
