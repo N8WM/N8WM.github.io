@@ -595,8 +595,8 @@
         
         var popup = document.getElementById("cal-popup");
         var date = new Date(td_id);
-        var day = date.getDay();
-        var month = date.getMonth();
+        var day = date.getDay() + 1;
+        var month = date.getMonth() + 1;
         var year = date.getFullYear();
         
         var strDate = month + "-" + day + "-" + year;
