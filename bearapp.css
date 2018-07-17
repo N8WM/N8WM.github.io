@@ -257,6 +257,24 @@ body {
     top: 5px;
 }
 
+/* ======= CALENDAR POPUP ======= */
+
+#cal-popup {
+    
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 93%;
+    height: 0%;
+    z-index: 10;
+    background-color: white;
+    border: 1px solid black;
+    overflow: hidden;
+    transition: height 0.2s;
+    
+}
+
 /* the style of each individual day... */
 
 #su {
