@@ -53,6 +53,7 @@
           </div>
           
           <div id="cal-popup">
+            <div id="cal-popup-close"></div>
             <div id="cal-popup-info"></div>
           </div>
           
@@ -594,15 +595,32 @@
       function openPopup(time) {
         
         var popup = document.getElementById("cal-popup");
-        var date = new Date(time);
-        var day = date.getDay() + 1;
-        var month = date.getMonth() + 1;
-        var year = date.getFullYear();
+        var popupinfo = document.getElementById("cal-popup-info");
+        
+        var d = new Date(time);
+        var day = d.getDay() + 1;
+        var month = d.getMonth() + 1;
+        var year = d.getFullYear();
         
         var strDate = month + "-" + day + "-" + year;
         
-        popup.innerHTML = time;
+        popupinfo.innerHTML = strDate;
+        popup.style.display = "default";
         popup.style.height = "70%";
+      }
+      
+      function closePopup() {
+        
+        var popup = document.getElementById("cal-popup");
+        
+        popup.style.height = "0";
+        window.setTimeout(closePopup2, 200);
+        
+        function closePopup2() {
+          
+          popup.style.display = "none";
+        }
+        
       }
       
       function newMonthTS(timestamp, offset) {  // offset is either 1 or -1, meaning forward a month or back a month
