@@ -581,12 +581,28 @@
         
         var subj = document.getElementById("day-display" + td_id);
         subj.style.backgroundColor = "#E9E9E9";
+        
+        openPopup(td_id);
       }
       
       function dayRelease(td_id) {
         
         var subj = document.getElementById("day-display" + td_id);
         subj.style.backgroundColor = "#FFF";
+      }
+      
+      function openPopup(td_id) {
+        
+        var popup = document.getElementById("cal-popup");
+        var date = new Date(td_id);
+        var day = date.getDay();
+        var month = date.getMonth();
+        var year = date.getFullYear();
+        
+        var strDate = month + "-" + day + "-" + year;
+        
+        popup.innerHTML = strDate;
+        popup.style.height = "70%";
       }
       
       function newMonthTS(timestamp, offset) {  // offset is either 1 or -1, meaning forward a month or back a month
