@@ -51,6 +51,11 @@
             <div id="monthSlot1"></div>
             <div id="monthSlot2"></div>
           </div>
+          
+          <div id="cal-popup">
+            <div id="cal-popup-info"></div>
+          </div>
+          
           <div id="cal-arrows">
             <div id="cal-L-arrow" ontouchstart="backMoDown();" ontouchend="backMoUp();">
               <span class="vert-mid"><i class="material-icons" id="cal-L" style="font-size: 225%; color: #0076FF; transition: 0.1s;">arrow_back</i></span>
@@ -499,6 +504,7 @@
         if (tNow === Ftime.getTime()) {
           
           document.getElementById("date-now").style.backgroundColor = "#0076FF";
+          document.getElementById("cal-t-inner-span").style.color = "#0076FF";
         }
         
         var data_date = document.getElementsByClassName("data-date");
