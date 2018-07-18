@@ -53,7 +53,7 @@
           </div>
           
           <div id="cal-popup">
-            <div id="cal-popup-close" ontouchstart="closePopup();"><i class="material-icons vert-mid">close</i></div>
+            <div id="cal-popup-close" ontouchstart="closePopupDown();" ontouchend="closePopupUp();"><i class="material-icons vert-mid">close</i></div>
             <div id="cal-popup-info"></div>
           </div>
           
@@ -582,14 +582,14 @@
         
         var subj = document.getElementById("day-display" + td_id);
         subj.style.backgroundColor = "#E9E9E9";
-        
-        openPopup(td_id);
       }
       
       function dayRelease(td_id) {
         
         var subj = document.getElementById("day-display" + td_id);
         subj.style.backgroundColor = "#FFF";
+        
+        openPopup(td_id);
       }
       
       function openPopup(time) {
@@ -610,15 +610,25 @@
         
         function openPopupCompletely() {
           
-          popup.style.height = "70%";
+          popup.style.height = "80%";
         }
       }
       
-      function closePopup() {
+      function closePopUpDown() {
+        
+        var close = document.getElementById("cal-popup-close");
+        
+        close.style.backgroundColor = "#D00";
+      }
+      
+      function closePopupUp() {
         
         var popup = document.getElementById("cal-popup");
+        var close = document.getElementById("cal-popup-close");
         
         popup.style.height = "0";
+        close.style.backgroundColor = "#F00";
+        
         window.setTimeout(closePopupCompletely, 200);
         
         function closePopupCompletely() {
