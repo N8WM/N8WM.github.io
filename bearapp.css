@@ -333,6 +333,25 @@ body {
     
 }
 
+#cal-popup-body {
+  
+  position: absolute;
+  top: 50px;
+  bottom: 0px;
+  width: 100%;
+  
+}
+
+#progress-bar {
+  
+  position: absolute;
+  width: 90%;
+  height: 70px;
+  border-radius: 13px;
+  border: 1px solid rgb(238, 238, 238);
+  
+}
+
 /* the style of each individual day... */
 
 #su {
