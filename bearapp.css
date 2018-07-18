@@ -352,6 +352,7 @@ body {
   height: 70px;
   border-radius: 13px;
   border: 1px solid rgb(238, 238, 238);
+  overflow: hidden;
   
 }
 
