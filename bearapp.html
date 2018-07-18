@@ -123,7 +123,7 @@
         else {                                                 // If already clocked in...
           
           btn.innerHTML = "Clock Out";                         // ...then button says "clock out"
-          btn.style.backgroundColor = "#DC143C";
+          btn.style.backgroundColor = "#F00";
           btn.style.width = getTextWidth("Clock Out", {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
           clock_in();
         }
@@ -174,7 +174,7 @@
           
           localStorage.setItem("clock", t.getTime());
           btn.innerHTML = "Clock Out";
-          btn.style.backgroundColor = "#DC143C";
+          btn.style.backgroundColor = "#F00";
           clock_in();
         }
         else {
