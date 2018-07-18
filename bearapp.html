@@ -94,6 +94,45 @@
       
       var currTS;
       var currLocation;
+      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      
+      function dateString(day) {
+        
+        var str = day;
+        var mod = day % 10;
+        
+        if (day >= 11 && day <= 13) {
+          
+          return day + "th";
+        }
+        
+        else if (mod === 0) {
+          
+          str += "th";
+        }
+        
+        else if (mod === 1) {
+          
+          str += "st";
+        }
+        
+        else if (mod === 2) {
+          
+          str += "nd";
+        }
+        
+        else if (mod === 3) {
+          
+          str += "rd";
+        }
+        
+        else {
+          
+          str += "th";
+        }
+        
+        return str;
+      }
       
       function init() {
         
@@ -431,7 +470,6 @@
           dayLabels[i].style.width = widthPercent + "%";
         }
         
-        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var currMo = months[mo];
         
         var animate = document.getElementById("cal-t");
@@ -613,11 +651,11 @@
         var popupinfo = document.getElementById("cal-popup-top");
         
         var d = new Date(time);
-        var day = d.getDay() + 1;
-        var month = d.getMonth() + 1;
+        var day = d.getDay();
+        var month = d.getMonth();
         var year = d.getFullYear();
         
-        var strDate = month + "-" + day + "-" + year;
+        var strDate = months[month] + " " + dateString(day + 1) + ", " + year;
         
         popupinfo.innerHTML = "<span style='position: absolute; top: 50%; transform: translateY(-50%); left: 10px;'>" + strDate + "</span>";
         popup.style.display = "block";
