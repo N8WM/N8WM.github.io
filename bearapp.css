@@ -173,12 +173,12 @@ body {
     width: 90%;
     height: 70%;
     border-radius: 11px;
-    border: solid 1px lightgray;
-    background-color: lightgray;
+    background-color: rgb(238, 238, 238);
     overflow: hidden;
     left: 50%;
     transform: translateX(-50%);
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none; -o-user-select:none;
+    
 }
 
 #monthSlot1 {
@@ -213,18 +213,19 @@ body {
   overflow: hidden;
   border: none;
   border-collapse: collapse;
+  background-color: red;
   
 }
 
 .day-label {
   
   vertical-align: middle;
-  background-color: red;
   color: white;
   font-family: sans-serif;
   font-size: 75%;
   text-align: center;
   overflow: hidden;
+  border: none;
   
 }
 
