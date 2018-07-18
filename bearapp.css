@@ -345,6 +345,7 @@ body {
 #progress-bar {
   
   position: absolute;
+  top: 30px;
   width: 90%;
   height: 70px;
   border-radius: 13px;
