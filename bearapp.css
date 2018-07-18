@@ -269,6 +269,7 @@ body {
     height: 0%;
     display: none;
     z-index: 10;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: white;
     border: 1px solid black;
     overflow: hidden;
@@ -281,9 +282,9 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    height: 70px;
-    width: 70px;
-    background-color: red;
+    height: 50px;
+    width: 50px;
+    background-color: #F00;
     color: white;
     overflow: hidden;
     
