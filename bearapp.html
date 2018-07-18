@@ -655,7 +655,7 @@
         var month = d.getMonth();
         var year = d.getFullYear();
         
-        var strDate = months[month] + " " + dateString(day + 1) + ", " + year;
+        var strDate = months[month] + " " + dateString(day) + ", " + year;
         
         popupinfo.innerHTML = "<span style='position: absolute; top: 50%; transform: translateY(-50%); left: 10px;'>" + strDate + "</span>";
         popup.style.display = "block";
