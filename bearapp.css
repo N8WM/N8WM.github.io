@@ -346,6 +346,8 @@ body {
   
   position: absolute;
   top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 90%;
   height: 70px;
   border-radius: 13px;
