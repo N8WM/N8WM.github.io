@@ -406,6 +406,7 @@
         var day  = Ftime.getDay();
         var moLen = getMoLen(Ftime);
         var offset = day;
+        var color = "darkgray";
         
         var rows = Math.ceil((moLen + day) / 7);
         
@@ -430,6 +431,7 @@
         function MoSwPart2() {
           
           inneranimate.innerHTML = currMo;
+          inneranimate.style.color = color;
           animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         }
         
@@ -505,12 +507,12 @@
         if (tNow === Ftime.getTime()) {
           
           document.getElementById("date-now").style.backgroundColor = "#0076FF";
-          document.getElementById("cal-t-inner-span").style.color = "#0076FF";
+          color = "#0076FF";
         }
         
         else {
           
-          document.getElementById("cal-t-inner-span").style.color = "darkgray";
+          color = "darkgray";
         }
         
         var data_date = document.getElementsByClassName("data-date");
