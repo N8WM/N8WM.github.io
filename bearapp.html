@@ -508,6 +508,11 @@
           document.getElementById("cal-t-inner-span").style.color = "#0076FF";
         }
         
+        else {
+          
+          document.getElementById("cal-t-inner-span").style.color = "darkgray";
+        }
+        
         var data_date = document.getElementsByClassName("data-date");
         var biggest = getTextWidth(data_date[0].innerHTML, {'font-family': 'sans-serif', 'font-size': '75%'});
         
@@ -627,7 +632,7 @@
         var close = document.getElementById("cal-popup-close");
         
         popup.style.height = "0";
-        close.style.backgroundColor = "#F00";
+        close.style.backgroundColor = "#B00";
         
         window.setTimeout(closePopupCompletely, 200);
         
