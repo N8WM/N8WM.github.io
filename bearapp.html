@@ -46,8 +46,19 @@
       </div>
       <div class="page" id="info_clocko">
         <center>
-          <div class="title" id="cal-t"><div id="cal-t-inner"><span class="vert-mid" id="cal-t-inner-span">Month</span></div></div>
+          <div class="title" id="cal-t"><div id="cal-t-inner"><span class="vert-mid" id="cal-t-inner-span" style="line-height: 70%;">Month</span></div></div>
           <div id="calendar">
+            <table id="day-label">
+              <tr>
+                <td class="day-label">Sun</td>
+                <td class="day-label">Mon</td>
+                <td class="day-label">Tue</td>
+                <td class="day-label">Wed</td>
+                <td class="day-label">Thu</td>
+                <td class="day-label">Fri</td>
+                <td class="day-label">Sat</td>
+              </tr>
+            </table>
             <div id="monthSlot1"></div>
             <div id="monthSlot2"></div>
           </div>
@@ -410,8 +421,15 @@
         
         var rows = Math.ceil((moLen + day) / 7);
         
-        var heightPercent = 100 / rows;
+        var heightPercent = 90 / rows;
         var widthPercent  = 100 / 7;
+        
+        var dayLabels = document.getElementsByClassName("day-label");
+        
+        for (var i = 0; i < dayLabels.length; i++) {
+          
+          dayLabels[i].style.width = "widthPercent";
+        }
         
         var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var currMo = months[mo];
@@ -430,7 +448,7 @@
         
         function MoSwPart2() {
           
-          inneranimate.innerHTML = currMo + "<br>" + "<span style='font-size: 100%'>" + year + "</span>";
+          inneranimate.innerHTML = currMo + "<br>" + "<span style='font-size: 50%'>" + year + "</span>";
           inneranimate.style.color = color;
           animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         }
@@ -440,7 +458,7 @@
         
         // generate HTML
         
-        var str = "<table style='height: 100%; width: 100%; overflow: hidden; border: none;'>";
+        var str = "<table style='position: absolute; height: 90%; width: 100%; top: 10%; overflow: hidden; border: none;'>";
         
         for (r = 0; r < rows; r++) {
           
