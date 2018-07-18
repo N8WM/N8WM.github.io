@@ -402,7 +402,7 @@
         var Ftime = new Date((time.getMonth() + 1) + "/1/" + time.getFullYear());
         
         var mo   = Ftime.getMonth();
-        var date = Ftime.getDate();
+        var year = Ftime.getFullYear();
         var day  = Ftime.getDay();
         var moLen = getMoLen(Ftime);
         var offset = day;
@@ -430,7 +430,7 @@
         
         function MoSwPart2() {
           
-          inneranimate.innerHTML = currMo;
+          inneranimate.innerHTML = currMo + "<br>" + "<span style='font-size: 100%'>" + year + "</span>";
           inneranimate.style.color = color;
           animate.style.width = getTextWidth(inneranimate.innerHTML, {'font-family': 'sans-serif', 'font-size': '200%'}) + "px";
         }
