@@ -50,13 +50,13 @@
           <div id="calendar">
             <table id="day-label">
               <tr>
-                <td class="day-label">Sun</td>
+                <td class="day-label" style="border-top-left-radius: 5px;">Sun</td>
                 <td class="day-label">Mon</td>
                 <td class="day-label">Tue</td>
                 <td class="day-label">Wed</td>
                 <td class="day-label">Thu</td>
                 <td class="day-label">Fri</td>
-                <td class="day-label">Sat</td>
+                <td class="day-label" style="border-top-right-radius: 5px;">Sat</td>
               </tr>
             </table>
             <div id="monthSlot1"></div>
@@ -579,16 +579,6 @@
             
             id_temp.style.width = widthPercent + "%";
             id_temp.style.height = heightPercent + "%";
-            
-            if (r === 0 && c === 0) {
-              
-              id_temp.style.borderTopLeftRadius = 5 + "px";
-            }
-            
-            if (r === 0 && c === 6) {
-              
-              id_temp.style.borderTopRightRadius = 5 + "px";
-            }
             
             if (r === (rows - 1) && c === 0) {
               
