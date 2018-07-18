@@ -665,7 +665,7 @@
         
         var strDate = months[month] + " " + dateString(day) + ", " + year;
         
-        popuptop.innerHTML = "<span style='position: absolute; top: 50%; transform: translateY(-50%); left: 10px;'>" + strDate + "</span>" + popuptop;
+        popuptop.innerHTML = "<span style='position: absolute; top: 50%; transform: translateY(-50%); left: 10px;'>" + strDate + "</span>" + popuptop.innerHTML;
         popup.style.display = "block";
         window.setTimeout(openPopupCompletely, 1);
         
