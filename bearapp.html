@@ -65,7 +65,7 @@
           
           <div id="cal-popup">
             <div id="cal-popup-close" ontouchstart="closePopupDown();" ontouchend="closePopupUp();"><i class="material-icons vert-mid">close</i></div>
-            <div id="cal-popup-info"></div>
+            <div id="cal-popup-top"></div>
           </div>
           
           <div id="cal-arrows">
@@ -610,7 +610,7 @@
       function openPopup(time) {
         
         var popup = document.getElementById("cal-popup");
-        var popupinfo = document.getElementById("cal-popup-info");
+        var popupinfo = document.getElementById("cal-popup-top");
         
         var d = new Date(time);
         var day = d.getDay() + 1;
@@ -619,7 +619,7 @@
         
         var strDate = month + "-" + day + "-" + year;
         
-        popupinfo.innerHTML = strDate;
+        popupinfo.innerHTML = "<span style='position: absolute; top: 50%; transform: translateY(-50%); left: 10px;'>" + strDate + "</span>";
         popup.style.display = "block";
         window.setTimeout(openPopupCompletely, 1);
         
