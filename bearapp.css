@@ -451,29 +451,39 @@ body {
   
 }
 
-#review-arrow-left {
+#review-arrow-left-span {
   
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
-  font-size: 225%;
-  color: #0076FF;
-  transition: 0.1s;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   
 }
 
-#review-arrow-right {
+#review-arrow-right-span {
   
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  
+}
+
+#review-arrow-left-i {
+  
   font-size: 225%;
   color: #0076FF;
   transition: 0.1s;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  
+}
+
+#review-arrow-right-i {
+  
+  font-size: 225%;
+  color: #0076FF;
+  transition: 0.1s;
   
 }
 

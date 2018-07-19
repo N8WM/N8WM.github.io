@@ -83,10 +83,10 @@
                 <div id="review-arrows">
                   
                   <div id="review-arrow-left-div" ontouchstart="reviewarrowleftdown();" ontouchend="reviewarrowleftup();">
-                    <span id="review-arrow-left"><i class="material-icons">arrow_back</i></span>
+                    <span id="review-arrow-left-span"><i class="material-icons" id="review-arrow-left-i">arrow_back</i></span>
                   </div>
                   <div id="review-arrow-right-div" ontouchstart="reviewarrowrightdown()" ontouchend="reviewarrowrightup();">
-                    <span id="review-arrow-right"><i class="material-icons">arrow_forward</i></span>
+                    <span id="review-arrow-right-span"><i class="material-icons" id="review-arrow-right-i">arrow_forward</i></span>
                   </div>
                   
                 </div>
@@ -721,7 +721,7 @@
       
       function reviewarrowleftdown() {
         
-        var arrow = document.getElementById("review-arrow-left");
+        var arrow = document.getElementById("review-arrow-left-i");
         
         arrow.style.color = "#54C7FC";
         arrow.style.fontSize = "250%";
@@ -729,7 +729,7 @@
       
       function reviewarrowleftup() {
         
-        var arrow = document.getElementById("review-arrow-left");
+        var arrow = document.getElementById("review-arrow-left-i");
         
         arrow.style.color = "#0076FF";
         arrow.style.fontSize = "225%";
@@ -737,7 +737,7 @@
       
       function reviewarrowrightdown() {
         
-        var arrow = document.getElementById("review-arrow-right");
+        var arrow = document.getElementById("review-arrow-right-i");
         
         arrow.style.color = "#54C7FC";
         arrow.style.fontSize = "250%";
@@ -745,7 +745,7 @@
       
       function reviewarrowrightup() {
         
-        var arrow = document.getElementById("review-arrow-right");
+        var arrow = document.getElementById("review-arrow-right-i");
         
         arrow.style.color = "#0076FF";
         arrow.style.fontSize = "225%";
