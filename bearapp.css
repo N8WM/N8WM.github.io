@@ -487,17 +487,20 @@ body {
 #job-info-review-title {
   
   position: absolute;
-  top: 35%;
+  top: 25%;
   left: 50%;
   transform: translateX(-50%);
+  height: 10%;
+  width: 50%;
   font-size: 150%;
+  font-family: sans-serif;
   
 }
 
 #job-info-review-body {
   
   position: absolute;
-  top: 35%;
+  top: %;
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
