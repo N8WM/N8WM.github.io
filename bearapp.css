@@ -484,6 +484,30 @@ body {
   
 }
 
+#job-info-review-title {
+  
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+}
+
+#job-info-review-body {
+  
+  position: absolute;
+  top: 35%;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  border-radius: 13px;
+  border: solid 1px rgb(238, 238, 238);
+  overflow: auto;
+  padding: 7px;
+  
+}
+
 /* the style of each individual day... */
 
 #su {
