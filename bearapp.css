@@ -370,7 +370,7 @@ body {
   width: 90%;
   height: 10%;
   border-radius: 13px;
-  border: 1px solid rgb(238, 238, 238);
+  background-color: rgb(238, 238, 238);
   overflow: hidden;
   
 }
