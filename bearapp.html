@@ -67,20 +67,31 @@
             
             <div id="cal-popup-top">
               
-              <div id="cal-popup-title" style="position: absolute; top: 50%; transform: translateY(-50%); left: 10px;"></div>
+              <div id="cal-popup-title"></div>
               <div id="cal-popup-close" ontouchstart="closePopupDown();" ontouchend="closePopupUp();"><i class="material-icons vert-mid">close</i></div>
               
             </div>
             <div id="cal-popup-body">
               
-              <div id="progress-bar">
-                
-                <div style="width: 21%; height: 100%; background-color: green; display: inline-block; margin: 0;">
-                </div><div style="width: 12%; height: 100%; background-color: blue; display: inline-block; margin: 0;">
-                </div><div style="width: 48%; height: 100%; background-color: red; display: inline-block; margin: 0;">
-                </div><div style="width: 3%; height: 100%; background-color: yellow; display: inline-block; margin: 0;">
-                </div><div style="width: 16%; height: 100%; background-color: purple; display: inline-block; margin: 0;"></div>
-                    
+              <div id="review">
+                <div id="progress-bar"></div>
+                <div id="progress-bar-label">
+                  <div id="pg-1">12:00 am</div>
+                  <div id="pg-2">Noon</div>
+                  <div id="pg-3">11:59 pm</div>
+                </div>
+                <div id="review-arrows">
+                  
+                  <div id="review-arrow-left-div" ontouchstart="reviewarrowleftdown();" ontouchend="reviewarrowleftup();">
+                    <span id="review-arrow-left"><i class="material-icons">arrow_back</i></span>
+                  </div>
+                  <div id="review-arrow-right-div" ontouchstart="reviewarrowrightdown()" ontouchend="reviewarrowrightup();">
+                    <span id="review-arrow-right"><i class="material-icons">arrow_forward</i></span>
+                  </div>
+                  
+                </div>
+                <div id="job-info-review-title"></div>
+                <div id="job-info-review-body"></div>
               </div>
               
             </div>
@@ -706,6 +717,38 @@
           popup.style.display = "none";
         }
         
+      }
+      
+      function reviewarrowleftdown() {
+        
+        var arrow = document.getElementById("review-arrow-left");
+        
+        arrow.style.color = "#54C7FC";
+        arrow.style.fontSize = "250%";
+      }
+      
+      function reviewarrowleftup() {
+        
+        var arrow = document.getElementById("review-arrow-left");
+        
+        arrow.style.color = "#0076FF";
+        arrow.style.fontSize = "225%";
+      }
+      
+      function reviewarrowrightdown() {
+        
+        var arrow = document.getElementById("review-arrow-right");
+        
+        arrow.style.color = "#54C7FC";
+        arrow.style.fontSize = "250%";
+      }
+      
+      function reviewarrowrightup() {
+        
+        var arrow = document.getElementById("review-arrow-right");
+        
+        arrow.style.color = "#0076FF";
+        arrow.style.fontSize = "225%";
       }
       
       function newMonthTS(timestamp, offset) {  // offset is either 1 or -1, meaning forward a month or back a month
