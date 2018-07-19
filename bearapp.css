@@ -484,31 +484,37 @@ body {
   
 }
 
-#job-info-review-title {
+#job-info-review {
   
   position: absolute;
-  top: 25%;
+  top: 35%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
-  height: 10%;
-  width: 50%;
-  font-size: 150%;
+  width: 90%;
   font-family: sans-serif;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: 13px;
+  border: solid 2px rgb(238, 238, 238);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px;
+  
+}
+
+#job-info-review-title {
+  
+  font-size: 125%;
+  font-weight: 200;
+  line-height: 150%;
   
 }
 
 #job-info-review-body {
   
-  position: absolute;
-  top: %;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  border-radius: 13px;
-  border: solid 1px rgb(238, 238, 238);
-  overflow: auto;
-  padding: 7px;
+  font-size: 100%;
+  line-height: 115%;
   
 }
 
