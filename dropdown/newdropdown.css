@@ -1,1 +1,23 @@
+#edrop-1 {
+  
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 13px;
+  background-color: lightgray;
+  
+}
 
+.edrop-tbox {
+  
+  width: 40%;
+  padding: 5px;
+  font-size: 120%;
+  font-family: sans-serif;
+  border: 1px solid #BBB;
+  border-radius: 5px;
+  background-color: #FFF;
+  
+}
