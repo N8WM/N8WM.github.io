@@ -1,11 +1,14 @@
 #edrop-1 {
   
+  display: table;
+  table-layout: fixed;
   position: absolute;
   height: 50%;
   width: 50%;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
+  padding: 2%;
   border-radius: 13px;
   background-color: lightgray;
   
@@ -13,7 +16,7 @@
 
 .edrop-tbox {
   
-  width: 40%;
+  display: table-row;
   padding: 5px;
   margin: 5px;
   font-size: 120%;
@@ -28,5 +31,12 @@
   
   outline: none;
   border: 1px solid #DDD;
+  
+}
+
+.edrop-optbox {
+  
+  display: none;
+  max-height: 7em;
   
 }
