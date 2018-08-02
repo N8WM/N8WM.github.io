@@ -7,13 +7,15 @@
   <body>
     <center>
       <div id="edrop-1">
-        <input type="text" class="edrop-tbox" placeholder="type here..." onfocus="edrop_open(this, this.nextSibling)" onfocusout="edrop_close(this, this.nextSibling)" />
+        <input type="text" class="edrop-tbox" placeholder="type here..." onfocus="edrop_open(this)" onfocusout="edrop_close(this)" />
         <div class="edrop-optbox"></div>
       </div>
     </center>
     <script>
       
-      function edrop_open(tbox, optbox) {
+      function edrop_open(tbox) {
+        
+        var optbox = tbox.nextSibling;
         
         tbox.style.borderBottomLeftRadius = "0";
         tbox.style.borderBottomRightRadius = "0";
@@ -24,7 +26,9 @@
         
       }
       
-      function edrop_close(tbox, optbox) {
+      function edrop_close(tbox) {
+        
+        var optbox = tbox.nextSibling;
         
         tbox.style.borderBottomLeftRadius = "5px";
         tbox.style.borderBottomRightRadius = "5px";
