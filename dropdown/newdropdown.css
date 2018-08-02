@@ -1,7 +1,5 @@
 #edrop-1 {
   
-  display: table;
-  table-layout: fixed;
   position: absolute;
   height: 50%;
   width: 50%;
@@ -16,7 +14,6 @@
 
 .edrop-tbox {
   
-  display: table-row;
   padding: 5px;
   margin: 5px;
   font-size: 120%;
