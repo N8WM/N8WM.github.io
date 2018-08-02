@@ -28,6 +28,7 @@
   
   outline: none;
   border: 1px solid #DDD;
+  border-bottom: none;
   
 }
 
@@ -36,5 +37,9 @@
   display: none;
   max-height: 7em;
   background-color: #FFF;
+  width: 50%;
+  padding: 5px;
+  border: 1px solid #DDD;
+  border-top: none;
   
 }
