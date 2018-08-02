@@ -21,3 +21,10 @@
   background-color: #FFF;
   
 }
+
+.edrop-tbox:focus {
+  
+  outline: none;
+  border: 1px solid #DDD;
+  
+}
