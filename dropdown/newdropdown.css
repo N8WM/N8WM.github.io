@@ -1,45 +1,75 @@
 #edrop-1 {
-  
+
   position: absolute;
-  height: 50%;
   width: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  padding: 2%;
-  border-radius: 13px;
-  background-color: lightgray;
-  
+  top: 25%;
+  left: 25%;
+
 }
 
 .edrop-tbox {
-  
+
   padding: 5px;
-  width: 50%;
+  box-sizing: border-box;
+  width: 100%;
   font-size: 120%;
   font-family: sans-serif;
-  border: none;
+  border: solid 1px #BBB;
   border-radius: 9px;
-  background-color: #FFF;
-  
+
 }
 
 .edrop-tbox:focus {
-  
+
   outline: none;
-  border: 1px solid #DDD;
-  border-bottom: none;
-  
+
+}
+
+.caret {
+
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 95%;
+  top: 50%;
+  transform: translateY(-75%) rotate(-45deg);
+  border: solid 1px #BBB;
+  border-top: none;
+  border-right: none;
+  transition: transform 0.1s;
+
 }
 
 .edrop-optbox {
-  
+
+  position: absolute;
   display: none;
-  max-height: 7em;
-  background-color: #FFF;
-  width: 50%;
-  padding: 5px;
-  border: 1px solid #DDD;
+  box-sizing: border-box;
+  height: fit-content;
+  max-height: 40vh;
+  width: 100%;
+  border: solid 1px #BBB;
   border-top: none;
-  
+  overflow: auto;
+
+}
+
+.optbox-opt {
+
+  font-size: 120%;
+  font-family: sans-serif;
+  text-align: left;
+  padding: 5px;
+
+}
+
+.optbox-opt-none {
+
+  color: #BBB;
+}
+
+.optbox-opt:hover {
+
+  background-color: #CCC;
+
 }
