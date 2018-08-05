@@ -6,38 +6,83 @@
   </head>
   <body>
     <center>
-      <div id="edrop-1">
-        <input type="text" class="edrop-tbox" placeholder="type here..." onfocus="edrop_open(this)" onfocusout="edrop_close(this)" /><div class="edrop-optbox"></div>
+      <div id="edrop-1" onfocusin="edrop_open(this);" onfocusout="edrop_close(this);">
+        <input type="text" class="edrop-tbox" placeholder="type here..." onkeyup="pop_edrop(this)" /><div class="edrop-optbox"></div><div class="caret"></div>
       </div>
     </center>
     <script>
-      
-      function edrop_open(tbox) {
-        
+
+    var select =  [ "animal",
+                    [ "Squirrel", "Bird", "Cat", "Dog", "Snake", "Bear", "Wolf", "Lion", "Pig", "Tiger", "Deer", "Horse", "Monkey", "Fish", "Elephant", "Bat", "Fox", "Turtle", "Rabbit", "Rhinoceros", "Cow", "Lepard", "Dolphin", "Shark", "Otter", "Kangaroo", "Panda", "Giraffe", "Zebra", "Goat" ]
+                  ];
+    var pop_edrop_var;
+
+      function edrop_open(edrop_div) {
+
+        var tbox   = edrop_div.getElementsByTagName("INPUT")[0];
         var optbox = tbox.nextSibling;
-        
+        var caret  = optbox.nextSibling;
+
         tbox.style.borderBottomLeftRadius = "0";
         tbox.style.borderBottomRightRadius = "0";
+        tbox.style.borderBottom = "none";
         optbox.style.display = "block";
-        optbox.style.height = "100px";
         optbox.style.borderBottomLeftRadius = "9px";
         optbox.style.borderBottomRightRadius = "9px";
         optbox.style.width = tbox.style.width;
-        
+        caret.style.transform = "translateY(-25%) rotate(135deg)";
+        pop_edrop(tbox);
+
       }
-      
-      function edrop_close(tbox) {
-        
+
+      function edrop_close(edrop_div) {
+
+        var tbox   = edrop_div.getElementsByTagName("INPUT")[0];
         var optbox = tbox.nextSibling;
-        
-        tbox.style.borderBottomLeftRadius = "9px";
-        tbox.style.borderBottomRightRadius = "9px";
-        optbox.style.display = "none";
-        optbox.style.borderBottomLeftRadius = "0";
-        optbox.style.borderBottomRightRadius = "0";
-        
+        var caret  = optbox.nextSibling;
+
+        tbox.style.borderBottomLeftRadius = null;
+        tbox.style.borderBottomRightRadius = null;
+        tbox.style.borderBottom = null;
+        optbox.style.display = null;
+        optbox.style.borderBottomLeftRadius = null;
+        optbox.style.borderBottomRightRadius = null;
+        caret.style.transform = "translateY(-75%) rotate(-45deg)";
+
       }
-      
+
+      function edrop_relay(optbox_opt) {
+
+        var optbox = optbox_opt.parentElement;
+        var tbox   = optbox.previousSibling;
+
+        tbox.value = optbox_opt.innerHTML;
+
+      }
+
+      function pop_edrop(tbox) {
+
+        var optbox = tbox.nextSibling;
+        var arr = select[1];
+        var str = "";
+
+        for (var i = 0; i < arr.length; i++) {
+
+          if (tbox.value == "" || arr[i].toLowerCase().indexOf(tbox.value.toLowerCase()) != -1) {
+
+            str += "<div class='optbox-opt' onmousedown='edrop_relay(this);'>" + arr[i] + "</div>";
+          }
+        }
+
+        if (str == "") {
+
+          str += "<div class='optbox-opt optbox-opt-none'><i>No results for \"" + tbox.value.toLowerCase() + "\"</i></div>";
+        }
+
+        optbox.innerHTML = str;
+
+      }
+
     </script>
   </body>
 </html>
