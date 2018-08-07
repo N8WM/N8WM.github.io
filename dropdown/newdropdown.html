@@ -2,68 +2,116 @@
 <html>
   <head>
     <title>New Dropdown</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="newdropdown.css" />
   </head>
-  <body>
+  <body onload="initiate();">
     <center>
-      <div id="edrop-1" onfocusin="edrop_open(this);" onfocusout="edrop_close(this);">
-        <input type="text" class="edrop-tbox" placeholder="type here..." onkeyup="pop_edrop(this)" /><div class="edrop-optbox"></div><div class="caret"></div>
-      </div>
+
     </center>
     <script>
 
-    var select =  [ "animal",
-                    [ "Squirrel", "Bird", "Cat", "Dog", "Snake", "Bear", "Wolf", "Lion", "Pig", "Tiger", "Deer", "Horse", "Monkey", "Fish", "Elephant", "Bat", "Fox", "Turtle", "Rabbit", "Rhinoceros", "Cow", "Lepard", "Dolphin", "Shark", "Otter", "Kangaroo", "Panda", "Giraffe", "Zebra", "Goat" ]
-                  ];
+    var form =  [
+                  [ "animal", "add",
+                    [ "Squirrel", "Bird", "Cat", "Dog", "Snake", "Bear", "Wolf",
+                    "Lion", "Pig", "Tiger", "Deer", "Horse", "Monkey", "Fish",
+                    "Elephant", "Bat", "Fox", "Turtle", "Rabbit", "Rhinoceros",
+                    "Cow", "Lepard", "Dolphin", "Shark", "Otter", "Kangaroo",
+                    "Panda", "Giraffe", "Zebra", "Goat" ]
+                  ]
+                ];
     var pop_edrop_var;
+
+      function initiate() {
+
+        document.getElementsByTagName("center")[0].innerHTML = buildSelect(0);
+      }
+
+      function buildSelect(arrIndex) {
+
+
+        var str = "";
+        str +=  "<div data-index-number='" + arrIndex + "' class='select' onclick='edrop_open(this);' onfocusout='edrop_close(this);'>";
+        str +=    "<input type='hidden' name='" + form[arrIndex][0] + "' value='' class='edrop-hidden-input' />";
+        str +=    "<div class='edrop-sbox'><span class='edrop-sbox-prompt'>Select one...</span></div>";
+        str +=    "<i class='caret'></i>";
+        str +=    "<div class='select-inner'>";
+        str +=      "<div class='tbox-div'>";
+        str +=        "<input type='text' class='edrop-tbox' onkeyup='pop_edrop(this)' />";
+        str +=        "<div class='search-div'><i class='material-icons search'>search</i></div>";
+        str +=      "</div>";
+        str +=      "<div class='edrop-optbox'></div>";
+        str +=    "</div>";
+        str +=  "</div>";
+
+        return str;
+
+      }
 
       function edrop_open(edrop_div) {
 
-        var tbox   = edrop_div.getElementsByTagName("INPUT")[0];
-        var optbox = tbox.nextSibling;
-        var caret  = optbox.nextSibling;
+        var inner  = edrop_div.getElementsByClassName("select-inner")[0];
+        var sbox   = edrop_div.getElementsByClassName("edrop-sbox")[0];
+        var tbox   = inner.getElementsByClassName("edrop-tbox")[0];
+        var optbox = inner.getElementsByClassName("edrop-optbox")[0];
+        var caret  = edrop_div.getElementsByClassName("caret")[0];
 
-        tbox.style.borderBottomLeftRadius = "0";
-        tbox.style.borderBottomRightRadius = "0";
-        tbox.style.borderBottom = "none";
-        optbox.style.display = "block";
-        optbox.style.borderBottomLeftRadius = "9px";
-        optbox.style.borderBottomRightRadius = "9px";
-        optbox.style.width = tbox.style.width;
-        caret.style.transform = "translateY(-25%) rotate(135deg)";
+        sbox.style.borderBottomLeftRadius = "0";
+        sbox.style.borderBottomRightRadius = "0";
+        sbox.style.borderBottom = "none";
+        inner.style.display = "block";
+        caret.style.transform = "translateY(-25%) rotate(-225deg)";
+        tbox.focus();
         pop_edrop(tbox);
 
       }
 
       function edrop_close(edrop_div) {
 
-        var tbox   = edrop_div.getElementsByTagName("INPUT")[0];
-        var optbox = tbox.nextSibling;
-        var caret  = optbox.nextSibling;
+        var inner  = edrop_div.getElementsByClassName("select-inner")[0];
+        var sbox   = edrop_div.getElementsByClassName("edrop-sbox")[0];
+        var tbox   = inner.getElementsByClassName("edrop-tbox")[0];
+        var optbox = inner.getElementsByClassName("edrop-optbox")[0];
+        var caret  = edrop_div.getElementsByClassName("caret")[0];
 
-        tbox.style.borderBottomLeftRadius = null;
-        tbox.style.borderBottomRightRadius = null;
-        tbox.style.borderBottom = null;
-        optbox.style.display = null;
-        optbox.style.borderBottomLeftRadius = null;
-        optbox.style.borderBottomRightRadius = null;
+        sbox.style.borderBottomLeftRadius = null;
+        sbox.style.borderBottomRightRadius = null;
+        sbox.style.borderBottom = null;
+        inner.style.display = null;
         caret.style.transform = "translateY(-75%) rotate(-45deg)";
 
       }
 
       function edrop_relay(optbox_opt) {
 
-        var optbox = optbox_opt.parentElement;
-        var tbox   = optbox.previousSibling;
+        var edrop_div = optbox_opt.parentElement.parentElement.parentElement;
+        var sbox   = edrop_div.getElementsByClassName("edrop-sbox")[0];
+        var tbox   = edrop_div.getElementsByClassName("edrop-tbox")[0];
+        var val = "";
 
-        tbox.value = optbox_opt.innerHTML;
+        if (optbox_opt.classList.contains("optbox-opt-add")) {
+
+          val = optbox_opt.getElementsByTagName("xmp")[0].innerHTML;
+        }
+
+        else {
+
+          val = optbox_opt.innerHTML;
+        }
+
+        sbox.innerHTML = "<xmp>" + val + "</xmp>";
+        edrop_div.getElementsByClassName("edrop-hidden-input")[0].value = val;
+        tbox.value = "";
 
       }
 
       function pop_edrop(tbox) {
 
-        var optbox = tbox.nextSibling;
-        var arr = select[1];
+        var edrop_div = tbox.parentElement.parentElement.parentElement;
+        var optbox = edrop_div.getElementsByClassName("edrop-optbox")[0];
+        var ind = parseInt(edrop_div.dataset.indexNumber);
+        var add = form[ind][1];
+        var arr = form[ind][2];
         var str = "";
 
         for (var i = 0; i < arr.length; i++) {
@@ -76,7 +124,15 @@
 
         if (str == "") {
 
-          str += "<div class='optbox-opt optbox-opt-none'><i>No results for \"" + tbox.value.toLowerCase() + "\"</i></div>";
+          if (add == "") {
+
+            str += "<div class='optbox-opt optbox-opt-none'><i><xmp style='font-family: sans-serif; margin: 0;'>No results for \"" + tbox.value.toLowerCase() + "\"</xmp></i></div>";
+          }
+
+          else {
+
+            str += "<div class='optbox-opt optbox-opt-add' onmousedown='edrop_relay(this);'><i class='material-icons opt-add'>add</i>&nbsp;Add&nbsp;<i style='display: inline-block;'>\"<xmp>" + tbox.value.toLowerCase() + "</xmp>\"</i>&nbsp;?</div>"
+          }
         }
 
         optbox.innerHTML = str;
