@@ -8,11 +8,13 @@ xmp {
 
 .select {
 
-  position: absolute;
-  width: 50%;
-  top: 25%;
-  left: 25%;
+  display: inline-block;
+  position: relative;
+  width: 30%;
   font-family: sans-serif;
+  background-color: #FFF;
+  z-index: 1;
+  margin: 3%;
 
 }
 
@@ -26,6 +28,7 @@ xmp {
   border: solid 1px #BBB;
   border-radius: 9px;
   user-select: none;
+  background-color: #FFF;
 
 }
 
@@ -44,6 +47,7 @@ xmp {
   width: 100%;
   box-sizing: border-box;
   padding: 8px;
+  background-color: #FFF;
   border: solid 1px #BBB;
   border-top: none;
   border-bottom-left-radius: 9px;
@@ -56,6 +60,7 @@ xmp {
   width: 100%;
   height: fit-content;
   margin-bottom: 8px;
+  background-color: #FFF;
 
 }
 
@@ -67,6 +72,7 @@ xmp {
   font-size: 100%;
   border: solid 1px #BBB;
   border-radius: 3px;
+  background-color: #FFF;
 
 }
 
@@ -92,7 +98,7 @@ xmp {
 
 }
 
-.opt-add {
+.opt-other {
 
   font-size: 100%;
   color: #2D3;
@@ -129,6 +135,7 @@ xmp {
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
   user-select: none;
+  background-color: #FFF;
 
 }
 
@@ -140,6 +147,7 @@ xmp {
   text-align: left;
   padding: 8px;
   user-select: none;
+  background-color: #FFF;
 
 }
 
@@ -149,7 +157,7 @@ xmp {
 
 }
 
-.optbox-opt-add {
+.optbox-opt-other {
 
   display: inline-block;
 
