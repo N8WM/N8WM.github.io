@@ -1,1 +1,33 @@
+body {
+  
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  margin: 0;
+  background-color: #030609;
+}
 
+#frame {
+  
+  position: absolute;
+  width: 95vh;
+  height: 95vh;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #000;
+  border-radius: 1px;
+  
+}
+
+#player {
+  
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #2AD931;
+  margin: 0;
+}
