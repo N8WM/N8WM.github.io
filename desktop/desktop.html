@@ -4,5 +4,30 @@
     <title>Desktop</title>
   </head>
   <body>
+    <div id="oia"></div>
+    <script>
+      var pageX, pageY;
+      
+      // event handler function
+      function handler(e) {
+          e = e || window.event;
+
+          pageX = e.pageX;
+          pageY = e.pageY;
+
+          // IE 8
+          if (pageX === undefined) {
+              pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+              pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+          }
+        
+          document.getElementById("oia").innerHTML = pageX + "&nbsp;" + pageY;
+          console.log(pageX, pageY);
+      }
+
+      // attach handler to the click event of the document
+      if (document.attachEvent) document.attachEvent('onclick', handler);
+      else document.addEventListener('click', handler);
+    </script>
   </body>
 </html>
