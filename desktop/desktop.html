@@ -72,17 +72,17 @@
         
         pageX = e.pageX;
         pageY = e.pageY;
+        var diffX = pageX - selectX;
+        var diffY = pageY - selectY;
         
         var oia = document.getElementById("oia");
         var select = document.getElementById("select");
-        oia.innerHTML = "(" + selectX + ",&nbsp;" + selectY + ")";
+        oia.innerHTML = "(" + diffX + ",&nbsp;" + diffY + ")";
         oia.style.left = pageX + "px";
         oia.style.top = pageY + "px";
         
         if (selectX !== false) {
           
-          var diffX = pageX - selectX;
-          var diffY = pageY - selectY;
           if (diffX >= 0) {
             
             select.style.left = selectX;
