@@ -3,6 +3,7 @@
   <head>
     <title>Desktop</title>
     <style>
+      
       body {
         position: fixed;
         overflow: hidden;
@@ -39,6 +40,13 @@
         padding: 5px;
         border-radius: 3px;
       }
+      
+      #select {
+        position: absolute;
+        background-color: #CCC;
+        opacity: 0;
+      }
+      
     </style>
     <meta name="apple-mobile-web-app-title" content="Desktop">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -49,9 +57,12 @@
     <div id="container">
       <div id="oia"></div>
     </div>
+    <div id="select"></div>
     <script>
       
       var pageX, pageY;
+      var selectX = false;
+      var selectY = false;
       
       function handler(e) {
         
@@ -59,9 +70,36 @@
         pageY = e.pageY;
         
         var oia = document.getElementById("oia");
+        var select = document.getElementById("select");
         oia.innerHTML = "(" + pageX + ",&nbsp;" + pageY + ")";
         oia.style.left = pageX + "px";
         oia.style.top = pageY + "px";
+        
+        if (selectX) {
+          
+          var diffX = pageX - selectX;
+          var diffY = pageY - selectY;
+          if (diffX >= 0) {
+            
+            select.style.left = selectX;
+            select.style.width = diffX;
+          }
+          else {
+            
+            select.style.left = pageX;
+            select.style.width = diffX * -1;
+          }
+          if (diffY >= 0) {
+            
+            select.style.top = selectY;
+            select.style.height = diffY;
+          }
+          else {
+            
+            select.style.top = pageY;
+            select.style.height = diffY * -1;
+          }
+        }
       }
       
       if (document.attachEvent) {
@@ -76,6 +114,29 @@
         document.addEventListener('touchmove',  handler);
         document.addEventListener('touchstart', handler);
       }
+      
+      document.addEventListener('touchstart', function(e) {
+        
+        if (!selectX) {
+          
+          selectX = e.pageX;
+          selectY = e.pageY;
+        }
+      });
+      document.addEventListener('touchstart', function(e) {
+        
+        var select = document.getElementById("select");
+        selectX = e.pageX;
+        selectY = e.pageY;
+        select.style.opacity = 1;
+      });
+      document.addEventListener('touchend', function() {
+        
+        var select = document.getElementById("select");
+        selectX = false;
+        selectY = false;
+        select.style.opacity = 0;
+      });
       
     </script>
   </body>
