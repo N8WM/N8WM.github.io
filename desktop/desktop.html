@@ -77,7 +77,7 @@
         
         var oia = document.getElementById("oia");
         var select = document.getElementById("select");
-        oia.innerHTML = "(" + diffX + ",&nbsp;" + diffY + ")";
+        oia.innerHTML = "(" + pageX + ",&nbsp;" + pageY + ")";
         oia.style.left = pageX + "px";
         oia.style.top = pageY + "px";
         
@@ -85,23 +85,23 @@
           
           if (diffX >= 0) {
             
-            select.style.left = selectX;
-            select.style.width = diffX;
+            select.style.left = selectX + "px";
+            select.style.width = diffX + "px";
           }
           else {
             
-            select.style.left = pageX;
-            select.style.width = diffX * -1;
+            select.style.left = pageX + "px";
+            select.style.width = diffX * -1 + "px";
           }
           if (diffY >= 0) {
             
-            select.style.top = selectY;
-            select.style.height = diffY;
+            select.style.top = selectY + "px";
+            select.style.height = diffY + "px";
           }
           else {
             
-            select.style.top = pageY;
-            select.style.height = diffY * -1;
+            select.style.top = pageY + "px";
+            select.style.height = diffY * -1 + "px";
           }
         }
         else {
