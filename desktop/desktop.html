@@ -45,6 +45,10 @@
         position: absolute;
         background-color: #CCC;
         opacity: 0;
+        width: 0;
+        height: 0;
+        top: 0;
+        left: 0;
       }
       
     </style>
@@ -100,6 +104,13 @@
             select.style.height = diffY * -1;
           }
         }
+        else {
+          
+          select.style.left = null;
+          select.style.top = null;
+          select.style.width = null;
+          select.style.height = null;
+        }
       }
       
       if (document.attachEvent) {
@@ -123,19 +134,19 @@
           selectY = e.pageY;
         }
       });
-      document.addEventListener('touchstart', function(e) {
+      document.addEventListener('mousedown', function(e) {
         
         var select = document.getElementById("select");
         selectX = e.pageX;
         selectY = e.pageY;
-        select.style.opacity = 1;
+        select.style.opacity = 0;
       });
-      document.addEventListener('touchend', function() {
+      document.addEventListener('mouseup', function() {
         
         var select = document.getElementById("select");
         selectX = false;
         selectY = false;
-        select.style.opacity = 0;
+        select.style.opacity = 1;
       });
       
     </script>
