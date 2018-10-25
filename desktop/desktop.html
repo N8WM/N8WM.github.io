@@ -4,7 +4,8 @@
     <title>Desktop</title>
     <style>
       body {
-        position: fixed;
+        position: absolute;
+        overflow: hidden;
         margin: 0;
         width: 100%;
         height: 100%;
@@ -13,10 +14,21 @@
         background-color: #000;
         user-select: none;
         -webkit-user-select: none;
+        -webkit-overflow-scrolling: auto;
       }
       
       body:hover {
         cursor: none;
+      }
+      
+      #container {
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        -webkit-overflow-scrolling: auto;
       }
       
       #oia {
@@ -34,7 +46,9 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
   </head>
   <body>
-    <div id="oia"></div>
+    <div id="container">
+      <div id="oia"></div>
+    </div>
     <script>
       var pageX, pageY;
       
