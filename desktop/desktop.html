@@ -32,25 +32,17 @@
     <script>
       var pageX, pageY;
       
-      // event handler function
       function handler(e) {
-          e = e || window.event;
-
-          pageX = e.pageX;
-          pageY = e.pageY;
-
-          // IE 8
-          if (pageX === undefined) {
-              pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-              pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-          }
-          var oia = document.getElementById("oia");
-          oia.innerHTML = "(" + pageX + ",&nbsp;" + pageY + ")";
-          oia.style.left = pageX + "px";
-          oia.style.top = pageY + "px";
+        
+        pageX = e.pageX;
+        pageY = e.pageY;
+        
+        var oia = document.getElementById("oia");
+        oia.innerHTML = "(" + pageX + ",&nbsp;" + pageY + ")";
+        oia.style.left = pageX + "px";
+        oia.style.top = pageY + "px";
       }
-
-      // attach handler to the click event of the document
+      
       if (document.attachEvent) document.attachEvent('onmousemove', handler);
       else document.addEventListener('mousemove', handler);
       if (document.attachEvent) document.attachEvent('ontouchmove', handler);
