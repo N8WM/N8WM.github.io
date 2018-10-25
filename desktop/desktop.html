@@ -53,6 +53,8 @@
       // attach handler to the click event of the document
       if (document.attachEvent) document.attachEvent('onmousemove', handler);
       else document.addEventListener('mousemove', handler);
+      if (document.attachEvent) document.attachEvent('ontouchmove', handler);
+      else document.addEventListener('touchmove', handler);
     </script>
   </body>
 </html>
