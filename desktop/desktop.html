@@ -14,6 +14,7 @@
       }
       
       #oia {
+        position: absolute;
         color: #FFF;
         transform: translateX(-50%) translateY(-50%);
       }
@@ -37,7 +38,7 @@
               pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
           }
           var oia = document.getElementById("oia");
-          oia.innerHTML = pageX + "&nbsp;" + pageY;
+          oia.innerHTML = "(" + pageX + ",&nbsp;" + pageY + ")";
           oia.style.left = pageX + "px";
           oia.style.top = pageY + "px";
           console.log(pageX, pageY);
