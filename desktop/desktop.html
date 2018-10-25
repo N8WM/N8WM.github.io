@@ -44,11 +44,13 @@
       #select {
         position: absolute;
         background-color: #CCC;
+        border: solid 1px #999;
         opacity: 0;
         width: 0;
         height: 0;
         top: 0;
         left: 0;
+        border-radius: 3px;
       }
       
     </style>
@@ -139,14 +141,14 @@
         var select = document.getElementById("select");
         selectX = e.pageX;
         selectY = e.pageY;
-        select.style.opacity = 1;
+        select.style.opacity = 0.5;
       });
       document.addEventListener('mouseup', function() {
         
         var select = document.getElementById("select");
         selectX = false;
         selectY = false;
-        select.style.opacity = 0;
+        select.style.opacity = null;
       });
       
     </script>
