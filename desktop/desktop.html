@@ -50,6 +50,7 @@
       <div id="oia"></div>
     </div>
     <script>
+      
       var pageX, pageY;
       
       function handler(e) {
@@ -63,12 +64,19 @@
         oia.style.top = pageY + "px";
       }
       
-      if (document.attachEvent) document.attachEvent('onmousemove', handler);
-      else document.addEventListener('mousemove', handler);
-      if (document.attachEvent) document.attachEvent('ontouchmove', handler);
-      else document.addEventListener('touchmove', handler);
-      if (document.attachEvent) document.attachEvent('ontouchstart', handler);
-      else document.addEventListener('touchstart', handler);
+      if (document.attachEvent) {
+        
+        document.attachEvent('onmousemove',  handler);
+        document.attachEvent('ontouchmove',  handler);
+        document.attachEvent('ontouchstart', handler);
+      }
+      else {
+        
+        document.addEventListener('mousemove',  handler);
+        document.addEventListener('touchmove',  handler);
+        document.addEventListener('touchstart', handler);
+      }
+      
     </script>
   </body>
 </html>
