@@ -15,6 +15,7 @@
       
       #oia {
         color: #FFF;
+        transform: translateX(-50%) translateY(-50%);
       }
     </style>
   </head>
@@ -35,8 +36,10 @@
               pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
               pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
           }
-        
-          document.getElementById("oia").innerHTML = pageX + "&nbsp;" + pageY;
+          var oia = document.getElementById("oia");
+          oia.innerHTML = pageX + "&nbsp;" + pageY;
+          oia.style.left = pageX + "px";
+          oia.style.top = pageY + "px";
           console.log(pageX, pageY);
       }
 
