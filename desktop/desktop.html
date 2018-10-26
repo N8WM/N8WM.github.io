@@ -153,7 +153,7 @@
       document.addEventListener('mousedown',  handler);
       document.addEventListener('mousedown', selectStart);
       document.addEventListener('mouseup', selectEnd);
-      document.getElementByClassName("folder")[0].addEventListener('mousedown', selectFolder, self);
+      document.getElementsByClassName("folder")[0].addEventListener('mousedown', selectFolder, self);
       
       function selectStart(e) {
         
