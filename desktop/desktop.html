@@ -62,10 +62,10 @@
         border-radius: 9px;
         border: solid 1px #999;
         background-color: #FFF;
-        
+        margin: 30px;
       }
       
-      .folder:focus {
+      .folder:focus, .folder:active {
         background-color: #EFE;
         border: solid 1px #9F9;
         outline: none;
@@ -82,6 +82,7 @@
       .folder-title {
         position: relative;
         top: 50%;
+        transform: translateY(-50%);
         padding-left: 10px;
         color: #999;
         font-family: sans-serif;
