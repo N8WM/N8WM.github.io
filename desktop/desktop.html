@@ -65,12 +65,6 @@
         margin: 30px;
       }
       
-      .folder:focus, .folder:active {
-        background-color: #EFE;
-        border: solid 1px #9F9;
-        outline: none;
-      }
-      
       .folder-icon {
         position: relative;
         top: 50%;
@@ -80,10 +74,10 @@
       }
       
       .folder-title {
-        position: relative;
-        top: 50%;
+        position: absolute;
+        top: 52%;
         transform: translateY(-50%);
-        padding-left: 10px;
+        padding-left: 20px;
         color: #999;
         font-family: sans-serif;
       }
@@ -98,7 +92,7 @@
   </head>
   <body>
     <div id="container">
-      <div class="folder"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder</span></div>
+      <div class="folder" onmousedown="selectFolder(this)"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder</span></div>
       
       <div id="pointer"></div>
     </div>
@@ -174,6 +168,12 @@
         selectX = false;
         selectY = false;
         select.style.opacity = null;
+      }
+      
+      function selectFolder(folder) {
+        folder.style.backgroundColor = "#EFE";
+        folder.style.border = "solid 1px #9F9";
+        folder.style.outline = "none";
       }
       
     </script>
