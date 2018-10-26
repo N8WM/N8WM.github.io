@@ -128,14 +128,14 @@
           selectY = e.pageY;
         }
       });
-      document.addEventListener('mousedown', function(e) {
+      document.addEventListener('touchstart', function(e) {
         
         var select = document.getElementById("select");
         selectX = e.pageX;
         selectY = e.pageY;
         select.style.opacity = 0.5;
       });
-      document.addEventListener('mouseup', function() {
+      document.addEventListener('touchend', function() {
         
         var select = document.getElementById("select");
         selectX = false;
