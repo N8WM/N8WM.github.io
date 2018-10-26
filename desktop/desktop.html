@@ -92,7 +92,7 @@
   </head>
   <body>
     <div id="container">
-      <div class="folder"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder</span></div>
+      <div class="folder" onmousedown="selectFolder(this); console.log('clicked');"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder</span></div>
       
       <div id="pointer"></div>
     </div>
@@ -153,7 +153,6 @@
       document.addEventListener('mousedown',  handler);
       document.addEventListener('mousedown', selectStart);
       document.addEventListener('mouseup', selectEnd);
-      document.getElementsByClassName("folder")[0].addEventListener('mousedown', selectFolder, self);
       
       function selectStart(e) {
         
