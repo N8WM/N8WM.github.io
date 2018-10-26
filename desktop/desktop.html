@@ -51,7 +51,7 @@
         top: 0;
         left: 0;
         border-radius: 3px;
-        transition: opacity 0.1s;
+        transition: opacity 0.2s;
       }
       
     </style>
@@ -122,26 +122,28 @@
       
       document.addEventListener('touchstart', function(e) {
         
-        if (!selectX) {
-          
-          selectX = e.pageX;
-          selectY = e.pageY;
-        }
+        selectStart(e);
       });
-      document.addEventListener('touchstart', function(e) {
+      document.addEventListener('touchend', function() {
+        
+        selectEnd();
+      });
+      
+      function selectStart(e) {
         
         var select = document.getElementById("select");
         selectX = e.pageX;
         selectY = e.pageY;
         select.style.opacity = 0.5;
-      });
-      document.addEventListener('touchend', function() {
+      }
+      
+      function selectEnd() {
         
         var select = document.getElementById("select");
         selectX = false;
         selectY = false;
         select.style.opacity = null;
-      });
+      }
       
     </script>
   </body>
