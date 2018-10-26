@@ -120,11 +120,11 @@
       document.addEventListener('touchstart', handler);
       document.addEventListener('mousedown',  handler);
       
-      document.addEventListener('touchstart', function(e) {
+      document.addEventListener('mousedown', function(e) {
         
         selectStart(e);
       });
-      document.addEventListener('touchend', function() {
+      document.addEventListener('mouseup', function() {
         
         selectEnd();
       });
