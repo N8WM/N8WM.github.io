@@ -12,7 +12,7 @@
         height: 100%;
         top: 0;
         left: 0;
-        background-color: #000;
+        background-color: #FFF;
         user-select: none;
         -webkit-user-select: none;
         -webkit-overflow-scrolling: auto;
@@ -32,13 +32,15 @@
         -webkit-overflow-scrolling: auto;
       }
       
-      #oia {
+      #pointer {
         position: absolute;
-        color: #FFF;
+        width: 8px;
+        height: 8px;
         transform: translateX(-50%) translateY(-50%);
-        background-color: #A00;
-        padding: 5px;
-        border-radius: 3px;
+        background-color: #000;
+        opacity: 0;
+        border: solid 1px #000;
+        border-radius: 50%;
       }
       
       #select {
@@ -51,6 +53,7 @@
         top: 0;
         left: 0;
         border-radius: 3px;
+        transition: opacity 0.1s;
       }
       
     </style>
@@ -61,7 +64,7 @@
   </head>
   <body>
     <div id="container">
-      <div id="oia"></div>
+      <div id="pointer"></div>
     </div>
     <div id="select"></div>
     <script>
@@ -77,11 +80,10 @@
         var diffX = pageX - selectX;
         var diffY = pageY - selectY;
         
-        var oia = document.getElementById("oia");
+        var pointer = document.getElementById("pointer");
         var select = document.getElementById("select");
-        oia.innerHTML = "(" + pageX + ",&nbsp;" + pageY + ")";
-        oia.style.left = pageX + "px";
-        oia.style.top = pageY + "px";
+        pointer.style.left = pageX + "px";
+        pointer.style.top = pageY + "px";
         
         if (selectX !== false) {
           
@@ -115,18 +117,10 @@
         }
       }
       
-      if (document.attachEvent) {
-        
-        document.attachEvent('onmousemove',  handler);
-        document.attachEvent('ontouchmove',  handler);
-        document.attachEvent('ontouchstart', handler);
-      }
-      else {
-        
-        document.addEventListener('mousemove',  handler);
-        document.addEventListener('touchmove',  handler);
-        document.addEventListener('touchstart', handler);
-      }
+      document.addEventListener('mousemove',  handler);
+      document.addEventListener('touchmove',  handler);
+      document.addEventListener('touchstart', handler);
+      document.addEventListener('mousedown',  handler);
       
       document.addEventListener('touchstart', function(e) {
         
