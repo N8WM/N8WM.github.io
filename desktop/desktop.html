@@ -43,7 +43,8 @@
       }
       
       .folder {
-        position: absolute;
+        position: relative;
+        display: inline-block;
         width: 200px;
         height: 50px;
         border-radius: 9px;
@@ -79,7 +80,8 @@
   </head>
   <body>
     <div id="container">
-      <div class="folder" onmousedown="selectFolder(this)"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder</span></div>
+      <div class="folder1" onfocusin="selectFolder(this)" onfocusout="unselectFolder(this)"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder</span></div>
+      <div class="folder2" onfocusin="selectFolder(this)" onfocusout="unselectFolder(this)"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder</span></div>
     </div>
     <div id="select"></div>
     <script>
@@ -153,11 +155,17 @@
       }
       
       function selectFolder(folder) {
-        console.log(this);
-        console.log(folder);
-        folder.style.backgroundColor = "#EFE";
-        folder.style.border = "solid 1px #9F9";
+        
+        folder.style.backgroundColor = "#EEF";
+        folder.style.border = "solid 1px #99F";
         folder.style.outline = "none";
+      }
+      
+      function unselectFolder(folder) {
+        
+        folder.style.backgroundColor = null;
+        folder.style.border = null;
+        folder.style.outline = null;
       }
       
     </script>
