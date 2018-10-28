@@ -94,7 +94,7 @@
           
           folders[n].setAttribute("onfocusin", "selectFolder(this)");
           folders[n].setAttribute("onfocusout", "unselectFolder(this)");
-          folders[n].setAttribute("tabindex", n);
+          folders[n].setAttribute("tabindex", n + 1);
           folders[n].innerHTML = "<i class='material-icons folder-icon'>folder</i><span class='folder-title'>" + folders[n].innerHTML + "</span>";
         }
       }
