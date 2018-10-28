@@ -78,13 +78,26 @@
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
-  <body>
+  <body onload="initialize()">
     <div id="container">
-      <div class="folder" onfocusin="selectFolder(this)" onfocusout="unselectFolder(this)"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder 1</span></div>
-      <div class="folder" onfocusin="selectFolder(this)" onfocusout="unselectFolder(this)"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder 2</span></div>
+      <div class="folder">Folder 1</div>
+      <div class="folder">Folder 2</div>
     </div>
     <div id="select"></div>
     <script>
+      
+      function initialize() {
+        
+        var folders = document.getElementsByClassName("folder");
+        
+        for (var n = 0; n < folders.length; n++) {
+          
+          folders[n].onfocusin = "selectFolder(this)";
+          folders[n].onfocusout = "unselectFolder(this)";
+          folders[n].tabindex = n;
+          folders[n].innerHTML = "<i class='material-icons folder-icon'>folder</i><span class='folder-title'>" + folders[n].innerHTML + "</span>";
+        }
+      }
       
       var pageX, pageY;
       var selectX = false;
