@@ -59,6 +59,18 @@
         margin-top: 30px;
       }
       
+      .folder-red {
+        background-color: rgb(248, 58, 34) !important;
+      }
+      
+      .folder-blue {
+        background-color: rgb(73, 134, 231) !important;
+      }
+      
+      .folder-green {
+        background-color: rgb(123, 209, 72) !important;
+      }
+      
       .folder-icon {
         position: relative;
         top: 50%;
@@ -77,6 +89,7 @@
         transform: translateY(-50%);
         padding-left: 28px;
         font-weight: 500;
+        white-space: nowrap;
       }
       
     </style>
@@ -90,8 +103,9 @@
   </head>
   <body onload="initialize()">
     <div id="container">
-      <div class="folder">Folder 1</div>
-      <div class="folder">Folder 2</div>
+      <div class="folder folder-blue">Blue Folder</div>
+      <div class="folder folder-green">Green Folder</div>
+      <div class="folder folder-red">Really Cool Stuff in Red Folder</div>
     </div>
     <div id="select"></div>
     <script>
