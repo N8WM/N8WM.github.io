@@ -43,8 +43,8 @@
       }
       
       .folder {
-        position: absolute;
-        /*display: inline-block;*/
+        position: relative;
+        display: inline-block;
         width: 200px;
         height: 50px;
         border-radius: 9px;
@@ -80,7 +80,8 @@
   </head>
   <body>
     <div id="container">
-      <div class="folder1" onfocusin="selectFolder(this)" onfocusout="unselectFolder(this)"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder</span></div>
+      <div class="folder" onfocusin="selectFolder(this)" onfocusout="unselectFolder(this)"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder 1</span></div>
+      <div class="folder" onfocusin="selectFolder(this)" onfocusout="unselectFolder(this)"><i class="material-icons folder-icon">folder</i><span class="folder-title">Folder 2</span></div>
     </div>
     <div id="select"></div>
     <script>
