@@ -59,15 +59,15 @@
         margin-top: 30px;
       }
       
-      .folder-red {
+      .folder-red-icon {
         background-color: rgb(248, 58, 34) !important;
       }
       
-      .folder-blue {
+      .folder-blue-icon {
         background-color: rgb(73, 134, 231) !important;
       }
       
-      .folder-green {
+      .folder-green-icon {
         background-color: rgb(123, 209, 72) !important;
       }
       
@@ -115,11 +115,14 @@
         var folders = document.getElementsByClassName("folder");
         
         for (var n = 0; n < folders.length; n++) {
-          
+          var color = "";
+          if (folders[n].classList.length > 1) {
+            color = " " + folders[n].classList[1] + "-icon";
+          }
           folders[n].setAttribute("ontouchstart", "selectFolder(this)");
           folders[n].setAttribute("ontouchend", "unselectFolder(this)");
           folders[n].setAttribute("tabindex", n + 1);
-          folders[n].innerHTML = "<i class='material-icons folder-icon'>folder</i><span class='folder-title'>" + folders[n].innerHTML + "</span>";
+          folders[n].innerHTML = "<i class='material-icons folder-icon" + color + "'>folder</i><span class='folder-title'>" + folders[n].innerHTML + "</span>";
         }
       }
       
