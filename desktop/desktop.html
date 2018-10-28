@@ -92,9 +92,9 @@
         
         for (var n = 0; n < folders.length; n++) {
           
-          folders[n].onfocusin = "selectFolder(this)";
-          folders[n].onfocusout = "unselectFolder(this)";
-          folders[n].tabindex = n;
+          folders[n].setAttribute("onfocusin", "selectFolder(this)");
+          folders[n].setAttribute("onfocusout", "unselectFolder(this)");
+          folders[n].setAttribute("tabindex", n);
           folders[n].innerHTML = "<i class='material-icons folder-icon'>folder</i><span class='folder-title'>" + folders[n].innerHTML + "</span>";
         }
       }
