@@ -20,6 +20,7 @@
         user-select: none;
         -webkit-user-select: none;
         -webkit-overflow-scrolling: auto;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       }
       
       #container {
@@ -54,7 +55,8 @@
         border-radius: 6px;
         border: solid 1px #E8EAED;
         background-color: #FFF;
-        margin: 30px;
+        margin-left: 30px;
+        margin-top: 30px;
       }
       
       .folder-icon {
@@ -156,8 +158,8 @@
       document.addEventListener('touchmove',  handler);
       document.addEventListener('touchstart', handler);
       document.addEventListener('mousedown',  handler);
-      document.addEventListener('mousedown', selectStart);
-      document.addEventListener('mouseup', selectEnd);
+      document.addEventListener('touchstart', selectStart);
+      document.addEventListener('touchend', selectEnd);
       
       function selectStart(e) {
         
