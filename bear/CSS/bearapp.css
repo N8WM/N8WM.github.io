@@ -1,0 +1,292 @@
+body {
+    
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    -webkit-overflow-scrolling: auto;
+}
+
+#bod {
+    
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    -webkit-overflow-scrolling: auto;
+}
+
+#duration {
+    
+    color: darkgray;
+    font-family: sans-serif;
+    font-size: 200%;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none; -o-user-select:none;
+    transition: color, 0.3s;
+}
+
+#clock_io {
+    
+    -webkit-appearance: none;
+    border: none;
+    color: white;
+    font-family: sans-serif;
+    font-size: 200%;
+    border-radius: 7px;
+    padding: 10px;
+    transition: width 0.1s, background-color 1s;
+    overflow: hidden;
+    white-space: nowrap;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#clock_io:focus {
+    
+    -webkit-appearance: none;
+    outline: none;
+}
+
+.title {
+    
+    color: darkgray;
+    font-family: sans-serif;
+    font-size: 200%;
+    white-space: nowrap;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none; -o-user-select:none;
+}
+
+.content {
+    
+    color: black;
+    font-family: sans-serif;
+    font-size: 100%;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none; -o-user-select:none;
+}
+
+.page { /* both clock in/out and calendar page */
+    
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    overflow: hidden;
+    transition: left 0.3s;
+}
+
+#clock { /* clock in/out page */
+    
+    left: 0%;
+}
+
+#info_clocko { /* calendar page */
+    
+    left: 100%;
+}
+
+#clock-select { /* selector button for clock in/out */
+    
+    display: inline;
+    position: absolute;
+    left: 0%;
+    color: black;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    z-index: 3;
+}
+
+#info_clocko-select { /* selector button for calendar */
+    
+    display: inline;
+    position: absolute;
+    left: 50%;
+    color: black;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    z-index: 3;
+}
+
+.vert-mid { /* assists with vertical alignment of page selectors  */
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+#page_select { /* div encompassing page selectors */
+    
+    background-color: rgba(169, 169, 169, 0.5);
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+#darkener { /* shows which page is selected */
+    
+    background-color: rgba(169, 169, 169, 0.5);
+    position: absolute;
+    height: 10%;
+    width: 50%;
+    bottom: 0;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+/* ======= CALENDAR ======= */
+
+#cal-t { /* titles "calendar" */
+    
+    position: absolute;
+    height: 15%;
+    top: 0;
+    left: 50%;
+    width: 0;
+    transform: translateX(-50%);
+    overflow: hidden;
+    transition: width 0.15s;
+}
+
+#cal-t-inner {
+    
+    position: absolute;
+    width: fit-content;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#calendar { /* div encompassing calendar */
+    
+    position: absolute;
+    top: 15%;
+    width: 90%;
+    height: 70%;
+    border-radius: 7px;
+    border: solid 1px lightgray;
+    background-color: lightgray;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none; -o-user-select:none;
+}
+
+#monthSlot1 {
+    
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#monthSlot2 {
+    
+    position: absolute;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+}
+
+.data {
+    
+    vertical-align: top;
+}
+
+.data-date {
+    
+    position: relative;
+    border-radius: 5px;
+    left: 3px;
+    top: 3px;
+    padding: 3px;
+    background-color: darkgray;
+    font-family: sans-serif;
+    font-size: 75%;
+    text-align: center;
+    color: white;
+}
+
+#cal-arrows {
+    
+    position: absolute;
+    top: 85%;
+    width: 100%;
+    height: 15%;
+    
+}
+
+#cal-L-arrow {
+    
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#cal-R-arrow {
+    
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.tag {
+    
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 50%;
+    color: darkgray;
+    left: 5px;
+    top: 5px;
+}
+
+/* the style of each individual day... */
+
+#su {
+    
+    top: 0;
+}
+
+#mo {
+    
+    top: 14.28%;
+}
+
+#tu {
+    
+    top: 28.57%;
+}
+
+#we {
+    
+    top: 42.85%;
+}
+
+#th {
+    
+    top: 57.14%;
+}
+
+#fr {
+    
+    top: 71.42%;
+}
+
+#sa {
+    
+    top: 85.71%;
+}
