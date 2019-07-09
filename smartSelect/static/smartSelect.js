@@ -145,6 +145,7 @@ function Select_ssel(elem_ssel) {
             this_ssel.cancelCollapse = false;
           } else {
             this.dragging = false;
+          }
         });
       }
     }
