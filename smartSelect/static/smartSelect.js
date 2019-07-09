@@ -143,7 +143,8 @@ function Select_ssel(elem_ssel) {
             let top = this_ssel.smartElem.getElementsByClassName("select-top-ssel")[0];
             this_ssel.smartElem.style.height = top.offsetHeight + "px";
             this_ssel.cancelCollapse = false;
-          }
+          } else {
+            this.dragging = false;
         });
       }
     }
