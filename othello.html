@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Othello</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <style>
       td {
         border-radius: 9px;
@@ -14,31 +15,25 @@
   <body>
     <h1>Othello</h1>
     <h3>the game</h3>
-    <table>
-      <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-      <tr>
-        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-      </tr>
-    </table>
+    <div id="board"></div>
+    <script>
+      $(function() {
+        let rows = 8;
+        let cols = 8;
+        let board = $("#board");
+        let tableStr = "<table>";
+        for (row = 0; row < rows; row++) {
+          let idStr = "r" + row;
+          tableStr += "<tr>";
+          for (col = 0; col < cols; col++) {
+            idStr += "c" + col;
+            tableStr += "<td id=" + idStr + "></td>";
+          }
+          tableStr += "</tr>";
+        }
+        tableStr += "</table>";
+        board.innerHTML = tableStr;
+      });
+    </script>
   </body>
 </html>
