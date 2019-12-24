@@ -25,8 +25,7 @@
           let idStr = "r" + row;
           tableStr += "<tr>";
           for (col = 0; col < cols; col++) {
-            idStr += "c" + col;
-            tableStr += "<td id=" + idStr + "></td>";
+            tableStr += "<td id=" + idStr + "c" + col + "></td>";
           }
           tableStr += "</tr>";
         }
