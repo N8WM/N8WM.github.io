@@ -56,7 +56,13 @@
       }
       
       function checkClick(id) {
-        $("#" + id).css("background-color", "#66F");
+        $("#" + id).css("background-color", (turn==="blue"?"#66F":"#F66"));
+        nextTurn();
+      }
+      
+      function nextTurn() {
+        turn = turn==="blue"?"red":"blue";
+        $("#dialogue").html(turn==="blue"?dialogues[0]:dialogues[1]);
       }
       
       $(reset);
