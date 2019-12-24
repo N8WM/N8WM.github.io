@@ -6,20 +6,33 @@
     <style>
       td {
         border-radius: 9px;
-        border: solid 3px #000;
         padding: 20px;
-        background-color: #AAA;
+        background-color: #CCC;
+      }
+      #dialogue {
+        color: #CCC
       }
     </style>
   </head>
   <body>
-    <h1>Othello</h1>
-    <h3>the game</h3>
+    <h1 style="margin: 5px;">Othello</h1>
+    <h3 style="margin: 5px;">the game</h3>
+    <div id="dialogue"></div>
     <div id="board"></div>
     <script>
-      $(document).ready(function() {
-        let rows = 8;
-        let cols = 8;
+      var rows = 8;
+      var cols = 8;
+      
+      var dialogues = [
+        "<i style='color: #66F'><b>Blue's<b></i> turn",
+        "<i style='color: #F66'><b>Red's<b></i> turn",
+        "<i style='color: #66F'><b>Blue<b></i> wins!",
+        "<i style='color: #F66'><b>Red<b></i> wins!",
+      ];
+      
+      var turn;
+      
+      function buildTable() {
         var tableStr = "<table>";
         for (row = 0; row < rows; row++) {
           let idStr = "r" + row;
@@ -31,7 +44,23 @@
         }
         tableStr += "</table>";
         $("#board").html(tableStr);
-      });
+        reset();
+      }
+      
+      function reset() {
+        buildTable();
+        $("#dialogue").html(dialogues[0]); // blue's turn
+        turn = "blue";
+        $("td").on("click", function(e) {
+          checkClick(e.id);
+        });
+      }
+      
+      function checkClick(id) {
+        $("#" + id).css("background-color", "#66F");
+      }
+      
+      $(reset);
     </script>
   </body>
 </html>
