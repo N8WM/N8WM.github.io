@@ -5,7 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
       td {
-        border-radius: 9px;
+        border-radius: 20px;
         padding: 20px;
         background-color: #CCC;
       }
@@ -20,8 +20,7 @@
     <div id="dialogue"></div>
     <div id="board"></div>
     <script>
-      var rows = 8;
-      var cols = 8;
+      var size = 8;
       
       var dialogues = [
         "<i style='color: #66F'><b>Blue's</b></i> turn",
@@ -33,11 +32,11 @@
       var turn;
       
       function buildTable() {
-        var tableStr = "<table>";
-        for (row = 0; row < rows; row++) {
+        let tableStr = "<table>";
+        for (row = 0; row < size; row++) {
           let idStr = "r" + row;
           tableStr += "<tr>";
-          for (col = 0; col < cols; col++) {
+          for (col = 0; col < size; col++) {
             tableStr += "<td id=" + idStr + "c" + col + "></td>";
           }
           tableStr += "</tr>";
@@ -53,18 +52,108 @@
         $("td").on("click", function(e) {
           checkClick(e.target.id);
         });
+        let centerColors = ["r"+(size/2-1)+"c"+(size/2-1), "r"+(size/2-1)+"c"+(size/2), "r"+(size/2)+"c"+(size/2-1), "r"+(size/2)+"c"+(size/2)];
+        flipColors(centerColors, "nah", true);
       }
       
       function checkClick(id) {
-        if (!$("#" + id).css()["background-color"]) {
-          $("#" + id).css("background-color", (turn==="blue"?"#66F":"#F66"));
-          nextTurn();
+        if (typeof $("#" + id).data("color") === "undefined") {
+          let flippedColors = getFlippedColors(id, turn);
+          if (flippedColors.length > 0) {
+            $("#" + id).css("background-color", (turn==="blue"?"#66F":"#F66"));
+            $("#" + id).data("color", turn);
+            setTimeout(() => {
+              flipColors(flippedColors, turn);
+              nextTurn();
+            }, 300);
+          }
         }
       }
       
       function nextTurn() {
         turn = turn==="blue"?"red":"blue";
         $("#dialogue").html(turn==="blue"?dialogues[0]:dialogues[1]);
+        
+      }
+      
+      function getFlippedColors(id, thisColor) {
+        let flippedColors = [];
+        let row = parseInt(id.substring(1, id.indexOf("c")));
+        let col = parseInt(id.substring(id.indexOf("c") + 1));
+        let thisHoriz = [];
+        let thisHorizIndex;
+        let thisVert = []
+        let thisVertIndex;
+        for (i = 0; i < size; i++) {
+          thisHoriz.push(["r"+row+"c"+i, $("r"+row+"c"+i).data("color")]);
+          if (i = col) {
+            thisHorizIndex = i;
+          }
+          thisVert.push(["r"+i+"c"+col, $("r"+i+"c"+col).data("color")]);
+          if (i = row) {
+            thisVertIndex = i;
+          }
+        }
+        let startDiagDownRow = max(row-col,0);
+        let startDiagDownCol = max(col-row,0);
+        let thisDiagDown = [];
+        let thisDiagDownIndex;
+        for (i = 0; startDiagDownRow+i < size && startDiagDownCol+i < size; i++) {
+          thisDiagDown.push(["r"+(startDiagDownRow+i)+"c"+(startDiagDownCol+i), $("r"+(startDiagDownRow+i)+"c"+(startDiagDownCol+i)).data("color")]);
+          if (startDiagDownRow+i === row && startDiagDownCol+i === col) {
+            thisDiagDownIndex = i;
+          }
+        }
+        let startDiagUpRow = row+min(size-row-1,col);
+        let startDiagUpCol = col-min(size-row-1,col);
+        let thisDiagUp = [];
+        let thisDiagUpIndex;
+        for (i = 0; startDiagDownRow-i >= 0 && startDiagDownCol+i < size; i++) {
+          thisDiagUp.push(["r"+(startDiagDownRow-i)+"c"+(startDiagDownCol+i), $("r"+(startDiagDownRow-i)+"c"+(startDiagDownCol+i)).data("color")]);
+          if (startDiagDownRow-i === row && startDiagDownCol+i === col) {
+            thisDiagUpIndex = i;
+          }
+        }
+        $.merge(flippedColors, getFlippedArray(thisHoriz, thisHorizIndex));
+        $.merge(flippedColors, getFlippedArray(thisVert, thisVertIndex));
+        $.merge(flippedColors, getFlippedArray(thisDiagDown, thisDiagDownIndex));
+        $.merge(flippedColors, getFlippedArray(thisDiagUp, thisDiagUpIndex));
+        function getFlippedArray(array, index) {
+          let flipArray = [];
+          let flipArrayTmp = [];
+          let i = index + 1;
+          while (i < size && array[i][1] === (array[index][1]==="blue"?"red":"blue")) {
+            flipArrayTmp.push(array[i][0]);
+            i++;
+          }
+          if (i < size && array[i][1]===array[index][1]) {
+            $.merge(flipArray, flipArrayTmp);
+          }
+          flipArrayTmp = [];
+          i = index - 1;
+          while (i >= 0 && array[i][1] === (array[index][1]==="blue"?"red":"blue")) {
+            flipArrayTmp.push(array[i][0]);
+            i--;
+          }
+          if (i >= 0 && array[i][1]===array[index][1]) {
+            $.merge(flipArray, flipArrayTmp);
+          }
+          return flipArray;
+        }
+        function max(a, b) {
+          return a>b?a:b;
+        }
+        function min(a, b) {
+          return a<b?a:b;
+        }
+        return flippedColors;
+      }
+      
+      function flipColors(array, thisColor, center=false) {
+        for (i = 0; i < array.length; i++) {
+          $("#"+array[i]).css("background-color", (center?(i===0||i===3?"#66F":"#F66"):(thisColor==="blue"?"#66F":"#F66")));
+          $("#"+array[i]).data("color", (center?(i===0||i===3?"blue":"red"):thisColor));
+        }
       }
       
       $(reset);
