@@ -8,6 +8,7 @@
         border-radius: 20px;
         padding: 20px;
         background-color: #CCC;
+        transition: background-color 0.5s;
       }
       #dialogue {
         color: #777;
@@ -54,6 +55,7 @@
         });
         let centerColors = ["r"+(size/2-1)+"c"+(size/2-1), "r"+(size/2-1)+"c"+(size/2), "r"+(size/2)+"c"+(size/2-1), "r"+(size/2)+"c"+(size/2)];
         flipColors(centerColors, "nah", true);
+        checkPossibilities(turn);
       }
       
       function checkClick(id) {
@@ -73,7 +75,30 @@
       function nextTurn() {
         turn = turn==="blue"?"red":"blue";
         $("#dialogue").html(turn==="blue"?dialogues[0]:dialogues[1]);
-        
+        checkPossibilities(turn);
+      }
+      
+      function checkPossibilities(thisColor) {
+        let cells = $("td");
+        console.log(cells.length);
+        for (k = 0; k < cells.length; k++) {
+        console.log(k);
+          if (getFlippedColors(cells[k].id, thisColor).length > 0 && ($(cells[k]).css("background-color")==="rgb(204, 255, 204)"||$(cells[k]).css("background-color")==="rgb(204, 204, 204)")) {
+            indicate(cells[k].id);
+          } else {
+            if ($(cells[k]).css("background-color") === "rgb(204, 255, 204)") {
+              removeIndication(cells[k].id);
+            }
+          }
+        }
+      }
+      
+      function indicate(id) {
+        $("#"+id).css("background-color", "#CFC");
+      }
+      
+      function removeIndication(id) {
+        $("#"+id).css("background-color", "#CCC");
       }
       
       function getFlippedColors(id, thisColor) {
@@ -84,22 +109,28 @@
         let thisHorizIndex;
         let thisVert = []
         let thisVertIndex;
-        for (i = 0; i < size; i++) {
-          thisHoriz.push(["r"+row+"c"+i, $("r"+row+"c"+i).data("color")]);
-          if (i = col) {
-            thisHorizIndex = i;
+        for (j = 0; j < size; j++) {
+          thisHoriz.push(new Array());
+          thisHoriz[thisHoriz.length-1].push("r"+row+"c"+j);
+          thisHoriz[thisHoriz.length-1].push($("#r"+row+"c"+j).data("color"));
+          if (j === col) {
+            thisHorizIndex = j;
           }
-          thisVert.push(["r"+i+"c"+col, $("r"+i+"c"+col).data("color")]);
-          if (i = row) {
-            thisVertIndex = i;
+          thisVert.push(new Array());
+          thisVert[thisVert.length-1].push("r"+j+"c"+col);
+          thisVert[thisVert.length-1].push($("#r"+j+"c"+col).data("color"));
+          if (j === row) {
+            thisVertIndex = j;
           }
         }
         let startDiagDownRow = max(row-col,0);
         let startDiagDownCol = max(col-row,0);
         let thisDiagDown = [];
         let thisDiagDownIndex;
-        for (i = 0; startDiagDownRow+i < size && startDiagDownCol+i < size; i++) {
-          thisDiagDown.push(["r"+(startDiagDownRow+i)+"c"+(startDiagDownCol+i), $("r"+(startDiagDownRow+i)+"c"+(startDiagDownCol+i)).data("color")]);
+        for (i = 0; !(startDiagDownRow+i >= size || startDiagDownCol+i >= size); i++) {
+          thisDiagDown.push(new Array());
+          thisDiagDown[thisDiagDown.length-1].push("r"+(startDiagDownRow+i)+"c"+(startDiagDownCol+i));
+          thisDiagDown[thisDiagDown.length-1].push($("#r"+(startDiagDownRow+i)+"c"+(startDiagDownCol+i)).data("color"));
           if (startDiagDownRow+i === row && startDiagDownCol+i === col) {
             thisDiagDownIndex = i;
           }
@@ -108,34 +139,36 @@
         let startDiagUpCol = col-min(size-row-1,col);
         let thisDiagUp = [];
         let thisDiagUpIndex;
-        for (i = 0; startDiagDownRow-i >= 0 && startDiagDownCol+i < size; i++) {
-          thisDiagUp.push(["r"+(startDiagDownRow-i)+"c"+(startDiagDownCol+i), $("r"+(startDiagDownRow-i)+"c"+(startDiagDownCol+i)).data("color")]);
-          if (startDiagDownRow-i === row && startDiagDownCol+i === col) {
+        for (i = 0; !(startDiagUpRow-i < 0 || startDiagUpCol+i >= size); i++) {
+          thisDiagUp.push(new Array());
+          thisDiagUp[thisDiagUp.length-1].push("r"+(startDiagUpRow-i)+"c"+(startDiagUpCol+i));
+          thisDiagUp[thisDiagUp.length-1].push($("#r"+(startDiagUpRow-i)+"c"+(startDiagUpCol+i)).data("color"));
+          if (startDiagUpRow-i === row && startDiagUpCol+i === col) {
             thisDiagUpIndex = i;
           }
         }
-        $.merge(flippedColors, getFlippedArray(thisHoriz, thisHorizIndex));
-        $.merge(flippedColors, getFlippedArray(thisVert, thisVertIndex));
-        $.merge(flippedColors, getFlippedArray(thisDiagDown, thisDiagDownIndex));
-        $.merge(flippedColors, getFlippedArray(thisDiagUp, thisDiagUpIndex));
-        function getFlippedArray(array, index) {
+        $.merge(flippedColors, getFlippedArray(thisHoriz, thisHorizIndex, thisColor));
+        $.merge(flippedColors, getFlippedArray(thisVert, thisVertIndex, thisColor));
+        $.merge(flippedColors, getFlippedArray(thisDiagDown, thisDiagDownIndex, thisColor));
+        $.merge(flippedColors, getFlippedArray(thisDiagUp, thisDiagUpIndex, thisColor));
+        function getFlippedArray(array, index, thisColorTmp) {
           let flipArray = [];
           let flipArrayTmp = [];
           let i = index + 1;
-          while (i < size && array[i][1] === (array[index][1]==="blue"?"red":"blue")) {
+          while (i < array.length && array[i][1] === (thisColorTmp==="blue"?"red":"blue")) {
             flipArrayTmp.push(array[i][0]);
             i++;
           }
-          if (i < size && array[i][1]===array[index][1]) {
+          if (i < array.length && array[i][1]===thisColorTmp) {
             $.merge(flipArray, flipArrayTmp);
           }
           flipArrayTmp = [];
           i = index - 1;
-          while (i >= 0 && array[i][1] === (array[index][1]==="blue"?"red":"blue")) {
+          while (i >= 0 && array[i][1] === (thisColorTmp==="blue"?"red":"blue")) {
             flipArrayTmp.push(array[i][0]);
             i--;
           }
-          if (i >= 0 && array[i][1]===array[index][1]) {
+          if (i >= 0 && array[i][1]===thisColorTmp) {
             $.merge(flipArray, flipArrayTmp);
           }
           return flipArray;
