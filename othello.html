@@ -5,8 +5,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
       td {
-        border-radius: 20px;
-        padding: 20px;
+        border-radius: 40px;
+        padding: 40px;
         background-color: #CCC;
         transition: background-color 0.5s;
       }
@@ -105,13 +105,13 @@
         }
         if (blueCount > redCount) {
           alert("Blue wins!");
-          $("#dialogue").html(dialogues[2]);
+          $("#dialogue").html(dialogues[2]+" "+blueCount+"–"+redCount);
         } else if (redCount > blueCount) {
           alert("Red wins!");
-          $("#dialogue").html(dialogues[3]);
+          $("#dialogue").html(dialogues[3]+" "+redCount+"–"+blueCount);
         } else {
           alert("It's a tie!");
-          $("#dialogue").html(dialogues[4]);
+          $("#dialogue").html(dialogues[4]+" "+blueCount+"–"+redCount);
         }
       }
       
