@@ -28,9 +28,11 @@
         "<i style='color: #F66'><b>Red's</b></i> turn",
         "<i style='color: #66F'><b>Blue</b></i> wins!",
         "<i style='color: #F66'><b>Red</b></i> wins!",
+        "It's a tie!"
       ];
       
       var turn;
+      var skippedTurn = "";
       
       function buildTable() {
         let tableStr = "<table>";
@@ -48,6 +50,7 @@
       
       function reset() {
         buildTable();
+        skippedTurn = "";
         $("#dialogue").html(dialogues[0]); // blue's turn
         turn = "blue";
         $("td").on("click", function(e) {
@@ -75,22 +78,57 @@
       function nextTurn() {
         turn = turn==="blue"?"red":"blue";
         $("#dialogue").html(turn==="blue"?dialogues[0]:dialogues[1]);
-        checkPossibilities(turn);
+        let poss = checkPossibilities(turn);
+        if (poss === 0) {
+          if (skippedTurn) {
+            findWinner();
+          } else {
+            skippedTurn = turn;
+            nextTurn();
+          }
+        } else if (skippedTurn) {
+          alert(skippedTurn+" cannot play, "+turn+"'s turn'");
+          skippedTurn = "";
+        }
+      }
+      
+      function findWinner() {
+        let cells = $("td");
+        let blueCount = 0;
+        let redCount = 0;
+        for (l = 0; l < cells.length; l++) {
+          if ($(cells[l]).data("color") === "blue") {
+            blueCount++;
+          } else if ($(cells[l]).data("color") === "red") {
+            redCount++;
+          }
+        }
+        if (blueCount > redCount) {
+          alert("Blue wins!");
+          $("#dialogue").html(dialogues[2]);
+        } else if (redCount > blueCount) {
+          alert("Red wins!");
+          $("#dialogue").html(dialogues[3]);
+        } else {
+          alert("It's a tie!");
+          $("#dialogue").html(dialogues[4]);
+        }
       }
       
       function checkPossibilities(thisColor) {
         let cells = $("td");
-        console.log(cells.length);
+        let numPossibilities = 0;
         for (k = 0; k < cells.length; k++) {
-        console.log(k);
           if (getFlippedColors(cells[k].id, thisColor).length > 0 && ($(cells[k]).css("background-color")==="rgb(204, 255, 204)"||$(cells[k]).css("background-color")==="rgb(204, 204, 204)")) {
             indicate(cells[k].id);
+            numPossibilities++;
           } else {
             if ($(cells[k]).css("background-color") === "rgb(204, 255, 204)") {
               removeIndication(cells[k].id);
             }
           }
         }
+        return numPossibilities;
       }
       
       function indicate(id) {
