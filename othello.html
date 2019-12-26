@@ -4,24 +4,82 @@
     <title>Othello</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
+      body {
+        position: fixed;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
       td {
         border-radius: 40px;
         padding: 40px;
         background-color: #CCC;
         transition: background-color 0.5s;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+      }
+      h1 {
+        font-family: sans-serif;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 2px;
+        font-weight: 100;
+        text-align: center;
+      }
+      h3 {
+        font-family: sans-serif;
+        font-size: 10px;
+        margin-top: 3px;
+        margin-left: 10px;
+        margin-bottom: 30px;
+        font-weight: 100;
+        text-align: center;
       }
       #dialogue {
         color: #777;
+        font-family: sans-serif;
+        font-size: 20px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+      }
+      #board {
+        margin-left: 50%;
+        transform: translateX(-50%);
+        width: fit-content;
+      }
+      button {
+        -webkit-appearance: none;
+        border: solid 1px #AAA;
+        border-radius: 6px;
+        padding: 7px;
+        font-size: 15px;
+        font-family: sans-serif;
+        font-weight: 100;
+        background-color: #FFF;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        position: absolute;
+        outline: none !important;
+      }
+      #reset-board {
+        top: 10px;
+        right: 10px;
+      }
+      #highlights {
+        top: 50px;
+        right: 10px;
       }
     </style>
   </head>
   <body>
-    <h1 style="margin: 5px;">Othello</h1>
-    <h3 style="margin: 5px;">the game</h3>
-    <div id="dialogue"></div>
-    <div id="board"></div>
+    <h1>Othello</h1>
+    <h3>the game</h3>
+    <button id="reset-board">Reset</button>
+    <button id="highlights">Option Highlights On</button>
+    <div id="board"><div id="dialogue"></div></div>
     <script>
       var size = 8;
+      var highlights = true;
       
       var dialogues = [
         "<i style='color: #66F'><b>Blue's</b></i> turn",
@@ -40,16 +98,17 @@
           let idStr = "r" + row;
           tableStr += "<tr>";
           for (col = 0; col < size; col++) {
-            tableStr += "<td id=" + idStr + "c" + col + "></td>";
+            tableStr += "<td ontouchstart='' id=" + idStr + "c" + col + "></td>";
           }
           tableStr += "</tr>";
         }
         tableStr += "</table>";
-        $("#board").html(tableStr);
+        $("#board").html("<div id='dialogue'></div>" + tableStr);
       }
       
       function reset() {
         buildTable();
+        resize(window.innerWidth, window.innerHeight);
         skippedTurn = "";
         $("#dialogue").html(dialogues[0]); // blue's turn
         turn = "blue";
@@ -104,13 +163,10 @@
           }
         }
         if (blueCount > redCount) {
-          alert("Blue wins!");
           $("#dialogue").html(dialogues[2]+" "+blueCount+"–"+redCount);
         } else if (redCount > blueCount) {
-          alert("Red wins!");
           $("#dialogue").html(dialogues[3]+" "+redCount+"–"+blueCount);
         } else {
-          alert("It's a tie!");
           $("#dialogue").html(dialogues[4]+" "+blueCount+"–"+redCount);
         }
       }
@@ -132,6 +188,7 @@
       }
       
       function indicate(id) {
+        if (highlights)
         $("#"+id).css("background-color", "#CFC");
       }
       
@@ -227,7 +284,25 @@
         }
       }
       
+      function toggleHighlights() {
+        if (highlights) {
+          $("#highlights").html("Option Highlights Off");
+        } else {
+          $("#highlights").html("Option Highlights On");
+        }
+        highlights = !highlights;
+      }
+      
       $(reset);
+      $(window).on("resize", function() {
+        setTimeout(function() { resize(window.innerWidth, window.innerHeight); }, 500);
+      });
+      function resize(width, height) {
+        let windowSize = (width-10)<(height-135)?(width-10):(height-135);
+        $("td").css({"padding": ((windowSize-20)/size)/2+"px", "border-radius": ((windowSize-20)/size)/2+"px"});
+      }
+      $("#reset-board").on("click", reset);
+      $("#highlights").on("click", toggleHighlights);
     </script>
   </body>
 </html>
