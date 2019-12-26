@@ -72,6 +72,9 @@
         top: 70px;
         right: 10px;
       }
+      table {
+        border-spacing: 5px;
+      }
     </style>
   </head>
   <body>
@@ -302,7 +305,7 @@
       
       $(reset);
       function resize(width, height) {
-        let windowSize = (width-10)<(height-185)?(width-10):(height-185);
+        let windowSize = (width-(50+5*(size-1)))<(height-(200+5*(size-1)))?(width-(50+5*(size-1))):(height-(200+5*(size-1)));
         $("td").css({"padding": ((windowSize-20)/size)/2+"px", "border-radius": ((windowSize-20)/size)/2+"px"});
       }
       $("#reset-board").on("click", reset);
