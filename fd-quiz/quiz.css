@@ -1,0 +1,104 @@
+body {
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #225;
+  overflow: hidden;
+}
+
+#frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 7px;
+  overflow: auto;
+}
+
+#number {
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+  padding: 30px;
+  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: #f34;
+  border: solid 3px #f34;
+  border-radius: 33px
+}
+
+#num {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
+}
+
+.clickable:hover {
+  color: #dd4 !important;
+  border-color: #dd4 !important;
+}
+
+#question {
+  display: inline-block;
+  position: relative;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  color: #444;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.option {
+  display: inline-block;
+  position: relative;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  color: #444;
+  padding: 30px;
+  border: solid 1px #444;
+  margin: 10px;
+}
+
+.option:hover {
+  background-color: #EEE;
+}
+
+#lives {
+  position: relative;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: #f34;
+  margin: 10px;
+}
+
+#num-lives {
+  color: #3d4;
+  font-size: 30px;
+}
+
+.sel {
+  background-color: #DDD !important;
+}
+
+#letter {
+  position: relative;
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: normal;
+  color: #444;
+  margin: 30px;
+}
+
+#contents {
+  margin-left: 50px;
+}
