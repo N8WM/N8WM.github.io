@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="apple-mobile-web-app-title" content="Kakerlaken">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Kakerlaken</title>
+  </head>
+  <body class="ns">
+    <div id="title" class="small-window">
+      <img src="media/TitleImage.jpg" alt="Kakerlaken" /><br />
+      <div class="ui-btn" ontouchstart="">Play</div>
+    </div>
+    <div id="num-players" class="small-window">
+      <div id="num-players-title">Number of Players:</div><br />
+      <div id="num-box">
+        <div id="less" class="ui-btn" ontouchstart=""><div>-</div></div>
+        <div id="num"><div id="num-val">2</div></div>
+        <div id="more" class="ui-btn" ontouchstart=""><div>+</div></div>
+      </div><br />
+      <div id="num-players-btn" class="ui-btn" ontouchstart="">next</div>
+    </div>
+    <div id="name-players" class="small-window"><div id="name-players-title">Starting Player:</div><div id="name-area"></div></div>
+    <div id="pop-bg"><div id="pop"></div></div>
+  </body>
+</html>

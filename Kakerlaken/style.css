@@ -1,0 +1,267 @@
+:root {
+  --bg: #82218F;
+  --bg-dark: #62116F;
+  --pop-bg: rgba(34,34,34,0.3);
+  --black: #222;
+  --black-active: #333;
+  --light-gray: #DDD;
+  --blue: #3694E0;
+  --blue-active: #2C79B8;
+  --red: #E33939;
+  --red-active: #A82828;
+  --white: #FFF;
+  --txt: #FFF;
+  --font-fam: 'Yoster Island';
+  --p-font-siz: 24px;
+  --h-font-siz: 34px;
+  --font-wei: 100;
+  --border-rad: 7px;
+  --pad: 20px;
+  --tran: 0.13s;
+}
+
+@font-face {
+    font-family: 'Yoster Island';
+    src: url('media/Yoster/YosterIslandReg.eot');
+    src: url('media/Yoster/YosterIslandReg.eot?#iefix') format('embedded-opentype'),
+         url('media/Yoster/YosterIslandReg.woff2') format('woff2'),
+         url('media/Yoster/YosterIslandReg.woff') format('woff'),
+         url('media/Yoster/YosterIslandReg.ttf') format('truetype'),
+         url('media/Yoster/YosterIslandReg.svg#YosterIslandReg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--txt);
+  font-size: var(--p-font-siz);
+  font-family: var(--font-fam);
+}
+
+.ns {
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none;
+}
+
+.small-window {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  max-height: 100%;
+}
+
+.small-window > * {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#pop-bg {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--pop-bg);
+}
+
+#pop {
+  position: absolute;
+  box-sizing: border-box;
+  width: 95%;
+  max-height: 80%;
+  padding: var(--pad);
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--black);
+  border-radius: var(--border-rad);
+  overflow: auto;
+}
+
+#pop > * {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#title img {
+  position: relative;
+  max-width: 80vw;
+  max-height: 50vh;
+  height: auto;
+  border-radius: var(--border-rad);
+}
+
+#title div {
+  margin-top: var(--pad);
+}
+
+.ui-btn {
+  display: inline-block;
+  position: relative;
+  padding: var(--pad);
+  font-size: var(--h-font-siz);
+  transition: var(--tran);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.ui-btn:active {
+  background-color: var(--txt);
+  color: var(--bg);
+}
+
+#num-players {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#num-players-title {
+  display: inline-block;
+  font-size: var(--h-font-siz);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: var(--pad);
+}
+
+#num-box {
+  display: inline-block;
+}
+
+#less, #num, #more {
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 !important;
+  height: calc(calc(var(--pad) * 2) + var(--h-font-siz));
+}
+
+#less, #more {
+  width: calc(calc(var(--pad) * 2) + var(--h-font-siz));
+}
+
+#less div, #num div, #more div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#num {
+  display: inline-block;
+  position: relative;
+  font-size: var(--h-font-siz);
+  width: calc(calc(var(--pad) * 4) + var(--h-font-siz));
+}
+
+.pn-disabled {
+  color: var(--bg-dark) !important;
+  background-color: var(--bg) !important;
+}
+
+#num-players-btn {
+  font-size: var(--p-font-siz);
+}
+
+#name-players-title {
+  display: inline-block;
+  font-size: var(--h-font-siz);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: var(--pad);
+}
+
+.player-name-a {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  background-color: var(--black);
+  width: 90vw;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: var(--border-rad);
+  padding: var(--pad);
+  margin-bottom: calc(var(--pad) / 2);
+  font-size: var(--p-font-siz);
+  transition: var(--tran);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.player-name-a:active {
+  background-color: var(--black-active);
+  color: var(--txt);
+}
+
+.player-name-e {
+  display: inline-block;
+  position: absolute;
+  height: calc(calc(var(--pad) * 2) + var(--h-font-siz) - 7.6px);
+  width: calc(calc(var(--pad) * 2) + var(--h-font-siz));
+  color: gray;
+  font-style: italic;
+  font-family: monospace;
+  font-size: calc(var(--p-font-siz) / 2);
+  top: 0;
+  right: 0;
+}
+
+.player-name-e div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#rename {
+  -webkit-appearance: none;
+  width: 80%;
+  padding: calc(var(--pad) / 2);
+  font-family: monospace;
+  font-style: italic;
+  font-size: var(--p-font-siz);
+  color: var(--black);
+  background-color: var(--white);
+  border-radius: var(--border-rad);
+  border: none;
+  margin-bottom: var(--pad);
+  outline: none;
+}
+
+#rename::placeholder {
+  color: var(--light-gray);
+}
+
+#save-rename {
+  background-color: var(--blue);
+  font-size: var(--p-font-siz);
+  margin-right: calc(var(--pad) / 2);
+}
+
+#save-rename:active {
+  background-color: var(--blue-active);
+  color: var(--txt);
+}
+
+#cancel-pop {
+  background-color: var(--red);
+  font-size: var(--p-font-siz);
+}
+
+#cancel-pop:active {
+  background-color: var(--red-active);
+  color: var(--txt);
+}
