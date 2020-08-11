@@ -1,7 +1,7 @@
 :root {
   --bg: #82218F;
   --bg-dark: #62116F;
-  --pop-bg: rgba(34,34,34,0.3);
+  --pop-bg: rgba(34,34,34,0.5);
   --black: #222;
   --black-active: #333;
   --light-gray: #DDD;
@@ -77,6 +77,7 @@ body {
 }
 
 #pop {
+  display: none;
   position: absolute;
   box-sizing: border-box;
   width: 95%;
@@ -190,6 +191,7 @@ body {
   position: relative;
   box-sizing: border-box;
   background-color: var(--black);
+  border: solid 3px var(--black);
   width: 90vw;
   left: 50%;
   transform: translateX(-50%);
@@ -204,6 +206,10 @@ body {
 .player-name-a:active {
   background-color: var(--black-active);
   color: var(--txt);
+}
+
+.player-name-selected {
+  border-color: var(--light-gray);
 }
 
 .player-name-e {
@@ -264,4 +270,8 @@ body {
 #cancel-pop:active {
   background-color: var(--red-active);
   color: var(--txt);
+}
+
+#save-cancel {
+  white-space: nowrap;
 }

@@ -1,5 +1,6 @@
 var numPlayers = 2;
 var playerNames;
+var startingPlayer = false;
 
 var pages = ["title", "num-players", "name-players"]; // List of all window id's
 
@@ -81,11 +82,16 @@ function loadPlayerNameEvents() {
       renamePlayer($(this).data("p"));
     });
   });
+  $('.player-name-a').each(function() {
+    $(this).click(function(e) {
+      selectPlayer($(this).find(".player-name-e").data("p"), this);
+    });
+  });
 }
 
 function renamePlayer(pnum) {
   renameHTML  = '<input type="text", placeholder="' + playerNames[pnum] + '" id="rename" maxlength="16" /><br />';
-  renameHTML += '<div><div id="save-rename" ontouchstart="" class="ui-btn">save</div><div id="cancel-pop" ontouchstart="" class="ui-btn">cancel</div></div>';
+  renameHTML += '<div id="save-cancel"><div id="save-rename" ontouchstart="" class="ui-btn">save</div><div id="cancel-pop" ontouchstart="" class="ui-btn">cancel</div></div>';
   popup(renameHTML);
   setTimeout(() => {
     $('#rename').focus();
@@ -102,12 +108,23 @@ function updateName(pnum, name) {
   }
 }
 
+function selectPlayer(pnum, e) {
+  $('.player-name-a').each(function() {
+    $(this).removeClass("player-name-selected");
+  });
+  $(e).addClass("player-name-selected");
+  startingPlayer = pnum;
+  // show start/next btn
+}
+
 function popup(popHTML) {
   $('#pop').html(popHTML);
-  $('#pop-bg').show();
+  $('#pop-bg').animate({opacity: "show"});
+  $('#pop').animate({width: "show"});
 }
 
 function closePopup() {
-  $('#pop-bg').hide();
+  $('#pop-bg').animate({opacity: "hide"});
+  $('#pop').animate({width: "hide"});
   $('#pop').html('');
 }
