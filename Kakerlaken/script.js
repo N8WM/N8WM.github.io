@@ -67,7 +67,7 @@ function loadPlayerHTML() {
   let phtml = "";
   let pnum = 0;
   for (let name of playerNames) {
-    phtml += '<div class="player-name-a ui-btn">' + name + '<div class="player-name-e" data-p="' + pnum + '"><div>edit</div></div></div>';
+    phtml += '<div ontouchstart="" class="player-name-a ui-btn">' + name + '<div class="player-name-e" data-p="' + pnum + '"><div>edit</div></div></div>';
     pnum++;
   }
   page.html(phtml);
@@ -85,7 +85,7 @@ function loadPlayerNameEvents() {
 
 function renamePlayer(pnum) {
   renameHTML  = '<input type="text", placeholder="' + playerNames[pnum] + '" id="rename" maxlength="16" /><br />';
-  renameHTML += '<div><div id="save-rename" class="ui-btn">save</div><div id="cancel-pop" class="ui-btn">cancel</div></div>';
+  renameHTML += '<div><div id="save-rename" ontouchstart="" class="ui-btn">save</div><div id="cancel-pop" ontouchstart="" class="ui-btn">cancel</div></div>';
   popup(renameHTML);
   setTimeout(() => {
     $('#rename').focus();

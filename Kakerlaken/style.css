@@ -262,6 +262,6 @@ body {
 }
 
 #cancel-pop:active {
-  background-color: var(--red-active);
+  background-color: var(--red-active) !important;
   color: var(--txt) !important;
 }
