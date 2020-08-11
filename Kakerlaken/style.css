@@ -252,8 +252,8 @@ body {
 }
 
 #save-rename:active {
-  background-color: var(--blue-active) !important;
-  color: var(--txt) !important;
+  background-color: var(--blue-active);
+  color: var(--txt);
 }
 
 #cancel-pop {
@@ -262,6 +262,6 @@ body {
 }
 
 #cancel-pop:active {
-  background-color: var(--red-active) !important;
-  color: var(--txt) !important;
+  background-color: var(--red-active);
+  color: var(--txt);
 }
