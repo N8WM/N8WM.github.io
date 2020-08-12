@@ -55,9 +55,11 @@ body {
 .small-window {
   display: none;
   position: absolute;
+  box-sizing: border-box;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: var(--pad) 0;
   overflow: auto;
   max-height: 100%;
 }
@@ -197,19 +199,30 @@ body {
   transform: translateX(-50%);
   border-radius: var(--border-rad);
   padding: var(--pad);
+  padding-right: calc(calc(var(--pad) * 2) + var(--h-font-siz));
   margin-bottom: calc(var(--pad) / 2);
   font-size: var(--p-font-siz);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: var(--tran);
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .player-name-a:active {
   background-color: var(--black-active);
+  border-color: var(--black-active);
   color: var(--txt);
 }
 
 .player-name-selected {
-  border-color: var(--light-gray);
+  border-color: var(--txt);
+}
+
+.player-name-selected:active {
+  background-color: var(--black-active);
+  border-color: var(--txt);
+  color: var(--txt);
 }
 
 .player-name-e {

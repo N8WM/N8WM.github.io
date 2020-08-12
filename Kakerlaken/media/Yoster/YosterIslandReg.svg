@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20170731 at Mon Aug  3 03:18:13 2020
+Created by FontForge 20170731 at Wed Aug 12 08:35:57 2020
  By Aleksey,,,
 TrueType conversion (c) 2003 codeman38.
 </metadata>
@@ -26,7 +26,7 @@ TrueType conversion (c) 2003 codeman38.
 <missing-glyph 
 d="M0 0v611h476v-611h-476z" />
     <glyph glyph-name="ellipsis" unicode="&#x2e;&#x2e;&#x2e;" 
-d="M170 340h85v-170h-85v170zM340 340h85v-170h-85v170zM510 340h85v-170h-85v170z" />
+d="M171 128h85v-84h-85v84zM341 128h85v-84h-85v84zM511 128h85v-84h-85v84z" />
     <glyph glyph-name=".notdef" 
 d="M0 0v611h476v-611h-476z" />
     <glyph glyph-name=".null" horiz-adv-x="0" 
@@ -53,8 +53,8 @@ v85h85v170h-85v-85h-85v-85h-85v85h-85v170h85v170h-170v170h-170zM595 340h85v-85h-
 d="M170 850h170v-255h-85v-85h-85v85h85v85h-85v170z" />
     <glyph glyph-name="asterisk" unicode="*" 
 d="M85 595h85v-85h85v-85h85v85h85v85h85v-85h-85v-85h-85v-85h85v-85h85v-170h-85v85h-85v85h-85v-85h-85v-85h-85v85h85v85h85v85h-85v85h-85v170z" />
-    <glyph glyph-name="plus" unicode="+" horiz-adv-x="1364" 
-d="M680 594h84v-255h255v-84h-255v-255h-84v255h-255v84h255v255z" />
+    <glyph glyph-name="plus" unicode="+" horiz-adv-x="722" 
+d="M320 594h84v-255h255v-84h-255v-255h-84v255h-255v84h255v255z" />
     <glyph glyph-name="comma" unicode="," horiz-adv-x="340" 
 d="M85 170h170v-255h-85v-85h-85v85h85v85h-85v170z" />
     <glyph glyph-name="hyphen" unicode="-" horiz-adv-x="768" 

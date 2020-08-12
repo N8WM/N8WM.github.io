@@ -72,6 +72,7 @@ function loadPlayerHTML() {
     pnum++;
   }
   page.html(phtml);
+  selectPlayer(startingPlayer);
   loadPlayerNameEvents();
 }
 
@@ -108,12 +109,14 @@ function updateName(pnum, name) {
   }
 }
 
-function selectPlayer(pnum, e) {
+function selectPlayer(pnum = false) {
+  startingPlayer = pnum;
   $('.player-name-a').each(function() {
     $(this).removeClass("player-name-selected");
+    if ($(this).find(".player-name-e").data("p") === pnum) {
+      $(this).addClass("player-name-selected");
+    }
   });
-  $(e).addClass("player-name-selected");
-  startingPlayer = pnum;
   // show start/next btn
 }
 
